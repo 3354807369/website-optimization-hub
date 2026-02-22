@@ -55,7 +55,7 @@ function fmtSignedPct(v: number | null, digits = 1) {
 }
 function fmtFreq(v: number | null) {
   if (v == null || Number.isNaN(v)) return "—";
-  return `${v.toFixed(1)} / 30d`;
+  return `${Math.round(v)} / 30d`;
 }
 function fmtPL(v: number | null) {
   if (v == null || Number.isNaN(v)) return "—";
