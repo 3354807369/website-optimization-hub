@@ -14,20 +14,28 @@ const NavBar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => setOpen(false), [location]);
 
+  // On home page: transparent at top, frosted on scroll
+  // On inner pages: always frosted
+  const isTransparent = isHome && !scrolled;
+
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 h-16 bg-card/95 backdrop-blur-md border-b border-border transition-shadow duration-200 ${
-          scrolled ? "shadow-lg" : ""
+        className={`fixed inset-x-0 top-0 z-50 h-16 transition-all duration-500 ${
+          isTransparent
+            ? "bg-transparent border-b border-transparent"
+            : "bg-card/80 backdrop-blur-xl border-b border-border shadow-lg"
         }`}
       >
         <div className="section-wrap h-full grid grid-cols-[1fr_auto_1fr] items-center gap-3">
@@ -37,13 +45,21 @@ const NavBar = () => {
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
-            {open ? <X size={22} className="text-foreground" /> : <Menu size={22} className="text-foreground" />}
+            {open ? (
+              <X size={22} className={isTransparent ? "text-primary-foreground" : "text-foreground"} />
+            ) : (
+              <Menu size={22} className={isTransparent ? "text-primary-foreground" : "text-foreground"} />
+            )}
           </button>
           <div className="hidden md:block" />
 
           {/* Center logo */}
           <Link to="/" className="justify-self-center flex items-center gap-2.5 no-underline">
-            <span className="font-display text-xl font-bold tracking-tight text-foreground">
+            <span
+              className={`font-display text-xl font-bold tracking-tight transition-colors duration-500 ${
+                isTransparent ? "text-primary-foreground" : "text-foreground"
+              }`}
+            >
               STAR LOOP
             </span>
           </Link>
@@ -54,8 +70,12 @@ const NavBar = () => {
               <Link
                 key={item.to}
                 to={item.to}
-                className={`px-3 py-2 rounded-lg text-sm font-medium no-underline transition-colors duration-200 ${
-                  location.pathname === item.to
+                className={`px-3 py-2 rounded-lg text-sm font-medium no-underline transition-all duration-300 ${
+                  isTransparent
+                    ? location.pathname === item.to
+                      ? "text-primary-foreground bg-white/15"
+                      : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
+                    : location.pathname === item.to
                     ? "text-foreground bg-secondary"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
                 }`}

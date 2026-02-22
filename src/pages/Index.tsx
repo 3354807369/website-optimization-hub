@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
 import PerformanceCurve from "@/components/PerformanceCurve";
 import ServicesGrid from "@/components/ServicesGrid";
@@ -37,6 +38,7 @@ const Index = () => {
 
   return (
     <main>
+      <SEO path="/" />
       {/* ========== HERO ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
         {/* Background carousel with subtle zoom */}
