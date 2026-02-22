@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
+import AnimatedKPI from "./AnimatedKPI";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -260,25 +261,13 @@ const PerformanceCurve = ({
         {/* KPI row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-4">
           {kpis.map((k, i) => (
-            <motion.div
+            <AnimatedKPI
               key={k.label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.04 }}
-              className="border border-border rounded-xl bg-card p-3"
-            >
-              <div className="text-xs font-semibold text-muted-foreground tracking-wide">
-                {k.label}
-              </div>
-              <div
-                className={`mt-1.5 text-xl font-extrabold ${
-                  k.positive === false ? "text-destructive" : "text-foreground"
-                }`}
-              >
-                {k.value}
-              </div>
-            </motion.div>
+              label={k.label}
+              value={k.value}
+              positive={k.positive}
+              index={i}
+            />
           ))}
         </div>
 

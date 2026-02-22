@@ -38,20 +38,25 @@ const ServicesGrid = () => {
           {services.map((s, i) => (
             <motion.article
               key={s.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="brand-card overflow-hidden"
+              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="brand-card overflow-hidden group"
             >
               <div className="aspect-video bg-secondary overflow-hidden">
-                <img src={s.img} alt={s.title} className="w-full h-full object-cover" loading="lazy" />
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
               <div className="p-4">
                 <h3 className="font-display text-lg font-bold text-foreground mb-2">{s.title}</h3>
                 <p className="text-muted-foreground text-sm mb-3">{s.desc}</p>
-                <Link to={s.href} className="text-foreground underline font-semibold text-sm hover:opacity-80 transition-opacity">
-                  Learn more →
+                <Link to={s.href} className="inline-flex items-center gap-1 text-foreground font-semibold text-sm hover:opacity-80 transition-all duration-200 group-hover:gap-2">
+                  Learn more <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                 </Link>
               </div>
             </motion.article>

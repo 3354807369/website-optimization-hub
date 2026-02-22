@@ -39,16 +39,19 @@ const Index = () => {
     <main>
       {/* ========== HERO ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
-        {/* Background carousel */}
+        {/* Background carousel with subtle zoom */}
         <div className="absolute inset-0 z-0">
           {heroImages.map((img, i) => (
-            <img
+            <motion.img
               key={img}
               src={img}
               alt=""
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1200ms] ${
-                i === current ? "opacity-100" : "opacity-0"
-              }`}
+              animate={{
+                opacity: i === current ? 1 : 0,
+                scale: i === current ? 1.06 : 1,
+              }}
+              transition={{ opacity: { duration: 1.2 }, scale: { duration: 6, ease: "linear" } }}
+              className="absolute inset-0 w-full h-full object-cover"
             />
           ))}
         </div>
@@ -58,9 +61,9 @@ const Index = () => {
 
         {/* Copy */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-[2] text-center px-8 max-w-[1100px]"
         >
           <h1
@@ -73,12 +76,40 @@ const Index = () => {
           >
             Make transactions more rational
           </h1>
-          <p className="text-primary-foreground/90 text-lg md:text-2xl" style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.6)" }}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="text-primary-foreground/90 text-lg md:text-2xl"
+            style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.6)" }}
+          >
             Data-driven · Risk control first
-          </p>
-          <p className="text-primary-foreground/90 text-lg md:text-2xl mt-2" style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.6)" }}>
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="text-primary-foreground/90 text-lg md:text-2xl mt-2"
+            style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.6)" }}
+          >
             Observable live trading
-          </p>
+          </motion.p>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 z-[2] flex flex-col items-center gap-1"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="w-5 h-8 rounded-full border-2 border-primary-foreground/40 flex justify-center pt-1.5"
+          >
+            <div className="w-1 h-1.5 rounded-full bg-primary-foreground/60" />
+          </motion.div>
         </motion.div>
       </section>
 
@@ -104,12 +135,13 @@ const Index = () => {
             {features.map((f, i) => (
               <motion.div
                 key={f.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-left"
+                transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                className="text-left group"
               >
+                <div className="w-10 h-1 rounded-full bg-primary/60 mb-4 transition-all duration-300 group-hover:w-16 group-hover:bg-primary" />
                 <h3 className="font-display text-[1.4rem] font-bold text-foreground mb-3 leading-tight">
                   {f.title}
                 </h3>
@@ -127,11 +159,11 @@ const Index = () => {
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="text-center p-4 border border-border rounded-xl bg-card"
+                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                className="group text-center p-4 border border-border rounded-xl bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
               >
                 <span className="block text-xl font-extrabold tracking-wide text-foreground">{s.value}</span>
                 <span className="block mt-1 text-muted-foreground text-sm">{s.label}</span>
