@@ -139,8 +139,8 @@ const Index = () => {
         </div>
       </section>
 
-      <IntegrationsShowcase />
       <PerformanceCurve />
+      <IntegrationsShowcase />
       <ServicesGrid />
     </main>
   );
