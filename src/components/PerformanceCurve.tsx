@@ -208,16 +208,16 @@ const PerformanceCurve = ({
   ];
 
   return (
-    <section className="bg-background py-16">
+    <section className="bg-background py-10 sm:py-16">
       <div className="section-wrap">
         {/* Header */}
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-4">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="section-title mb-0"
-            style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)" }}
+            style={{ fontSize: "clamp(1.25rem, 4vw, 2rem)" }}
           >
             {title}
           </motion.h2>
@@ -229,7 +229,7 @@ const PerformanceCurve = ({
                 <button
                   key={m.key}
                   onClick={() => setMode(m.key)}
-                  className={`px-3 py-1.5 text-sm font-medium transition-colors ${
+                  className={`px-2.5 sm:px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
                     mode === m.key
                       ? "bg-foreground text-background"
                       : "bg-card text-muted-foreground hover:bg-secondary"
@@ -245,7 +245,7 @@ const PerformanceCurve = ({
                 <button
                   key={r}
                   onClick={() => handleRange(r)}
-                  className={`px-3 py-1.5 text-sm font-medium transition-colors ${
+                  className={`px-2.5 sm:px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors ${
                     range === r
                       ? "bg-foreground text-background"
                       : "bg-card text-muted-foreground hover:bg-secondary"
@@ -256,6 +256,7 @@ const PerformanceCurve = ({
               ))}
             </div>
           </div>
+        </div>
         </div>
 
         {/* KPI row */}
@@ -272,7 +273,7 @@ const PerformanceCurve = ({
         </div>
 
         {/* Chart */}
-        <div className="border border-border rounded-2xl bg-card p-3 relative" style={{ height: 380 }}>
+        <div className="border border-border rounded-2xl bg-card p-2 sm:p-3 relative" style={{ height: "clamp(240px, 50vw, 380px)" }}>
           {error ? (
             <div className="absolute inset-0 grid place-items-center text-muted-foreground text-sm">
               ⚠️ {error}
@@ -296,16 +297,17 @@ const PerformanceCurve = ({
                   type="number"
                   domain={["dataMin", "dataMax"]}
                   tickFormatter={(v) => format(new Date(v), "MM/dd")}
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 11 }}
                   stroke="hsl(215 16% 47%)"
+                  interval="preserveStartEnd"
                 />
                 <YAxis
                   tickFormatter={(v: number) =>
                     mode === "return" ? `${v.toFixed(1)}%` : v.toLocaleString()
                   }
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 11 }}
                   stroke="hsl(215 16% 47%)"
-                  width={65}
+                  width={50}
                 />
                 <Tooltip
                   labelFormatter={(v) => format(new Date(v as number), "yyyy-MM-dd HH:mm")}
