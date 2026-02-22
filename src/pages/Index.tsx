@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
+import PerformanceCurve from "@/components/PerformanceCurve";
 import ServicesGrid from "@/components/ServicesGrid";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
@@ -139,6 +140,7 @@ const Index = () => {
       </section>
 
       <IntegrationsShowcase />
+      <PerformanceCurve />
       <ServicesGrid />
     </main>
   );
