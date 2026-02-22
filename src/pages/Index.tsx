@@ -118,6 +118,8 @@ const Index = () => {
         </div>
       </section>
 
+      <PerformanceCurve />
+
       {/* ========== STATS ========== */}
       <section className="py-10 bg-background">
         <div className="section-wrap">
@@ -139,7 +141,6 @@ const Index = () => {
         </div>
       </section>
 
-      <PerformanceCurve />
       <IntegrationsShowcase />
       <ServicesGrid />
     </main>
