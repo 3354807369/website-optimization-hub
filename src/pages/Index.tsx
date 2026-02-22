@@ -82,6 +82,8 @@ const Index = () => {
         </motion.div>
       </section>
 
+      <PerformanceCurve />
+
       {/* ========== FEATURES ========== */}
       <section className="py-14 bg-background">
         <div className="section-wrap">
@@ -117,8 +119,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      <PerformanceCurve />
 
       {/* ========== STATS ========== */}
       <section className="py-10 bg-background">
