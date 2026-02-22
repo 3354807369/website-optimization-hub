@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
 
 const EMAIL = "Contact@starlooptech.com";
+const ease = [0.16, 1, 0.3, 1] as const;
 
 interface FormState {
   name: string;
@@ -53,59 +55,95 @@ const Contact = () => {
     window.location.href = url;
   };
 
-  const inputCls = "w-full bg-card border border-border rounded-lg px-3 py-2.5 text-sm text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/40";
+  const inputCls = "w-full bg-card border border-border rounded-lg px-3 py-2.5 text-sm text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow duration-200";
 
   return (
     <main className="bg-background text-foreground">
+      <SEO title="Contact" description="Get in touch with StarLoop for quant trading automation, web development, or blockchain engineering." path="/contact" />
       {/* HERO */}
       <section className="py-16 text-center">
         <div className="section-wrap">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease }}
             className="font-display font-bold mb-2.5"
             style={{ fontSize: "clamp(2.125rem, 6vw, 2.875rem)" }}
           >
             Contact StarLoop
           </motion.h1>
-          <p className="text-muted-foreground max-w-[70ch] mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease }}
+            className="text-muted-foreground max-w-[70ch] mx-auto"
+          >
             Tell us about your use case — trading automation for digital assets, fast modern websites, or blockchain infrastructure.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* CHANNELS */}
       <section className="py-5 mb-4">
         <div className="section-wrap grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="brand-card p-4 flex flex-col">
-            <h3 className="font-display font-bold text-lg">Email</h3>
-            <p className="text-muted-foreground text-sm mb-2">Best way to reach us. We usually respond within 24–48h on business days.</p>
-            <div className="flex flex-wrap gap-2 items-center mt-auto">
-              <code className="brand-pill font-mono text-sm">{EMAIL}</code>
-              <button onClick={copyEmail} className="brand-btn-primary text-xs h-9 px-3">Copy</button>
-              <a href={`mailto:${EMAIL}`} className="brand-btn-outline text-xs h-9 px-3 no-underline">Open mail</a>
-            </div>
-          </div>
-          <div className="brand-card p-4 flex flex-col">
-            <h3 className="font-display font-bold text-lg">Live Call</h3>
-            <p className="text-muted-foreground text-sm mb-2">Prefer a quick call? Send us a note and we'll share our meeting link.</p>
-            <div className="mt-auto">
-              <a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Request a Call")}`} className="brand-btn-primary text-xs h-9 px-3 no-underline">
-                Request a call
-              </a>
-            </div>
-          </div>
-          <div className="brand-card p-4">
-            <h3 className="font-display font-bold text-lg">Working Hours</h3>
-            <p className="text-muted-foreground text-sm">Remote-first. Typical hours across APAC / EU. We can align to your timezone for delivery.</p>
-          </div>
+          {[
+            {
+              title: "Email",
+              content: (
+                <>
+                  <p className="text-muted-foreground text-sm mb-2">Best way to reach us. We usually respond within 24–48h on business days.</p>
+                  <div className="flex flex-wrap gap-2 items-center mt-auto">
+                    <code className="brand-pill font-mono text-sm">{EMAIL}</code>
+                    <button onClick={copyEmail} className="brand-btn-primary text-xs h-9 px-3">Copy</button>
+                    <a href={`mailto:${EMAIL}`} className="brand-btn-outline text-xs h-9 px-3 no-underline">Open mail</a>
+                  </div>
+                </>
+              ),
+            },
+            {
+              title: "Live Call",
+              content: (
+                <>
+                  <p className="text-muted-foreground text-sm mb-2">Prefer a quick call? Send us a note and we'll share our meeting link.</p>
+                  <div className="mt-auto">
+                    <a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Request a Call")}`} className="brand-btn-primary text-xs h-9 px-3 no-underline">
+                      Request a call
+                    </a>
+                  </div>
+                </>
+              ),
+            },
+            {
+              title: "Working Hours",
+              content: <p className="text-muted-foreground text-sm">Remote-first. Typical hours across APAC / EU. We can align to your timezone for delivery.</p>,
+            },
+          ].map((card, i) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 20, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease }}
+              className="brand-card p-4 flex flex-col transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
+            >
+              <h3 className="font-display font-bold text-lg">{card.title}</h3>
+              {card.content}
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* FORM */}
       <section className="py-4">
         <div className="section-wrap grid grid-cols-1 lg:grid-cols-2 gap-5">
-          <form className="brand-card p-5 flex flex-col gap-4" onSubmit={onSubmit}>
+          <motion.form
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="brand-card p-5 flex flex-col gap-4"
+            onSubmit={onSubmit}
+          >
             <h2 className="section-title">Project Brief</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -178,10 +216,16 @@ const Contact = () => {
             </div>
 
             <p className="text-xs text-muted-foreground">We minimize personal data collection. Please avoid sharing secrets or API keys here.</p>
-          </form>
+          </motion.form>
 
           {/* Right aside */}
-          <aside className="brand-card p-5 flex flex-col gap-4">
+          <motion.aside
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease }}
+            className="brand-card p-5 flex flex-col gap-4"
+          >
             <h2 className="section-title">What to Expect</h2>
             <ul className="brand-checklist text-sm">
               <li>We'll review your brief and reply within 24–48h.</li>
@@ -193,7 +237,7 @@ const Contact = () => {
 
             <h3 className="font-display font-bold mt-4">Need an NDA?</h3>
             <p className="text-muted-foreground text-sm">No problem — send yours along or ask for our standard template.</p>
-          </aside>
+          </motion.aside>
         </div>
       </section>
 

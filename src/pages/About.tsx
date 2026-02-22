@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
 import serviceDev from "@/assets/service-dev.jpg";
@@ -27,23 +28,32 @@ const stats = [
   { value: "0", label: "Custody of Funds" },
 ];
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 const About = () => {
   return (
     <main className="bg-background text-foreground">
+      <SEO title="About Us" description="Learn about StarLoop — engineering reliable trading automation, modern websites, and blockchain products." path="/about" />
       {/* HERO */}
       <section className="py-[72px] text-center">
         <div className="section-wrap">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease }}
             className="font-display font-bold mb-2.5"
             style={{ fontSize: "clamp(2.125rem, 6vw, 3rem)" }}
           >
             About StarLoop
           </motion.h1>
-          <p className="text-muted-foreground max-w-[70ch] mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease }}
+            className="text-muted-foreground max-w-[70ch] mx-auto"
+          >
             Engineering reliable trading automation for digital assets — and building fast, modern web and blockchain products.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -55,14 +65,14 @@ const About = () => {
             {services.map((s, i) => (
               <motion.article
                 key={s.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="brand-card overflow-hidden"
+                transition={{ duration: 0.6, delay: i * 0.12, ease }}
+                className="brand-card overflow-hidden group"
               >
                 <div className="aspect-video bg-secondary rounded-t-2xl overflow-hidden">
-                  <img src={s.img} alt={s.title} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                 </div>
                 <div className="p-4">
                   <h3 className="font-display text-lg font-bold text-foreground mb-1.5">{s.title}</h3>
@@ -82,12 +92,13 @@ const About = () => {
             {whyPoints.map((p, i) => (
               <motion.div
                 key={p.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="border border-border rounded-xl p-4 bg-card"
+                transition={{ duration: 0.5, delay: i * 0.08, ease }}
+                className="group border border-border rounded-xl p-4 bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
               >
+                <div className="w-8 h-1 rounded-full bg-primary/50 mb-3 transition-all duration-300 group-hover:w-12 group-hover:bg-primary" />
                 <h3 className="font-display text-lg font-bold mb-1.5">{p.title}</h3>
                 <p className="text-muted-foreground text-sm">{p.body}</p>
               </motion.div>
@@ -100,11 +111,18 @@ const About = () => {
       <section className="py-6">
         <div className="section-wrap">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center p-4 border border-border rounded-xl bg-card">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 16, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease }}
+                className="text-center p-4 border border-border rounded-xl bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
+              >
                 <span className="block text-xl font-extrabold tracking-wide">{s.value}</span>
                 <span className="block mt-1 text-muted-foreground text-sm">{s.label}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -113,9 +131,16 @@ const About = () => {
       {/* CTA */}
       <section className="py-14 text-center">
         <div className="section-wrap">
-          <h2 className="font-display font-bold mb-2" style={{ fontSize: "clamp(1.75rem, 5vw, 2.25rem)" }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="font-display font-bold mb-2"
+            style={{ fontSize: "clamp(1.75rem, 5vw, 2.25rem)" }}
+          >
             Work with StarLoop
-          </h2>
+          </motion.h2>
           <p className="text-muted-foreground max-w-[60ch] mx-auto mb-4">
             Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.
           </p>
