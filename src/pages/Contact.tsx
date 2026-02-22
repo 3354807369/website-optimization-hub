@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import SEO from "@/components/SEO";
+import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL = "Contact@starlooptech.com";
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -41,18 +42,33 @@ const Contact = () => {
     }));
   };
 
-  const onSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `New inquiry from ${form.name || "Website"}`;
-    const parts = [
-      `Name: ${form.name}`, `Email: ${form.email}`, `Company: ${form.company}`,
-      `Role: ${form.role}`, `Needs: ${form.needs.join(", ") || "—"}`,
-      `Budget: ${form.budget || "—"}`, `Timeline: ${form.timeline || "—"}`, "", form.message || "",
-    ];
-    const body = encodeURIComponent(parts.join("\n"));
-    const url = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
-    setSent(true);
-    window.location.href = url;
+    setSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("contact-submit", {
+        body: {
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          role: form.role,
+          needs: form.needs,
+          budget: form.budget,
+          timeline: form.timeline,
+          message: form.message,
+        },
+      });
+      if (error) throw error;
+      setSent(true);
+      toast.success("Thanks! We'll get back to you within 24–48h.");
+      setForm({ name: "", email: "", company: "", role: "", needs: [], budget: "", timeline: "", message: "", consent: false });
+    } catch (err: any) {
+      toast.error("Failed to submit. Please try emailing us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputCls = "w-full bg-card border border-border rounded-lg px-3 py-2.5 text-sm text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow duration-200";
@@ -211,8 +227,10 @@ const Contact = () => {
             </label>
 
             <div className="flex items-center gap-2.5">
-              <button type="submit" className="brand-btn-primary">Send</button>
-              {sent && <span className="text-sm font-semibold text-primary">Thanks — opening your mail app…</span>}
+              <button type="submit" className="brand-btn-primary" disabled={submitting}>
+                {submitting ? "Submitting…" : "Send"}
+              </button>
+              {sent && <span className="text-sm font-semibold text-primary">Thanks! We'll be in touch soon.</span>}
             </div>
 
             <p className="text-xs text-muted-foreground">We minimize personal data collection. Please avoid sharing secrets or API keys here.</p>
