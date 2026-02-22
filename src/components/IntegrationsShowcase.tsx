@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import quantInfra from "@/assets/quant-infra.jpg";
+import InfrastructureDiagram from "./InfrastructureDiagram";
 
 const bullets = [
   {
@@ -25,7 +25,7 @@ const IntegrationsShowcase = () => {
     <section className="bg-foreground text-primary-foreground py-[72px] overflow-hidden">
       <div className="section-wrap">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-14 items-center">
-          {/* Left: Image */}
+          {/* Left: Diagram */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -33,11 +33,7 @@ const IntegrationsShowcase = () => {
             transition={{ duration: 0.6 }}
             className="grid place-items-center"
           >
-            <img
-              src={quantInfra}
-              alt="StarLoop quant infrastructure diagram"
-              className="w-full max-w-[560px] rounded-2xl"
-            />
+            <InfrastructureDiagram />
           </motion.div>
 
           {/* Right: Copy */}
