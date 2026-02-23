@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
+import logo from "@/assets/logo.png";
 
 const NavBar = () => {
   const location = useLocation();
@@ -55,13 +56,13 @@ const NavBar = () => {
 
           {/* Center logo */}
           <Link to="/" className="justify-self-center flex items-center gap-2.5 no-underline">
-            <span
-              className={`font-display text-xl font-bold tracking-tight transition-colors duration-500 ${
-                isTransparent ? "text-primary-foreground" : "text-foreground"
+            <img
+              src={logo}
+              alt="StarLoop Logo"
+              className={`h-8 w-auto transition-all duration-500 ${
+                isTransparent ? "brightness-0 invert" : ""
               }`}
-            >
-              STAR LOOP
-            </span>
+            />
           </Link>
 
           {/* Desktop nav + lang toggle */}
