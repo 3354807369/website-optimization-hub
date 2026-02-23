@@ -33,7 +33,7 @@ const NavBar = () => {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 h-16 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 h-20 transition-all duration-500 ${
           isTransparent
             ? "bg-transparent border-b border-transparent"
             : "bg-card/80 backdrop-blur-xl border-b border-border shadow-lg"
@@ -59,7 +59,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt="StarLoop Logo"
-              className={`h-10 max-w-[200px] w-auto object-contain transition-all duration-500 ${
+              className={`h-14 max-w-[240px] w-auto object-cover transition-all duration-500 ${
                 isTransparent ? "brightness-0 invert" : ""
               }`}
             />
