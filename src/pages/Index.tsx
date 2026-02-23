@@ -26,7 +26,7 @@ const Index = () => {
     { value: "<80ms", label: t("Gateway Latency", "网关延迟") },
     { value: "20+", label: t("Strategy Modules", "策略模块") },
     { value: "99.9%", label: t("Uptime Target", "正常运行目标") },
-    { value: "0", label: t("Custody of Funds", "资金托管") },
+    { value: "$25,000", label: t("Running Capital", "运行资金") },
   ];
 
   const next = useCallback(() => {
