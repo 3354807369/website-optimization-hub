@@ -11,16 +11,28 @@ import hero3 from "@/assets/hero-3.jpg";
 const heroImages = [hero1, hero2, hero3];
 
 const features = [
-  { title: "Multi-Exchange Connectivity", desc: "Stable API channels with a unified asset & portfolio view" },
-  { title: "Modular Strategies", desc: "Plug-and-play factors, CTA, market making, and arbitrage" },
-  { title: "Risk & Position Control", desc: "Drawdown limits, tiered stop-losses, dynamic position sizing" },
+  {
+    title: "Multi-Exchange Connectivity",
+    desc: "Stable API channels with a unified asset & portfolio view across venues.",
+    icon: "🔗",
+  },
+  {
+    title: "Modular Strategies",
+    desc: "Plug-and-play factors, CTA, market making, and arbitrage modules.",
+    icon: "🧩",
+  },
+  {
+    title: "Risk & Position Control",
+    desc: "Drawdown limits, tiered stop-losses, and dynamic position sizing.",
+    icon: "🛡️",
+  },
 ];
 
 const stats = [
   { value: "3+", label: "Integrated Exchanges" },
-  { value: "<80 ms", label: "Median Gateway Latency" },
+  { value: "<80ms", label: "Gateway Latency" },
   { value: "20+", label: "Strategy Modules" },
-  { value: "99.9%", label: "Service Uptime Target" },
+  { value: "99.9%", label: "Uptime Target" },
   { value: "0", label: "Custody of Funds" },
 ];
 
@@ -39,9 +51,9 @@ const Index = () => {
   return (
     <main>
       <SEO path="/" />
+
       {/* ========== HERO ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
-        {/* Background carousel with subtle zoom */}
         <div className="absolute inset-0 z-0">
           {heroImages.map((img, i) => (
             <motion.img
@@ -52,65 +64,103 @@ const Index = () => {
                 opacity: i === current ? 1 : 0,
                 scale: i === current ? 1.06 : 1,
               }}
-              transition={{ opacity: { duration: 1.2 }, scale: { duration: 6, ease: "linear" } }}
+              transition={{
+                opacity: { duration: 1.2 },
+                scale: { duration: 6, ease: "linear" },
+              }}
               className="absolute inset-0 w-full h-full object-cover"
             />
           ))}
         </div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 z-[1]" style={{ background: "var(--gradient-hero-overlay)" }} />
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{ background: "var(--gradient-hero-overlay)" }}
+        />
 
-        {/* Copy */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-[2] text-center px-8 max-w-[1100px]"
+          className="relative z-[2] text-center px-6 max-w-[1100px]"
         >
+          {/* Pill badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm mb-8"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-primary-foreground/90 text-sm font-medium tracking-wide">
+              Systems Online
+            </span>
+          </motion.div>
+
           <h1
-            className="font-display font-bold text-primary-foreground mb-8"
+            className="font-display font-bold text-primary-foreground mb-6"
             style={{
-              fontSize: "clamp(2.625rem, 7vw, 5.25rem)",
-              lineHeight: 1.15,
-              textShadow: "2px 2px 12px rgba(0,0,0,0.6)",
+              fontSize: "clamp(2.5rem, 7vw, 5rem)",
+              lineHeight: 1.08,
+              letterSpacing: "-0.03em",
+              textShadow: "2px 4px 20px rgba(0,0,0,0.5)",
             }}
           >
-            Make transactions more rational
+            Make transactions
+            <br />
+            <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
+              more rational
+            </span>
           </h1>
-          <motion.p
+
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-primary-foreground/90 text-lg md:text-2xl"
-            style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.6)" }}
+            className="flex flex-wrap justify-center gap-3 text-primary-foreground/80 text-base md:text-lg"
           >
-            Data-driven · Risk control first
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-primary-foreground/90 text-lg md:text-2xl mt-2"
-            style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.6)" }}
-          >
-            Observable live trading
-          </motion.p>
+            {["Data-driven", "Risk control first", "Observable live trading"].map(
+              (tag) => (
+                <span
+                  key={tag}
+                  className="px-4 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm"
+                >
+                  {tag}
+                </span>
+              )
+            )}
+          </motion.div>
         </motion.div>
+
+        {/* Carousel dots */}
+        <div className="absolute bottom-12 z-[2] flex items-center gap-2">
+          {heroImages.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`transition-all duration-300 rounded-full ${
+                i === current
+                  ? "w-8 h-2 bg-white"
+                  : "w-2 h-2 bg-white/40 hover:bg-white/60"
+              }`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 z-[2] flex flex-col items-center gap-1"
+          className="absolute bottom-4 z-[2] flex flex-col items-center"
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="w-5 h-8 rounded-full border-2 border-primary-foreground/40 flex justify-center pt-1.5"
+            className="w-5 h-8 rounded-full border-2 border-white/30 flex justify-center pt-1.5"
           >
-            <div className="w-1 h-1.5 rounded-full bg-primary-foreground/60" />
+            <div className="w-1 h-1.5 rounded-full bg-white/50" />
           </motion.div>
         </motion.div>
       </section>
@@ -118,36 +168,68 @@ const Index = () => {
       <PerformanceCurve />
 
       {/* ========== FEATURES ========== */}
-      <section className="py-14 bg-background">
-        <div className="section-wrap">
-          <motion.h2
+      <section
+        className="py-20 relative overflow-hidden"
+        style={{ background: "var(--gradient-section)" }}
+      >
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        <div className="section-wrap relative">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-center mb-2"
-            style={{ fontSize: "clamp(1.75rem, 5vw, 3.2rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
+            className="text-center mb-14"
           >
-            Trade Smarter with Data-Driven Quant Bots
-          </motion.h2>
-          <p className="text-center text-muted-foreground text-lg mb-10">
-            Multi-exchange connectivity · Risk controls · Backtesting · Real-time monitoring
-          </p>
+            <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">
+              Core Capabilities
+            </p>
+            <h2
+              className="font-display text-foreground"
+              style={{
+                fontSize: "clamp(1.75rem, 5vw, 3rem)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Trade Smarter with
+              <br className="hidden sm:block" />
+              <span className="text-primary"> Data-Driven Quant Bots</span>
+            </h2>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((f, i) => (
               <motion.div
                 key={f.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="text-left group"
+                transition={{
+                  duration: 0.6,
+                  delay: i * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="group relative p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/25 hover:shadow-lg"
+                style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <div className="w-10 h-1 rounded-full bg-primary/60 mb-4 transition-all duration-300 group-hover:w-16 group-hover:bg-primary" />
-                <h3 className="font-display text-[1.4rem] font-bold text-foreground mb-3 leading-tight">
+                <div className="text-3xl mb-4">{f.icon}</div>
+                <h3 className="font-display text-xl font-bold text-foreground mb-2 leading-tight">
                   {f.title}
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">{f.desc}</p>
+                <p className="text-muted-foreground text-[15px] leading-relaxed">
+                  {f.desc}
+                </p>
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-primary/0 transition-all duration-300 group-hover:bg-primary/40" />
               </motion.div>
             ))}
           </div>
@@ -155,20 +237,29 @@ const Index = () => {
       </section>
 
       {/* ========== STATS ========== */}
-      <section className="py-10 bg-background">
+      <section className="py-16 bg-background">
         <div className="section-wrap">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group text-center p-4 border border-border rounded-xl bg-card transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.07,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/30"
+                style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <span className="block text-xl font-extrabold tracking-wide text-foreground">{s.value}</span>
-                <span className="block mt-1 text-muted-foreground text-sm">{s.label}</span>
+                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">
+                  {s.value}
+                </span>
+                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">
+                  {s.label}
+                </span>
               </motion.div>
             ))}
           </div>

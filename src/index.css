@@ -50,15 +50,18 @@
     --line: 214 20% 92%;
 
     /* Gradients */
-    --gradient-brand: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 89% 62%));
-    --gradient-dark: linear-gradient(180deg, hsl(222 47% 8%), hsl(222 47% 14%));
-    --gradient-hero-overlay: linear-gradient(180deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.3) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(199 89% 48%), hsl(210 100% 60%));
+    --gradient-dark: linear-gradient(180deg, hsl(222 47% 6%), hsl(222 40% 12%));
+    --gradient-hero-overlay: linear-gradient(180deg, rgba(8,15,30,0.72) 0%, rgba(8,15,30,0.35) 60%, rgba(8,15,30,0.55) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(210 20% 97%) 0%, hsl(210 25% 94%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(199 89% 48%), hsl(230 80% 60%));
 
     /* Shadows */
     --shadow-sm: 0 1px 3px 0 rgba(15,23,42,0.04);
-    --shadow-card: 0 4px 20px -4px rgba(15,23,42,0.06);
-    --shadow-card-hover: 0 12px 32px -8px rgba(15,23,42,0.1);
-    --shadow-brand: 0 8px 24px -6px hsl(199 89% 48% / 0.25);
+    --shadow-card: 0 4px 24px -6px rgba(15,23,42,0.08);
+    --shadow-card-hover: 0 16px 40px -10px rgba(15,23,42,0.14);
+    --shadow-brand: 0 8px 30px -6px hsl(199 89% 48% / 0.3);
+    --shadow-glow: 0 0 40px -10px hsl(199 89% 48% / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -99,13 +102,14 @@
   }
 
   .brand-card {
-    @apply bg-card border border-border rounded-2xl transition-all duration-200;
+    @apply bg-card border border-border rounded-2xl transition-all duration-300;
     box-shadow: var(--shadow-card);
   }
 
   .brand-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
+    border-color: hsl(var(--primary) / 0.2);
   }
 
   .brand-btn {
