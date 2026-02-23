@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import AnimatedKPI from "./AnimatedKPI";
+import { useLang } from "@/i18n/LanguageContext";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -70,8 +71,8 @@ function fmtPL(v: number | null) {
 const PerformanceCurve = ({
   dataUrl = "/data/equity_1.json",
   tradesUrl = "/data/trades_1.json",
-  title = "Yield Rate Curve",
 }: Props) => {
+  const { t } = useLang();
   const [raw, setRaw] = useState<EquityPoint[]>([]);
   const [trades, setTrades] = useState<Trade[]>([]);
   const [mode, setMode] = useState<Mode>("equity");
@@ -193,18 +194,18 @@ const PerformanceCurve = ({
   const handleRange = useCallback((r: Range) => setRange(r), []);
 
   const kpis = [
-    { label: "Periodic earnings", value: fmtSignedPct(stats.returnPct), positive: (stats.returnPct ?? 0) >= 0 },
-    { label: "Maximum drawdown", value: fmtPct(stats.maxDDPct) },
-    { label: "Profitable days", value: fmtPct(stats.winDaysPct) },
-    { label: "Daily avg fluctuation", value: fmtPct(stats.avgMovePct) },
-    { label: "Open frequency", value: fmtFreq(stats.openFreq30d) },
-    { label: "Profit / Loss ratio", value: fmtPL(stats.plRatio) },
+    { label: t("Periodic earnings", "区间收益"), value: fmtSignedPct(stats.returnPct), positive: (stats.returnPct ?? 0) >= 0 },
+    { label: t("Maximum drawdown", "最大回撤"), value: fmtPct(stats.maxDDPct) },
+    { label: t("Profitable days", "盈利天数"), value: fmtPct(stats.winDaysPct) },
+    { label: t("Daily avg fluctuation", "日均波动"), value: fmtPct(stats.avgMovePct) },
+    { label: t("Open frequency", "开仓频率"), value: fmtFreq(stats.openFreq30d) },
+    { label: t("Profit / Loss ratio", "盈亏比"), value: fmtPL(stats.plRatio) },
   ];
 
   const ranges: Range[] = ["30d", "90d", "ytd", "all"];
   const modes: { key: Mode; label: string }[] = [
-    { key: "equity", label: "Net Worth" },
-    { key: "return", label: "Yield Rate" },
+    { key: "equity", label: t("Net Worth", "净值") },
+    { key: "return", label: t("Yield Rate", "收益率") },
   ];
 
   return (
@@ -219,7 +220,7 @@ const PerformanceCurve = ({
             className="section-title mb-0"
             style={{ fontSize: "clamp(1.25rem, 4vw, 2rem)" }}
           >
-            {title}
+            {t("Yield Rate Curve", "收益率曲线")}
           </motion.h2>
 
           <div className="flex gap-2 flex-wrap">
@@ -337,7 +338,7 @@ const PerformanceCurve = ({
         </div>
 
         <p className="text-xs text-muted-foreground mt-2">
-          * Data updates may be delayed. The displayed results are for reference only.
+          * {t("Data updates may be delayed. The displayed results are for reference only.", "数据更新可能有延迟。显示结果仅供参考。")}
         </p>
       </div>
     </section>

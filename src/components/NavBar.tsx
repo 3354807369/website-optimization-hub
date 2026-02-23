@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const nav = [
-  { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "Services", to: "/services" },
-  { label: "Contact Us", to: "/contact" },
-];
+import { useLang } from "@/i18n/LanguageContext";
 
 const NavBar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, toggle, t } = useLang();
   const isHome = location.pathname === "/";
+
+  const nav = [
+    { label: t("Home", "首页"), to: "/" },
+    { label: t("About Us", "关于我们"), to: "/about" },
+    { label: t("Services", "服务"), to: "/services" },
+    { label: t("Contact Us", "联系我们"), to: "/contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -25,8 +27,6 @@ const NavBar = () => {
 
   useEffect(() => setOpen(false), [location]);
 
-  // On home page: transparent at top, frosted on scroll
-  // On inner pages: always frosted
   const isTransparent = isHome && !scrolled;
 
   return (
@@ -64,8 +64,8 @@ const NavBar = () => {
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="justify-self-end hidden md:inline-flex gap-1" aria-label="Primary">
+          {/* Desktop nav + lang toggle */}
+          <nav className="justify-self-end hidden md:inline-flex items-center gap-1" aria-label="Primary">
             {nav.map((item) => (
               <Link
                 key={item.to}
@@ -83,7 +83,33 @@ const NavBar = () => {
                 {item.label}
               </Link>
             ))}
+            <button
+              onClick={toggle}
+              className={`ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer border-none bg-transparent ${
+                isTransparent
+                  ? "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+              }`}
+              aria-label="Switch language"
+            >
+              <Globe size={15} />
+              {lang === "en" ? "中文" : "EN"}
+            </button>
           </nav>
+
+          {/* Mobile lang toggle */}
+          <button
+            onClick={toggle}
+            className={`md:hidden justify-self-end inline-flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 cursor-pointer border-none bg-transparent ${
+              isTransparent
+                ? "text-primary-foreground/80 hover:text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+            aria-label="Switch language"
+          >
+            <Globe size={14} />
+            {lang === "en" ? "中文" : "EN"}
+          </button>
         </div>
       </header>
 
