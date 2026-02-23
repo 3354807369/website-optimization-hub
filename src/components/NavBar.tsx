@@ -59,7 +59,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt="StarLoop Logo"
-              className={`h-8 w-auto transition-all duration-500 ${
+              className={`h-10 max-w-[200px] w-auto object-contain transition-all duration-500 ${
                 isTransparent ? "brightness-0 invert" : ""
               }`}
             />
