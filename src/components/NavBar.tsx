@@ -59,8 +59,8 @@ const NavBar = () => {
             <img
               src={logo}
               alt="StarLoop Logo"
-              className={`h-14 max-w-[240px] w-auto object-cover transition-all duration-500 mix-blend-multiply ${
-                isTransparent ? "brightness-0 invert mix-blend-screen" : ""
+              className={`h-14 max-w-[240px] w-auto object-contain transition-all duration-500 ${
+                isTransparent ? "brightness-0 invert" : ""
               }`}
             />
           </Link>
