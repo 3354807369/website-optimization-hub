@@ -6,6 +6,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL = "Contact@starlooptech.com";
+const PHONE = "0478164999";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 interface FormState {
@@ -65,7 +66,7 @@ const Contact = () => {
         <div className="section-wrap grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { title: `📧 ${t("Email", "邮件")}`, content: (<><p className="text-muted-foreground text-sm mb-3 leading-relaxed">{t("Best way to reach us. We usually respond within 24–48h.", "最佳联系方式。通常 24-48 小时内回复。")}</p><div className="flex flex-wrap gap-2 items-center mt-auto"><code className="px-3 py-1.5 rounded-lg bg-secondary border border-border font-mono text-sm">{EMAIL}</code><button onClick={copyEmail} className="brand-btn-primary text-xs h-9 px-3">{t("Copy", "复制")}</button><a href={`mailto:${EMAIL}`} className="brand-btn-outline text-xs h-9 px-3 no-underline">{t("Open mail", "打开邮箱")}</a></div></>) },
-            { title: `📞 ${t("Live Call", "电话沟通")}`, content: (<><p className="text-muted-foreground text-sm mb-3 leading-relaxed">{t("Prefer a quick call? Send us a note and we'll share our meeting link.", "更喜欢电话？发送消息，我们会分享会议链接。")}</p><div className="mt-auto"><a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Request a Call")}`} className="brand-btn-primary text-xs h-9 px-3 no-underline">{t("Request a call", "预约通话")}</a></div></>) },
+            { title: `📞 ${t("Phone", "电话")}`, content: (<><p className="text-muted-foreground text-sm mb-3 leading-relaxed">{t("Call us directly during business hours.", "工作时间可直接拨打。")}</p><div className="flex flex-wrap gap-2 items-center mt-auto"><code className="px-3 py-1.5 rounded-lg bg-secondary border border-border font-mono text-sm">{PHONE}</code><a href={`tel:${PHONE}`} className="brand-btn-primary text-xs h-9 px-3 no-underline">{t("Call now", "立即拨打")}</a></div></>) },
             { title: `🌏 ${t("Working Hours", "工作时间")}`, content: <p className="text-muted-foreground text-sm leading-relaxed">{t("Remote-first. Typical hours across APAC / EU. We can align to your timezone.", "远程优先。覆盖亚太/欧洲时区，可以配合您的时区。")}</p> },
           ].map((card, i) => (
             <motion.div key={card.title} initial={{ opacity: 0, y: 20, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1, ease }} className="group relative p-6 flex flex-col rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/25 hover:shadow-lg" style={{ boxShadow: "var(--shadow-card)" }}>

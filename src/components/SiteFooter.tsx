@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
 const EMAIL = "Contact@starlooptech.com";
+const PHONE = "0478164999";
 const year = new Date().getFullYear();
 
 const SiteFooter = () => {
@@ -37,7 +38,11 @@ const SiteFooter = () => {
           </div>
           <div>
             <h5 className="font-display font-bold text-primary-foreground/90 mb-3 text-sm uppercase tracking-wider">{t("Contact", "联系")}</h5>
-            <code className="inline-block px-3 py-1.5 bg-primary-foreground/10 border border-primary-foreground/15 rounded-lg font-mono text-primary-foreground/80 text-sm mb-3">{EMAIL}</code>
+            <code className="inline-block px-3 py-1.5 bg-primary-foreground/10 border border-primary-foreground/15 rounded-lg font-mono text-primary-foreground/80 text-sm mb-2">{EMAIL}</code>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-primary-foreground/60 text-sm">📞</span>
+              <a href={`tel:${PHONE}`} className="text-primary-foreground/80 text-sm font-mono no-underline hover:text-primary-foreground transition-colors">{PHONE}</a>
+            </div>
             <ul className="list-none p-0 m-0 grid gap-1.5 text-primary-foreground/50 text-xs">
               <li>{t("Remote-first · APAC / EU hours", "远程优先 · 亚太/欧洲时区")}</li>
               <li>{t("Non-custodial by default", "默认非托管")}</li>
