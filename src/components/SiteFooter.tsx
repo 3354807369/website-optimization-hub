@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 
 const EMAIL = "Contact@starlooptech.com";
+const PHONE = "0478164999";
 const year = new Date().getFullYear();
 
 const SiteFooter = () => {

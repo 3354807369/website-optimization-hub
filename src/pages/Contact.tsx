@@ -6,6 +6,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL = "Contact@starlooptech.com";
+const PHONE = "0478164999";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 interface FormState {
