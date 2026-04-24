@@ -32,22 +32,22 @@ const IntegrationsShowcase = () => {
             <InfrastructureDiagram />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
-            <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-4">
+            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
               {t("Infrastructure", "基础架构")}
             </p>
-            <h2 className="font-display font-bold text-primary-foreground mb-3" style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            <h2 className="font-display font-bold text-foreground mb-3" style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
               {t("A Modular Quant Trading Infrastructure", "模块化量化交易基础设施")}
             </h2>
-            <p className="text-primary-foreground/65 leading-relaxed text-[15px] max-w-[60ch] mb-5">
+            <p className="text-foreground/65 leading-relaxed text-[15px] max-w-[60ch] mb-5">
               {t("Designed for research, risk control, execution, and real-time monitoring — all in one system.", "为研究、风控、执行和实时监控而设计 — 集于一体的系统。")}
             </p>
             <ul className="list-none m-0 p-0 grid gap-3.5">
               {bullets.map((b) => (
                 <li key={b.title} className="grid grid-cols-[14px_1fr] gap-3 items-start">
-                  <span className="text-sky-300 mt-1 font-black">•</span>
+                  <span className="text-primary mt-1 font-black">•</span>
                   <div>
-                    <b className="text-primary-foreground">{b.title}</b>
-                    <div className="text-primary-foreground/55 text-[13px] leading-relaxed mt-1">{b.desc}</div>
+                    <b className="text-foreground">{b.title}</b>
+                    <div className="text-foreground/60 text-[13px] leading-relaxed mt-1">{b.desc}</div>
                   </div>
                 </li>
               ))}
