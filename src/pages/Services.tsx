@@ -66,7 +66,7 @@ const Services = () => {
         <div className="section-wrap">
           <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Our Offerings", "我们的产品")}</p>
           <h2 className="font-display text-foreground mb-10" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("What We Offer", "我们提供什么")}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {catalog.map((c, i) => {
               const href = c.id === "quant" ? "/services/quant-trading" : c.id === "ai" ? "/services/ai-agents" : undefined;
               const Inner = (
