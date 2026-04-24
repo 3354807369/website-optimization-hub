@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Globe,
   ShoppingBag,
   LayoutDashboard,
@@ -18,6 +19,7 @@ import {
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import heroImg from "@/assets/web-dev-hero.jpg";
+import workMaisonNoir from "@/assets/work-maison-noir.png";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
