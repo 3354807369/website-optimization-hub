@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
 import PerformanceCurve from "@/components/PerformanceCurve";
@@ -19,17 +21,17 @@ const QuantTrading = () => {
 
   const stats = [
     { value: "3+", label: t("Integrated Exchanges", "已对接交易所") },
-    { value: "<80ms", label: t("Gateway Latency", "网关延迟") },
+    { value: "<80ms", label: t("Latency Target", "延迟目标") },
     { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime Target", "正常运行目标") },
-    { value: "$25,000", label: t("Running Capital", "运行资金") },
+    { value: "99.9%", label: t("Uptime Target", "可用性目标") },
+    { value: "24/7", label: t("Monitoring", "全天候监控") },
   ];
 
 
 
   return (
     <main className="bg-background text-foreground">
-      <SEO title={t("Quant Trading Automation", "量化交易自动化")} path="/services/quant-trading" />
+      <SEO title={t("Quant Trading Automation", "量化交易自动化")} path="/services/quant-trading" schema="Service" serviceName="Quant Trading Automation" description="Non-custodial, exchange-agnostic quant trading bots with modular strategies, risk-first execution, and full observability." />
 
       {/* ========== HERO (DARK) ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
@@ -201,7 +203,65 @@ const QuantTrading = () => {
       </section>
 
       <IntegrationsShowcase />
-      
+
+      {/* ========== CTA ========== */}
+      <section className="py-24 relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 50%, hsl(217 91% 25%) 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(199 89% 80%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 80%) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+            maskImage: "radial-gradient(ellipse at center, black, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent 70%)" }}
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease }}
+          className="section-wrap relative text-center"
+        >
+          <h2
+            className="font-display font-bold text-white mb-5"
+            style={{ fontSize: "clamp(1.85rem, 5vw, 3.25rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+          >
+            {t("Ready to automate your trading?", "准备好让交易自动化了吗？")}
+          </h2>
+          <p className="text-white/70 max-w-[55ch] mx-auto text-base md:text-lg mb-10">
+            {t(
+              "Tell us about your strategy and venues. We'll come back with an architecture, integration plan, and a pilot timeline.",
+              "告诉我们你的策略和交易所。我们会回复一份架构方案、对接计划和试点时间表。"
+            )}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-2xl shadow-sky-500/30"
+            >
+              {t("Talk to Us", "联系我们")}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
+            >
+              {t("Other Services", "其他服务")}
+            </Link>
+          </div>
+        </motion.div>
+      </section>
     </main>
   );
 };

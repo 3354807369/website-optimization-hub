@@ -30,15 +30,15 @@ const About = () => {
 
   const stats = [
     { value: "3+", label: t("Integrated Exchanges", "已对接交易所") },
-    { value: "<80ms", label: t("Gateway Latency", "网关延迟") },
+    { value: "<80ms", label: t("Latency Target", "延迟目标") },
     { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime Target", "正常运行目标") },
-    { value: "$25,000", label: t("Running Capital", "运行资金") },
+    { value: "99.9%", label: t("Uptime Target", "可用性目标") },
+    { value: "24/7", label: t("Monitoring", "全天候监控") },
   ];
 
   return (
     <main className="bg-background text-foreground">
-      <SEO title={t("About Us", "关于我们")} description={t("Learn about StarLoop — engineering reliable trading automation.", "了解 StarLoop — 构建可靠的交易自动化。")} path="/about" />
+      <SEO title={t("About Us", "关于我们")} description={t("Learn about StarLoop — engineering reliable trading automation.", "了解 StarLoop — 构建可靠的交易自动化。")} path="/about" schema="AboutPage" />
 
       <section className="relative bg-foreground text-primary-foreground py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />

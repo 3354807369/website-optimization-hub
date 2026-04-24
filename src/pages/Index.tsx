@@ -22,7 +22,7 @@ const Index = () => {
       img: bizQuant,
       href: "/services/quant-trading",
       tag: t("Flagship", "旗舰"),
-      accent: "from-sky-500/30 to-blue-600/30",
+      accent: "from-sky-500/40 to-blue-600/30",
     },
     {
       icon: Sparkles,
@@ -31,7 +31,7 @@ const Index = () => {
       img: bizAi,
       href: "/services/ai-agents",
       tag: "AI / ML",
-      accent: "from-cyan-500/30 to-sky-600/30",
+      accent: "from-violet-500/40 to-fuchsia-600/30",
     },
     {
       icon: Globe2,
@@ -40,7 +40,7 @@ const Index = () => {
       img: bizWeb,
       href: "/services#web",
       tag: "Web",
-      accent: "from-indigo-500/30 to-blue-600/30",
+      accent: "from-emerald-500/40 to-teal-600/30",
     },
     {
       icon: Boxes,
@@ -49,7 +49,7 @@ const Index = () => {
       img: bizBlockchain,
       href: "/services#blockchain",
       tag: "Web3",
-      accent: "from-violet-500/30 to-fuchsia-600/30",
+      accent: "from-amber-500/40 to-orange-600/30",
     },
   ];
 
@@ -62,9 +62,9 @@ const Index = () => {
 
   const stats = [
     { value: "4", label: t("Core Practices", "核心业务") },
-    { value: "<80ms", label: t("Gateway Latency", "网关延迟") },
+    { value: "<80ms", label: t("Latency Target", "延迟目标") },
     { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime Target", "正常运行目标") },
+    { value: "99.9%", label: t("Uptime Target", "可用性目标") },
   ];
 
   const workflow = [
