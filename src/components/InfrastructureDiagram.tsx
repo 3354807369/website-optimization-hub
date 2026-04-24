@@ -53,13 +53,13 @@ const InfrastructureDiagram = () => {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative rounded-2xl border px-5 py-4 overflow-hidden transition-shadow duration-500 hover:shadow-[0_20px_45px_-15px_hsl(199_89%_30%/0.55)]"
+                className="group relative rounded-2xl border px-5 py-4 overflow-hidden transition-shadow duration-500 hover:shadow-[0_20px_45px_-12px_hsl(199_89%_50%/0.35)]"
                 style={{
-                  borderColor: "hsl(0 0% 100% / 0.7)",
+                  borderColor: "hsl(217 50% 30% / 0.6)",
                   background:
-                    "linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 99%) 60%, hsl(199 89% 97%) 100%)",
+                    "linear-gradient(135deg, hsl(217 50% 14% / 0.85) 0%, hsl(222 47% 11% / 0.9) 60%, hsl(217 60% 18% / 0.85) 100%)",
                   boxShadow:
-                    "0 12px 32px -14px hsl(199 89% 30% / 0.45), inset 0 1px 0 0 hsl(0 0% 100% / 0.9)",
+                    "0 12px 32px -14px hsl(217 91% 30% / 0.5), inset 0 1px 0 0 hsl(199 89% 70% / 0.15)",
                 }}
               >
                 {/* corner glow */}
@@ -92,7 +92,7 @@ const InfrastructureDiagram = () => {
                 />
 
                 <div className="relative flex items-center gap-3 mb-3">
-                  <span className="text-[10px] font-mono text-foreground/35 tracking-widest">
+                  <span className="text-[10px] font-mono text-sky-300/40 tracking-widest">
                     0{i + 1}
                   </span>
                   <motion.div
@@ -101,19 +101,19 @@ const InfrastructureDiagram = () => {
                     className="flex items-center justify-center w-8 h-8 rounded-lg relative overflow-hidden"
                     style={{
                       background:
-                        "linear-gradient(135deg, hsl(199 89% 48% / 0.18), hsl(217 91% 60% / 0.12))",
-                      border: "1px solid hsl(199 89% 48% / 0.25)",
-                      boxShadow: "inset 0 1px 0 0 hsl(0 0% 100% / 0.6)",
+                        "linear-gradient(135deg, hsl(199 89% 60% / 0.22), hsl(217 91% 60% / 0.14))",
+                      border: "1px solid hsl(199 89% 60% / 0.35)",
+                      boxShadow: "inset 0 1px 0 0 hsl(199 89% 80% / 0.25)",
                     }}
                   >
-                    <Icon size={15} className="text-primary relative z-10" strokeWidth={2.2} />
+                    <Icon size={15} className="text-sky-300 relative z-10" strokeWidth={2.2} />
                   </motion.div>
-                  <span className="text-[13px] font-bold tracking-[0.08em] uppercase text-foreground">
+                  <span className="text-[13px] font-bold tracking-[0.08em] uppercase text-white">
                     {layer.label}
                   </span>
                   <motion.span
                     className="ml-auto w-1.5 h-1.5 rounded-full"
-                    style={{ background: "hsl(142 71% 45%)", boxShadow: "0 0 8px hsl(142 71% 45%)" }}
+                    style={{ background: "hsl(142 71% 55%)", boxShadow: "0 0 8px hsl(142 71% 55%)" }}
                     animate={{ opacity: [0.4, 1, 0.4], scale: [0.9, 1.1, 0.9] }}
                     transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.25 }}
                   />
@@ -128,15 +128,15 @@ const InfrastructureDiagram = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: i * 0.12 + 0.2 + j * 0.06, ease: [0.16, 1, 0.3, 1] }}
                       whileHover={{ y: -2 }}
-                      className="text-[12px] font-medium px-3 py-1.5 rounded-lg cursor-default transition-all duration-300 hover:text-white hover:border-transparent hover:shadow-[0_6px_14px_-4px_hsl(199_89%_48%/0.45)] hover:bg-gradient-to-br hover:from-[hsl(199_89%_48%)] hover:to-[hsl(217_91%_60%)]"
+                      className="text-[12px] font-medium px-3 py-1.5 rounded-lg cursor-default transition-all duration-300 hover:text-white hover:border-transparent hover:shadow-[0_6px_14px_-4px_hsl(199_89%_48%/0.55)] hover:bg-gradient-to-br hover:from-[hsl(199_89%_55%)] hover:to-[hsl(217_91%_65%)]"
                       style={{
-                        color: "hsl(199 89% 32%)",
+                        color: "hsl(199 89% 75%)",
                         borderWidth: "1px",
                         borderStyle: "solid",
-                        borderColor: "hsl(199 89% 48% / 0.22)",
+                        borderColor: "hsl(199 89% 60% / 0.3)",
                         background:
-                          "linear-gradient(135deg, hsl(199 89% 96%) 0%, hsl(217 91% 98%) 100%)",
-                        boxShadow: "0 1px 2px hsl(199 89% 48% / 0.08)",
+                          "linear-gradient(135deg, hsl(217 50% 18% / 0.85) 0%, hsl(222 47% 14% / 0.8) 100%)",
+                        boxShadow: "0 1px 2px hsl(199 89% 30% / 0.25), inset 0 1px 0 0 hsl(199 89% 70% / 0.08)",
                       }}
                     >
                       {item}
