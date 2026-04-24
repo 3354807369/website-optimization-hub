@@ -538,12 +538,12 @@ const AIAgents = () => {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 50%, hsl(217 91% 25%) 100%)",
+              "linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(199 89% 96%) 50%, hsl(217 91% 92%) 100%)",
           }}
         />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent 70%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-50 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
         />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -553,12 +553,12 @@ const AIAgents = () => {
           className="section-wrap relative text-center"
         >
           <h2
-            className="font-display font-bold text-white mb-5"
+            className="font-display font-bold text-foreground mb-5"
             style={{ fontSize: "clamp(1.85rem, 5vw, 3.25rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
           >
             {t("Ready to deploy your first agent?", "准备好部署你的第一个代理了吗?")}
           </h2>
-          <p className="text-white/70 max-w-[55ch] mx-auto text-base md:text-lg mb-10">
+          <p className="text-muted-foreground max-w-[55ch] mx-auto text-base md:text-lg mb-10">
             {t(
               "Tell us about your workflow. We'll come back with a use-case map, an architecture, and a 2–3 week pilot plan.",
               "告诉我们你的业务流程。我们会回复一份场景图、架构方案和 2-3 周试点计划。"
@@ -567,14 +567,14 @@ const AIAgents = () => {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-2xl shadow-sky-500/30"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all no-underline shadow-2xl shadow-sky-500/30"
             >
               {t("Talk to Us", "联系我们")}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-foreground/15 bg-white/70 backdrop-blur-md text-foreground font-semibold text-sm hover:bg-white transition-all no-underline"
             >
               {t("Other Services", "其他服务")}
             </Link>
