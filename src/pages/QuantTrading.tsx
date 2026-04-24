@@ -221,53 +221,74 @@ const QuantTrading = () => {
         </div>
       </section>
 
-      <PerformanceCurve />
-
-      {/* ========== STATS (LIGHT) — moved under performance curve ========== */}
-      <section className="py-20 relative overflow-hidden bg-secondary/30 border-y border-border">
+      {/* ========== AUDIENCE / WHO IT'S FOR (LIGHT) ========== */}
+      <section className="py-24 relative overflow-hidden bg-secondary/30 border-y border-border">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
+          className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full opacity-25 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.5), transparent 70%)" }}
         />
         <div className="section-wrap relative">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease }}
-                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40"
-                style={{ boxShadow: "var(--shadow-card)" }}
-              >
-                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">{s.value}</span>
-                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">{s.label}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mb-14"
+          >
+            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-3">
+              {t("Who It's For", "适用人群")}
+            </p>
+            <h2
+              className="font-display font-bold text-foreground"
+              style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+            >
+              {t("Built for traders at", "为不同阶段的")}{" "}
+              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                {t("every stage", "交易者而设计")}
+              </span>
+            </h2>
+          </motion.div>
 
-      {/* ========== FEATURES (DARK) ========== */}
-      <section className="py-24 bg-foreground text-primary-foreground relative overflow-hidden">
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
-        />
-        <div className="section-wrap relative">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {stats.map((s, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {audiences.map((a, i) => (
               <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                key={a.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease }}
-                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40"
+                transition={{ duration: 0.6, delay: i * 0.12, ease }}
+                className="group relative flex flex-col p-7 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40 hover:-translate-y-1"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">{s.value}</span>
-                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">{s.label}</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-3xl">{a.icon}</div>
+                  <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wide">
+                    {a.tag}
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-foreground mb-4 leading-tight">
+                  {a.title}
+                </h3>
+
+                <p className="text-muted-foreground/80 text-[11px] uppercase tracking-[0.15em] font-semibold mb-2">
+                  {t("Pain points", "痛点")}
+                </p>
+                <ul className="space-y-2 mb-5">
+                  {a.pains.map((p) => (
+                    <li key={p} className="flex gap-2 text-muted-foreground text-sm leading-relaxed">
+                      <span className="text-primary/60 mt-1">•</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto pt-4 border-t border-border">
+                  <p className="text-muted-foreground/80 text-[11px] uppercase tracking-[0.15em] font-semibold mb-2">
+                    {t("Our solution", "我们的方案")}
+                  </p>
+                  <p className="text-foreground text-sm leading-relaxed font-medium">
+                    {a.solution}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
