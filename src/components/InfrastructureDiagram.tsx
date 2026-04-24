@@ -92,7 +92,7 @@ const InfrastructureDiagram = () => {
                 />
 
                 <div className="relative flex items-center gap-3 mb-3">
-                  <span className="text-[10px] font-mono text-foreground/35 tracking-widest">
+                  <span className="text-[10px] font-mono text-sky-300/40 tracking-widest">
                     0{i + 1}
                   </span>
                   <motion.div
@@ -101,19 +101,19 @@ const InfrastructureDiagram = () => {
                     className="flex items-center justify-center w-8 h-8 rounded-lg relative overflow-hidden"
                     style={{
                       background:
-                        "linear-gradient(135deg, hsl(199 89% 48% / 0.18), hsl(217 91% 60% / 0.12))",
-                      border: "1px solid hsl(199 89% 48% / 0.25)",
-                      boxShadow: "inset 0 1px 0 0 hsl(0 0% 100% / 0.6)",
+                        "linear-gradient(135deg, hsl(199 89% 60% / 0.22), hsl(217 91% 60% / 0.14))",
+                      border: "1px solid hsl(199 89% 60% / 0.35)",
+                      boxShadow: "inset 0 1px 0 0 hsl(199 89% 80% / 0.25)",
                     }}
                   >
-                    <Icon size={15} className="text-primary relative z-10" strokeWidth={2.2} />
+                    <Icon size={15} className="text-sky-300 relative z-10" strokeWidth={2.2} />
                   </motion.div>
-                  <span className="text-[13px] font-bold tracking-[0.08em] uppercase text-foreground">
+                  <span className="text-[13px] font-bold tracking-[0.08em] uppercase text-white">
                     {layer.label}
                   </span>
                   <motion.span
                     className="ml-auto w-1.5 h-1.5 rounded-full"
-                    style={{ background: "hsl(142 71% 45%)", boxShadow: "0 0 8px hsl(142 71% 45%)" }}
+                    style={{ background: "hsl(142 71% 55%)", boxShadow: "0 0 8px hsl(142 71% 55%)" }}
                     animate={{ opacity: [0.4, 1, 0.4], scale: [0.9, 1.1, 0.9] }}
                     transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.25 }}
                   />
