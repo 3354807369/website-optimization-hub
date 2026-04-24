@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, LineChart, Bot, Globe2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
 import logo from "@/assets/logo.png";
@@ -9,13 +9,36 @@ const NavBar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const closeTimer = useRef<number | null>(null);
   const { lang, toggle, t } = useLang();
   const isHome = location.pathname === "/";
+
+  const services = [
+    {
+      to: "/services/quant-trading",
+      label: t("Quant Trading", "量化交易"),
+      desc: t("Non-custodial trading bots", "非托管交易机器人"),
+      icon: LineChart,
+    },
+    {
+      to: "/services/ai-agents",
+      label: t("AI Agents", "AI 智能代理"),
+      desc: t("Custom assistants & automation", "定制助手与自动化"),
+      icon: Bot,
+    },
+    {
+      to: "/services/web-development",
+      label: t("Web Development", "网站开发"),
+      desc: t("Modern sites & landing pages", "现代网站与落地页"),
+      icon: Globe2,
+    },
+  ];
 
   const nav = [
     { label: t("Home", "首页"), to: "/" },
     { label: t("About Us", "关于我们"), to: "/about" },
-    { label: t("Services", "服务"), to: "/services" },
+    { label: t("Services", "服务"), to: "/services", hasDropdown: true },
     { label: t("Contact Us", "联系我们"), to: "/contact" },
   ];
 
@@ -26,9 +49,22 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [location]);
+  useEffect(() => {
+    setOpen(false);
+    setServicesOpen(false);
+  }, [location]);
 
   const isTransparent = isHome && !scrolled;
+  const isServicesActive = location.pathname.startsWith("/services");
+
+  const openDropdown = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    setServicesOpen(true);
+  };
+  const scheduleClose = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setServicesOpen(false), 120);
+  };
 
   return (
     <>
@@ -67,23 +103,107 @@ const NavBar = () => {
 
           {/* Desktop nav + lang toggle */}
           <nav className="justify-self-end hidden md:inline-flex items-center gap-1" aria-label="Primary">
-            {nav.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={`px-3 py-2 rounded-lg text-sm font-medium no-underline transition-all duration-300 ${
-                  isTransparent
-                    ? location.pathname === item.to
-                      ? "text-primary-foreground bg-white/15"
-                      : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
-                    : location.pathname === item.to
-                    ? "text-foreground bg-secondary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) => {
+              if (item.hasDropdown) {
+                const active = isServicesActive;
+                return (
+                  <div
+                    key={item.to}
+                    className="relative"
+                    onMouseEnter={openDropdown}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <Link
+                      to={item.to}
+                      className={`inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium no-underline transition-all duration-300 ${
+                        isTransparent
+                          ? active
+                            ? "text-primary-foreground bg-white/15"
+                            : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
+                          : active
+                          ? "text-foreground bg-secondary"
+                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                      }`}
+                      aria-haspopup="true"
+                      aria-expanded={servicesOpen}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={13}
+                        className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                      />
+                    </Link>
+
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                          transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute right-0 top-full pt-2 w-[320px]"
+                        >
+                          <div className="rounded-2xl bg-card border border-border shadow-xl overflow-hidden p-2">
+                            {services.map((s) => {
+                              const Icon = s.icon;
+                              const isActive = location.pathname === s.to;
+                              return (
+                                <Link
+                                  key={s.to}
+                                  to={s.to}
+                                  className={`group flex items-start gap-3 px-3 py-2.5 rounded-xl no-underline transition-colors ${
+                                    isActive ? "bg-secondary" : "hover:bg-secondary/60"
+                                  }`}
+                                >
+                                  <div className="shrink-0 grid place-items-center w-9 h-9 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
+                                    <Icon size={16} />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <div className="text-sm font-semibold text-foreground leading-tight">
+                                      {s.label}
+                                    </div>
+                                    <div className="text-xs text-muted-foreground mt-0.5 leading-snug">
+                                      {s.desc}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                            <div className="mt-1 pt-2 border-t border-border">
+                              <Link
+                                to="/services"
+                                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-secondary/60 no-underline transition-colors"
+                              >
+                                {t("View all services", "查看全部服务")}
+                                <span aria-hidden>→</span>
+                              </Link>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium no-underline transition-all duration-300 ${
+                    isTransparent
+                      ? location.pathname === item.to
+                        ? "text-primary-foreground bg-white/15"
+                        : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
+                      : location.pathname === item.to
+                      ? "text-foreground bg-secondary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <button
               onClick={toggle}
               className={`ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer border-none bg-transparent ${
@@ -129,22 +249,45 @@ const NavBar = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -4, scale: 0.98 }}
               transition={{ duration: 0.16 }}
-              className="absolute top-14 left-3 w-56 p-2 rounded-xl bg-card border border-border shadow-xl grid gap-1"
+              className="absolute top-14 left-3 w-64 p-2 rounded-xl bg-card border border-border shadow-xl grid gap-1"
               onClick={(e) => e.stopPropagation()}
             >
               {nav.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={`block px-3 py-2.5 rounded-lg text-sm no-underline transition-colors ${
-                    location.pathname === item.to
-                      ? "bg-secondary text-foreground"
-                      : "text-foreground hover:bg-secondary/60"
-                  }`}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.to}>
+                  <Link
+                    to={item.to}
+                    className={`block px-3 py-2.5 rounded-lg text-sm no-underline transition-colors ${
+                      location.pathname === item.to
+                        ? "bg-secondary text-foreground"
+                        : "text-foreground hover:bg-secondary/60"
+                    }`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.hasDropdown && (
+                    <div className="mt-1 ml-2 pl-2 border-l border-border grid gap-0.5">
+                      {services.map((s) => {
+                        const Icon = s.icon;
+                        return (
+                          <Link
+                            key={s.to}
+                            to={s.to}
+                            onClick={() => setOpen(false)}
+                            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] no-underline transition-colors ${
+                              location.pathname === s.to
+                                ? "bg-secondary text-foreground"
+                                : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                            }`}
+                          >
+                            <Icon size={14} className="shrink-0" />
+                            {s.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               ))}
             </motion.aside>
           </motion.div>
