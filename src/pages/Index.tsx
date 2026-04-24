@@ -38,7 +38,7 @@ const Index = () => {
       title: t("Website & Landing Pages", "网站与落地页"),
       desc: t("Performance-first marketing sites and product surfaces with modern stacks.", "性能优先的品牌网站与产品页，现代化技术栈。"),
       img: bizWeb,
-      href: "/services#web",
+      href: "/services/web-development",
       tag: "Web",
       accent: "from-emerald-500/40 to-teal-600/30",
     },
