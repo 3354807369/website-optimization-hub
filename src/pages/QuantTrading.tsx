@@ -174,7 +174,7 @@ const QuantTrading = () => {
       </section>
 
       {/* ========== STATS ========== */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-foreground">
         <div className="section-wrap">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {stats.map((s, i) => (
@@ -184,11 +184,10 @@ const QuantTrading = () => {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/30"
-                style={{ boxShadow: "var(--shadow-card)" }}
+                className="group text-center p-5 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10 transition-all duration-300 hover:border-primary-foreground/30"
               >
-                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">{s.value}</span>
-                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">{s.label}</span>
+                <span className="block text-2xl font-extrabold tracking-tight text-primary-foreground font-display">{s.value}</span>
+                <span className="block mt-1.5 text-primary-foreground/60 text-xs uppercase tracking-wider font-medium">{s.label}</span>
               </motion.div>
             ))}
           </div>
