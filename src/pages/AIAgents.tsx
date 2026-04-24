@@ -511,18 +511,10 @@ const AIAgents = () => {
         </div>
       </section>
 
-      {/* ============ TECH STACK (DARK) ============ */}
-      <section className="py-20 bg-foreground text-primary-foreground relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="section-wrap text-center relative">
-          <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-6">
+      {/* ============ TECH STACK ============ */}
+      <section className="py-20 bg-secondary/30 border-y border-border">
+        <div className="section-wrap text-center">
+          <p className="uppercase tracking-[0.2em] text-muted-foreground text-xs font-semibold mb-6">
             {t("Tools & Stack We Work With", "我们使用的工具与技术栈")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -533,7 +525,7 @@ const AIAgents = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.04 }}
-                className="px-4 py-2 rounded-full bg-white/[0.04] border border-white/15 text-primary-foreground text-sm font-medium hover:border-sky-400/50 hover:text-sky-300 transition-colors"
+                className="px-4 py-2 rounded-full bg-card border border-border text-foreground text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors"
               >
                 {s}
               </motion.span>
