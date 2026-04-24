@@ -302,18 +302,18 @@ const AIAgents = () => {
       </section>
 
       {/* ============ DEMO + CAPABILITIES ============ */}
-      <section className="py-24 bg-foreground text-primary-foreground relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden bg-secondary/40 border-y border-border">
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
             backgroundSize: "50px 50px",
           }}
         />
         <div
-          className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
+          className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.5), transparent)" }}
         />
 
         <div className="section-wrap relative">
