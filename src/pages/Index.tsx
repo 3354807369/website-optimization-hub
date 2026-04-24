@@ -62,9 +62,9 @@ const Index = () => {
 
   const stats = [
     { value: "4", label: t("Core Practices", "核心业务") },
-    { value: "<80ms", label: t("Gateway Latency", "网关延迟") },
+    { value: "<80ms", label: t("Latency Target", "延迟目标") },
     { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime Target", "正常运行目标") },
+    { value: "99.9%", label: t("Uptime Target", "可用性目标") },
   ];
 
   const workflow = [
