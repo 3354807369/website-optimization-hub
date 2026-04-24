@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
+import SectionHeading from "@/components/SectionHeading";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
 import serviceDev from "@/assets/service-dev.jpg";
@@ -17,12 +18,13 @@ const ServicesGrid = () => {
   return (
     <section className="bg-background py-20">
       <div className="section-wrap">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-          <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Our Services", "我们的服务")}</p>
-          <h2 className="font-display text-foreground" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>
-            {t("What We Build", "我们构建什么")}
-          </h2>
-        </motion.div>
+        <SectionHeading
+          eyebrow={t("Our Services", "我们的服务")}
+          title={t("What We Build", "我们构建什么")}
+          highlight={t("We Build", "构建什么")}
+          description={t("From AI applications to production-grade websites and on-chain systems — engineered to ship.", "从 AI 应用到生产级网站与链上系统 — 为上线而工程化。")}
+          className="mb-12"
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <motion.article key={s.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }} className="group rounded-2xl bg-card border border-border overflow-hidden transition-all duration-300 hover:border-primary/25" style={{ boxShadow: "var(--shadow-card)" }}>
