@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
 import PerformanceCurve from "@/components/PerformanceCurve";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 import { useLang } from "@/i18n/LanguageContext";
 import heroImage from "@/assets/quant-hero-1.jpg";
@@ -68,6 +69,51 @@ const QuantTrading = () => {
       solution: t(
         "Private deployment, SLA-backed infra, full audit trails, and custom strategy SDK.",
         "私有化部署、SLA 基础设施、完整审计链路、定制策略 SDK。"
+      ),
+    },
+  ];
+
+  const faqs = [
+    {
+      q: t("Do you take custody of funds?", "你们会托管资金吗？"),
+      a: t(
+        "No. StarLoop is non-custodial by default. Bots run on your own exchange API keys with least-privilege scopes — withdrawal permissions are never required.",
+        "不会。StarLoop 默认采用非托管模式。机器人使用您自己的交易所 API Key 运行，权限最小化 — 我们从不要求提币权限。"
+      ),
+    },
+    {
+      q: t("Which exchanges and assets are supported?", "支持哪些交易所和资产？"),
+      a: t(
+        "Spot and perpetuals on Binance, OKX, and Bybit out of the box. Additional venues and instruments can be onboarded for production engagements.",
+        "开箱即用支持 Binance、OKX、Bybit 的现货与永续合约。生产项目可按需对接更多交易所与品种。"
+      ),
+    },
+    {
+      q: t("Can you customize or integrate my own strategy?", "可以定制或对接我自己的策略吗？"),
+      a: t(
+        "Yes. We provide modular building blocks — signals, execution, risk — and can wrap your existing Python/Rust logic into the same risk-controlled runtime.",
+        "可以。我们提供信号、执行、风控等模块化组件，也可以把您已有的 Python / Rust 策略封装进同一套风控运行时。"
+      ),
+    },
+    {
+      q: t("How do you validate strategy performance?", "如何验证策略表现？"),
+      a: t(
+        "Reproducible backtests with versioned configs, walk-forward analysis, paper-trading dry-runs, and live metrics — drawdown, PnL, slippage — exposed in real time.",
+        "提供版本化配置的可复现回测、滚动前向分析、模拟盘试运行，以及回撤、盈亏、滑点等实时可观测的实盘指标。"
+      ),
+    },
+    {
+      q: t("What risk controls are built in?", "内置了哪些风控？"),
+      a: t(
+        "Hard drawdown limits, tiered stop-losses, per-symbol position caps, kill-switches, and rate-limit-aware order routing. Alerts go to your phone within seconds.",
+        "硬性回撤上限、分级止损、单标的仓位上限、一键熔断，以及尊重交易所限频的订单路由。风险事件秒级推送到手机。"
+      ),
+    },
+    {
+      q: t("What does a typical timeline and pricing look like?", "典型周期和报价是怎样的？"),
+      a: t(
+        "Prototype sprints run 2–3 weeks at a fixed fee; production builds take 4–8+ weeks and are quoted after a short discovery. Ongoing operation is billed monthly.",
+        "原型冲刺 2–3 周，固定费用；生产级交付 4–8+ 周，需求调研后报价。日常运行按月计费。"
       ),
     },
   ];
