@@ -27,6 +27,51 @@ const QuantTrading = () => {
     { value: "24/7", label: t("Monitoring", "全天候监控") },
   ];
 
+  const audiences = [
+    {
+      icon: "👤",
+      tag: t("Individual", "个人玩家"),
+      title: t("Individual Quant Traders", "个人量化玩家"),
+      pains: [
+        t("Strategies tested in notebooks but hard to put on real exchanges", "策略在 notebook 里跑得好，但难落地到实盘"),
+        t("Worry about API security and fund custody", "担心 API 安全和资金托管风险"),
+        t("No time to babysit bots 24/7", "没精力 7×24 盯盘"),
+      ],
+      solution: t(
+        "Non-custodial bots on your own keys, hosted execution, mobile alerts.",
+        "非托管机器人 + 自有 API Key，托管执行，手机告警。"
+      ),
+    },
+    {
+      icon: "🏢",
+      tag: t("Studio", "工作室"),
+      title: t("Trading Studios & Prop Teams", "交易工作室 / 自营团队"),
+      pains: [
+        t("Multiple strategies, multiple accounts, hard to manage centrally", "多策略多账户，集中管理困难"),
+        t("Need reproducible backtests and version-controlled configs", "需要可复现回测与版本化配置"),
+        t("Risk events need to surface in seconds, not hours", "风险事件需要秒级感知，而非小时级"),
+      ],
+      solution: t(
+        "Unified dashboard, role-based access, audit logs, and real-time risk alerts.",
+        "统一控制台、角色权限、审计日志、实时风控告警。"
+      ),
+    },
+    {
+      icon: "🏛️",
+      tag: t("Institution", "资管机构"),
+      title: t("Asset Managers & Funds", "资管机构与基金"),
+      pains: [
+        t("Compliance requires full traceability of every order", "合规要求每笔订单完整可追溯"),
+        t("Need SLA-grade uptime and disaster recovery", "需要 SLA 级别的可用性与灾备"),
+        t("Custom strategies must integrate with internal systems", "自研策略需对接内部系统"),
+      ],
+      solution: t(
+        "Private deployment, SLA-backed infra, full audit trails, and custom strategy SDK.",
+        "私有化部署、SLA 基础设施、完整审计链路、定制策略 SDK。"
+      ),
+    },
+  ];
+
 
 
   return (
