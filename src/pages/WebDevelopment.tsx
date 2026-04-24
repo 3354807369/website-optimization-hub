@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
+  ArrowUpRight,
   Globe,
   ShoppingBag,
   LayoutDashboard,
@@ -18,6 +19,7 @@ import {
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import heroImg from "@/assets/web-dev-hero.jpg";
+import workMaisonNoir from "@/assets/work-maison-noir.png";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -107,6 +109,21 @@ const WebDevelopment = () => {
   const stack = [
     "React", "Next.js", "Vue/Nuxt", "TypeScript", "Tailwind", "Framer Motion",
     "Supabase", "Postgres", "Stripe", "Vercel", "Cloudflare", "Sanity",
+  ];
+
+  const work = [
+    {
+      title: "Maison Noir",
+      subtitle: t("Modern Brunch & Coffee House", "现代早午餐与咖啡馆"),
+      desc: t(
+        "A moody black-and-gold marketing site for an Adelaide brunch spot — slow scroll storytelling, online reservations, and rich food photography.",
+        "为阿德莱德早午餐店打造的暗黑金调营销站 —— 缓慢滚动叙事、在线预订与精致餐饮摄影。"
+      ),
+      tags: ["React", "Tailwind", "Framer Motion"],
+      img: workMaisonNoir,
+      url: "https://restaurant-showcase-demo-five.vercel.app/",
+      tag: t("Brand Site", "品牌官网"),
+    },
   ];
 
   // Animated demo: simulated build pipeline
@@ -292,6 +309,120 @@ const WebDevelopment = () => {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ SELECTED WORK ============ */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="section-wrap relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
+          >
+            <div className="max-w-2xl">
+              <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
+                {t("Selected Work", "精选案例")}
+              </p>
+              <h2
+                className="font-display font-bold text-foreground"
+                style={{ fontSize: "clamp(1.85rem, 4.5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+              >
+                {t("Recent projects we've", "我们近期")}{" "}
+                <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                  {t("designed and shipped", "设计并上线的项目")}
+                </span>
+              </h2>
+            </div>
+            <p className="text-muted-foreground text-[15px] max-w-sm">
+              {t(
+                "Live demos you can click through. Each one designed, built, and deployed end-to-end.",
+                "每个案例都可点击访问 —— 全程由我们设计、构建并部署上线。"
+              )}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {work.map((w, i) => (
+              <motion.a
+                key={w.title}
+                href={w.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: i * 0.1, ease }}
+                className="group block no-underline text-inherit"
+              >
+                <div
+                  className="relative rounded-2xl overflow-hidden border border-border bg-card transition-all duration-500 group-hover:border-primary/30"
+                  style={{ boxShadow: "var(--shadow-card)" }}
+                >
+                  <div className="aspect-[16/10] overflow-hidden bg-secondary">
+                    <img
+                      src={w.img}
+                      alt={`${w.title} — ${w.subtitle}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-card/90 backdrop-blur-sm text-foreground text-[11px] font-semibold border border-border">
+                    {w.tag}
+                  </span>
+                  <div
+                    className="absolute top-4 right-4 w-9 h-9 rounded-full bg-card/90 backdrop-blur-sm border border-border flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:border-primary group-hover:rotate-45"
+                  >
+                    <ArrowUpRight size={16} className="text-foreground transition-colors group-hover:text-primary-foreground" strokeWidth={2.2} />
+                  </div>
+                </div>
+                <div className="pt-5 px-1">
+                  <div className="flex items-baseline gap-3 mb-2 flex-wrap">
+                    <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {w.title}
+                    </h3>
+                    <span className="text-muted-foreground text-sm">{w.subtitle}</span>
+                  </div>
+                  <p className="text-muted-foreground text-[14px] leading-relaxed mb-4">
+                    {w.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {w.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-secondary text-muted-foreground border border-border"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.a>
+            ))}
+
+            {/* Coming-soon placeholder so the single card doesn't look lonely on wide screens */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: 0.2, ease }}
+              className="hidden lg:flex relative rounded-2xl border-2 border-dashed border-border bg-secondary/30 aspect-auto min-h-[420px] items-center justify-center text-center p-10"
+            >
+              <div>
+                <Sparkles size={28} className="text-primary mx-auto mb-4 opacity-60" />
+                <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                  {t("Your project here", "你的项目可能在这里")}
+                </h3>
+                <p className="text-muted-foreground text-sm max-w-[28ch] mx-auto">
+                  {t(
+                    "More case studies launching soon. Want to be the next one?",
+                    "更多案例即将上线 —— 想成为下一个吗？"
+                  )}
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
