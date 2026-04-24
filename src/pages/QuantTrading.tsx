@@ -34,16 +34,14 @@ const QuantTrading = () => {
       {/* ========== HERO (DARK) ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          {heroImages.map((img, i) => (
-            <motion.img
-              key={img}
-              src={img}
-              alt=""
-              animate={{ opacity: i === current ? 1 : 0, scale: i === current ? 1.06 : 1 }}
-              transition={{ opacity: { duration: 1.2 }, scale: { duration: 6, ease: "linear" } }}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          ))}
+          <motion.img
+            src={heroImage}
+            alt=""
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.06 }}
+            transition={{ duration: 12, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
         {/* Dark overlay matching AI page hero */}
         <div
