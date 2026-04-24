@@ -326,11 +326,11 @@ const AIAgents = () => {
               transition={{ duration: 0.7, ease }}
             >
               <div
-                className="relative rounded-3xl border border-white/10 backdrop-blur-md p-5 md:p-6"
+                className="relative rounded-3xl border border-foreground/10 backdrop-blur-md p-5 md:p-6"
                 style={{
                   background:
-                    "linear-gradient(135deg, hsl(0 0% 100% / 0.04) 0%, hsl(199 89% 48% / 0.05) 100%)",
-                  boxShadow: "0 20px 60px -20px hsl(199 89% 48% / 0.3)",
+                    "linear-gradient(135deg, hsl(222 47% 9%) 0%, hsl(222 47% 12%) 100%)",
+                  boxShadow: "0 25px 70px -25px hsl(199 89% 48% / 0.45), 0 0 0 1px hsl(199 89% 48% / 0.08)",
                 }}
               >
                 {/* terminal header */}
@@ -416,11 +416,11 @@ const AIAgents = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1, ease }}
             >
-              <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-4">
+              <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
                 {t("Core Capabilities", "核心能力")}
               </p>
               <h2
-                className="font-display font-bold text-primary-foreground mb-8"
+                className="font-display font-bold text-foreground mb-8"
                 style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
                 {t("Production-grade by default", "生产级别,开箱即用")}
@@ -436,11 +436,12 @@ const AIAgents = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.06 }}
-                      className="p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-sky-400/30 transition-all duration-300"
+                      className="p-4 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300"
+                      style={{ boxShadow: "var(--shadow-card)" }}
                     >
-                      <Icon size={16} className="text-sky-300 mb-2" strokeWidth={2.2} />
-                      <h3 className="font-semibold text-primary-foreground text-sm mb-1">{c.title}</h3>
-                      <p className="text-primary-foreground/55 text-[12px] leading-relaxed">{c.desc}</p>
+                      <Icon size={16} className="text-primary mb-2" strokeWidth={2.2} />
+                      <h3 className="font-semibold text-foreground text-sm mb-1">{c.title}</h3>
+                      <p className="text-muted-foreground text-[12px] leading-relaxed">{c.desc}</p>
                     </motion.div>
                   );
                 })}
