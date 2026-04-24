@@ -146,24 +146,27 @@ const InfrastructureDiagram = () => {
               </motion.div>
 
               {i < layers.length - 1 && (
-                <div className="flex justify-center py-1.5">
-                  <div className="relative flex flex-col items-center">
+                <div className="flex justify-center py-2">
+                  <div className="relative flex flex-col items-center h-6 w-px">
                     <motion.div
                       initial={{ scaleY: 0 }}
                       whileInView={{ scaleY: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.12 + 0.3 }}
-                      className="w-px h-4 origin-top"
+                      transition={{ duration: 0.5, delay: i * 0.12 + 0.3 }}
+                      className="absolute inset-0 origin-top"
                       style={{
                         background:
-                          "linear-gradient(to bottom, hsl(199 89% 48% / 0.5), hsl(199 89% 48% / 0.1))",
+                          "linear-gradient(to bottom, hsl(199 89% 55% / 0.6), hsl(217 91% 60% / 0.15))",
                       }}
                     />
                     <motion.div
-                      animate={{ y: [0, 3, 0], opacity: [0.4, 0.9, 0.4] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                      className="absolute top-0 w-1 h-1 rounded-full"
-                      style={{ background: "hsl(199 89% 55%)", boxShadow: "0 0 6px hsl(199 89% 55%)" }}
+                      animate={{ y: [0, 24, 24], opacity: [0, 1, 0] }}
+                      transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.4, ease: "easeIn" }}
+                      className="absolute top-0 -left-[3px] w-[7px] h-[7px] rounded-full"
+                      style={{
+                        background: "hsl(199 89% 60%)",
+                        boxShadow: "0 0 10px hsl(199 89% 60%), 0 0 20px hsl(199 89% 60% / 0.5)",
+                      }}
                     />
                   </div>
                 </div>
