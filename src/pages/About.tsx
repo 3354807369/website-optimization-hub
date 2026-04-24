@@ -13,9 +13,10 @@ const About = () => {
   const { t } = useLang();
 
   const services = [
-    { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Non-custodial, exchange-agnostic bots with modular strategies.", "非托管、跨交易所的模块化策略机器人。"), img: serviceAi, tag: "Trading" },
+    { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Non-custodial, exchange-agnostic bots with modular strategies.", "非托管、跨交易所的模块化策略机器人。"), img: serviceQuant, tag: "Trading" },
+    { title: t("AI Agents & Automation", "AI 智能体与自动化"), desc: t("LLM assistants, RAG pipelines, and workflow automation tailored to your stack.", "面向业务场景的 LLM 助手、RAG 管线与工作流自动化。"), img: serviceAi, tag: "AI" },
     { title: t("Website & Landing Pages", "网站与落地页"), desc: t("Performance-first sites built with modern frameworks. SEO, analytics, continuous iteration.", "性能优先的现代框架网站。SEO、分析、持续迭代。"), img: serviceWeb, tag: "Web" },
-    { title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, wallet integrations, on-chain indexing and dashboards.", "智能合约、钱包集成、链上索引和仪表板。"), img: serviceDev, tag: "Blockchain" },
+    { title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, wallet integrations, on-chain indexing and dashboards.", "智能合约、钱包集成、链上索引和仪表板。"), img: serviceBlockchain, tag: "Blockchain" },
   ];
 
   const whyPoints = [
