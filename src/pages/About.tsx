@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
+import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
-import serviceDev from "@/assets/service-dev.jpg";
+import serviceBlockchain from "@/assets/service-blockchain.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
