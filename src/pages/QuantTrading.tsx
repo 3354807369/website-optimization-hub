@@ -175,6 +175,32 @@ const QuantTrading = () => {
 
       <PerformanceCurve />
 
+      {/* ========== STATS (LIGHT) — under performance curve ========== */}
+      <section className="py-20 relative overflow-hidden bg-secondary/30 border-y border-border">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
+        />
+        <div className="section-wrap relative">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease }}
+                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
+                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">{s.value}</span>
+                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">{s.label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ========== FEATURES (DARK) ========== */}
       <section className="py-24 bg-foreground text-primary-foreground relative overflow-hidden">
         <div
