@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
+import SectionHeading from "@/components/SectionHeading";
 import { useLang } from "@/i18n/LanguageContext";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
@@ -59,8 +60,13 @@ const About = () => {
 
       <section className="py-20" style={{ background: "var(--gradient-section)" }}>
         <div className="section-wrap">
-          <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Our Expertise", "专业领域")}</p>
-          <h2 className="font-display text-foreground mb-10" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("What We Do", "我们做什么")}</h2>
+          <SectionHeading
+            eyebrow={t("Our Expertise", "专业领域")}
+            title={t("What We Do", "我们做什么")}
+            highlight={t("We Do", "做什么")}
+            description={t("Four practice areas, one engineering bar — built for reliability, observability, and speed.", "四大业务方向，统一的工程标准 — 为可靠性、可观测性与速度而生。")}
+            className="mb-12"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {services.map((s, i) => (
               <motion.article key={s.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease }} className="group rounded-2xl bg-card border border-border overflow-hidden transition-all duration-300 hover:border-primary/25" style={{ boxShadow: "var(--shadow-card)" }}>
@@ -80,10 +86,14 @@ const About = () => {
 
       <section className="py-20 bg-background">
         <div className="section-wrap">
-          <div className="text-center mb-14">
-            <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Our Values", "我们的价值观")}</p>
-            <h2 className="font-display text-foreground" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("Why StarLoop", "为什么选择 StarLoop")}</h2>
-          </div>
+          <SectionHeading
+            eyebrow={t("Our Values", "我们的价值观")}
+            title={t("Why StarLoop", "为什么选择 StarLoop")}
+            highlight={t("StarLoop", "StarLoop")}
+            description={t("Six principles that shape how we design, build, and ship every system.", "塑造我们设计、构建与交付每一套系统的六项准则。")}
+            align="center"
+            className="mb-14"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {whyPoints.map((p, i) => (
               <motion.div key={p.title} initial={{ opacity: 0, y: 20, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08, ease }} className="group relative p-6 border border-border rounded-2xl bg-card transition-all duration-300 hover:border-primary/25 hover:shadow-lg" style={{ boxShadow: "var(--shadow-card)" }}>

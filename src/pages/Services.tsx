@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
+import SectionHeading from "@/components/SectionHeading";
 import { useLang } from "@/i18n/LanguageContext";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
@@ -58,8 +59,13 @@ const Services = () => {
       {/* CATALOG */}
       <section className="py-20" style={{ background: "var(--gradient-section)" }}>
         <div className="section-wrap">
-          <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Our Offerings", "我们的产品")}</p>
-          <h2 className="font-display text-foreground mb-10" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("What We Offer", "我们提供什么")}</h2>
+          <SectionHeading
+            eyebrow={t("Our Offerings", "我们的产品")}
+            title={t("What We Offer", "我们提供什么")}
+            highlight={t("We Offer", "提供什么")}
+            description={t("End-to-end engineering across trading, AI, web and Web3 — pick a track or combine them.", "覆盖交易、AI、网站与 Web3 的端到端工程能力 — 单独选用，或自由组合。")}
+            className="mb-12"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {catalog.map((c, i) => {
               const href = c.id === "quant" ? "/services/quant-trading" : c.id === "ai" ? "/services/ai-agents" : c.id === "web" ? "/services/web-development" : undefined;
@@ -96,10 +102,14 @@ const Services = () => {
       {/* ENGAGEMENT MODELS */}
       <section className="py-20 bg-background">
         <div className="section-wrap">
-          <div className="text-center mb-14">
-            <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Flexible Plans", "灵活方案")}</p>
-            <h2 className="font-display text-foreground" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("Engagement Models", "合作模式")}</h2>
-          </div>
+          <SectionHeading
+            eyebrow={t("Flexible Plans", "灵活方案")}
+            title={t("Engagement Models", "合作模式")}
+            highlight={t("Models", "模式")}
+            description={t("Start small, ship fast, and scale with confidence — three ways to work together.", "小步起步、快速交付、稳健扩展 — 三种合作方式任您选择。")}
+            align="center"
+            className="mb-14"
+          />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {models.map((m, i) => (
               <motion.article key={m.title} initial={{ opacity: 0, y: 20, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1, ease }} className="group relative p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/25 hover:shadow-lg" style={{ boxShadow: "var(--shadow-card)" }}>
@@ -133,10 +143,14 @@ const Services = () => {
       {/* DELIVERABLES */}
       <section className="py-20" style={{ background: "var(--gradient-section)" }}>
         <div className="section-wrap">
-          <div className="text-center mb-10">
-            <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("What You Get", "您将获得")}</p>
-            <h2 className="font-display text-foreground" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("Deliverables & Guarantees", "交付物与保障")}</h2>
-          </div>
+          <SectionHeading
+            eyebrow={t("What You Get", "您将获得")}
+            title={t("Deliverables & Guarantees", "交付物与保障")}
+            highlight={t("Guarantees", "保障")}
+            description={t("Every engagement ships with versioned code, runbooks, monitoring, and a clear support window.", "每一次合作都交付版本化代码、运行手册、监控仪表板与明确的支持周期。")}
+            align="center"
+            className="mb-12"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease }} className="p-6 rounded-2xl bg-card border border-border" style={{ boxShadow: "var(--shadow-card)" }}>
               <h3 className="font-display font-bold text-lg mb-4">{t("Deliverables", "交付物")}</h3>
