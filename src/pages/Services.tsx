@@ -181,24 +181,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20" style={{ background: "var(--gradient-section)" }}>
-        <div className="section-wrap">
-          <div className="text-center mb-12">
-            <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Common Questions", "常见问题")}</p>
-            <h2 className="font-display text-foreground" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("FAQs", "常见问答")}</h2>
-          </div>
-          <div className="max-w-3xl mx-auto flex flex-col gap-5">
-            {faqs.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08, ease }} className="flex flex-col gap-2.5">
-                <div className="flex justify-start"><div className="max-w-[85%] px-4 py-3 rounded-2xl rounded-tl-md bg-card border border-border" style={{ boxShadow: "var(--shadow-sm)" }}><p className="font-bold text-sm">{item.q}</p></div></div>
-                <div className="flex justify-end"><div className="max-w-[85%] px-4 py-3 rounded-2xl rounded-tr-md bg-primary/5 border border-primary/15"><p className="text-sm text-foreground leading-relaxed">{item.a}</p></div></div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section
         className="py-24 relative overflow-hidden text-primary-foreground"
