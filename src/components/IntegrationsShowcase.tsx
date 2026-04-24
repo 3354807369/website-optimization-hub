@@ -20,7 +20,7 @@ const IntegrationsShowcase = () => {
             <InfrastructureDiagram />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
-            <h2 className="font-display text-foreground mb-3" style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            <h2 className="font-display font-bold text-foreground mb-3" style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
               {t("A Modular Quant Trading Infrastructure", "模块化量化交易基础设施")}
             </h2>
             <p className="text-muted-foreground leading-relaxed text-[15px] max-w-[60ch] mb-5">
