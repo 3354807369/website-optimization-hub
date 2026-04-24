@@ -9,7 +9,6 @@ import heroImage from "@/assets/quant-hero-1.jpg";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const QuantTrading = () => {
-  const [current, setCurrent] = useState(0);
   const { t } = useLang();
 
   const features = [
