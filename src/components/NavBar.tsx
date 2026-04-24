@@ -117,12 +117,12 @@ const NavBar = () => {
                       to={item.to}
                       className={`inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium no-underline transition-all duration-300 ${
                         isTransparent
-                          ? active
-                            ? "text-primary-foreground bg-white/15"
+                          ? active || servicesOpen
+                            ? "text-primary-foreground bg-white/20 ring-1 ring-white/25"
                             : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
-                          : active
-                          ? "text-foreground bg-secondary"
-                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                          : active || servicesOpen
+                          ? "text-primary bg-primary/10 ring-1 ring-primary/20"
+                          : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
                       }`}
                       aria-haspopup="true"
                       aria-expanded={servicesOpen}
@@ -193,11 +193,11 @@ const NavBar = () => {
                   className={`px-3 py-2 rounded-lg text-sm font-medium no-underline transition-all duration-300 ${
                     isTransparent
                       ? location.pathname === item.to
-                        ? "text-primary-foreground bg-white/15"
+                        ? "text-primary-foreground bg-white/20 ring-1 ring-white/25"
                         : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
                       : location.pathname === item.to
-                      ? "text-foreground bg-secondary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                      ? "text-primary bg-primary/10 ring-1 ring-primary/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
                   }`}
                 >
                   {item.label}
@@ -209,7 +209,7 @@ const NavBar = () => {
               className={`ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer border-none bg-transparent ${
                 isTransparent
                   ? "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                  : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
               }`}
               aria-label="Switch language"
             >
