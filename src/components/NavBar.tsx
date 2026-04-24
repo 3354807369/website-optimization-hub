@@ -209,7 +209,7 @@ const NavBar = () => {
               className={`ml-1 inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer border-none bg-transparent ${
                 isTransparent
                   ? "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                  : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
               }`}
               aria-label="Switch language"
             >
