@@ -25,14 +25,7 @@ const QuantTrading = () => {
     { value: "$25,000", label: t("Running Capital", "运行资金") },
   ];
 
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % heroImages.length);
-  }, []);
 
-  useEffect(() => {
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
-  }, [next]);
 
   return (
     <main className="bg-background text-foreground">
