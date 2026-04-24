@@ -151,29 +151,25 @@ const QuantTrading = () => {
 
       <PerformanceCurve />
 
-      {/* ========== FEATURES (DARK) ========== */}
-      <section className="py-24 bg-foreground text-primary-foreground relative overflow-hidden">
+      {/* ========== FEATURES (LIGHT) ========== */}
+      <section className="py-24 relative overflow-hidden" style={{ background: "var(--gradient-section)" }}>
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
-        <div
-          className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
-        />
         <div className="section-wrap relative">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-3">
+            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-3">
               {t("Core Capabilities", "核心能力")}
             </p>
-            <h2 className="font-display text-primary-foreground" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            <h2 className="font-display text-foreground" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
               {t("Trade Smarter with", "用数据驱动的量化机器人")}
               <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent"> {t("Data-Driven Quant Bots", "更聪明地交易")}</span>
+              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"> {t("Data-Driven Quant Bots", "更聪明地交易")}</span>
             </h2>
           </motion.div>
 
@@ -185,12 +181,13 @@ const QuantTrading = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.12, ease }}
-                className="group relative p-6 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-sky-400/30 transition-all duration-300"
+                className="group relative p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/30"
+                style={{ boxShadow: "var(--shadow-card)" }}
               >
                 <div className="text-3xl mb-4">{f.icon}</div>
-                <h3 className="font-display text-xl font-bold text-primary-foreground mb-2 leading-tight">{f.title}</h3>
-                <p className="text-primary-foreground/60 text-[15px] leading-relaxed">{f.desc}</p>
-                <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-sky-400/0 transition-all duration-300 group-hover:bg-sky-400/50" />
+                <h3 className="font-display text-xl font-bold text-foreground mb-2 leading-tight">{f.title}</h3>
+                <p className="text-muted-foreground text-[15px] leading-relaxed">{f.desc}</p>
+                <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-primary/0 transition-all duration-300 group-hover:bg-primary/50" />
               </motion.div>
             ))}
           </div>
