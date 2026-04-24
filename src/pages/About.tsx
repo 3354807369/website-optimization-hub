@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
+import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
-import serviceDev from "@/assets/service-dev.jpg";
+import serviceBlockchain from "@/assets/service-blockchain.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -12,9 +13,10 @@ const About = () => {
   const { t } = useLang();
 
   const services = [
-    { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Non-custodial, exchange-agnostic bots with modular strategies.", "非托管、跨交易所的模块化策略机器人。"), img: serviceAi, tag: "Trading" },
+    { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Non-custodial, exchange-agnostic bots with modular strategies.", "非托管、跨交易所的模块化策略机器人。"), img: serviceQuant, tag: "Trading" },
+    { title: t("AI Agents & Automation", "AI 智能体与自动化"), desc: t("LLM assistants, RAG pipelines, and workflow automation tailored to your stack.", "面向业务场景的 LLM 助手、RAG 管线与工作流自动化。"), img: serviceAi, tag: "AI" },
     { title: t("Website & Landing Pages", "网站与落地页"), desc: t("Performance-first sites built with modern frameworks. SEO, analytics, continuous iteration.", "性能优先的现代框架网站。SEO、分析、持续迭代。"), img: serviceWeb, tag: "Web" },
-    { title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, wallet integrations, on-chain indexing and dashboards.", "智能合约、钱包集成、链上索引和仪表板。"), img: serviceDev, tag: "Blockchain" },
+    { title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, wallet integrations, on-chain indexing and dashboards.", "智能合约、钱包集成、链上索引和仪表板。"), img: serviceBlockchain, tag: "Blockchain" },
   ];
 
   const whyPoints = [
@@ -59,7 +61,7 @@ const About = () => {
         <div className="section-wrap">
           <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Our Expertise", "专业领域")}</p>
           <h2 className="font-display text-foreground mb-10" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("What We Do", "我们做什么")}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {services.map((s, i) => (
               <motion.article key={s.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease }} className="group rounded-2xl bg-card border border-border overflow-hidden transition-all duration-300 hover:border-primary/25" style={{ boxShadow: "var(--shadow-card)" }}>
                 <div className="aspect-[16/10] bg-secondary overflow-hidden relative">
