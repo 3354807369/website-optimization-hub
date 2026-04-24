@@ -53,13 +53,13 @@ const InfrastructureDiagram = () => {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative rounded-2xl border px-5 py-4 overflow-hidden transition-shadow duration-500 hover:shadow-[0_20px_45px_-15px_hsl(199_89%_30%/0.55)]"
+                className="group relative rounded-2xl border px-5 py-4 overflow-hidden transition-shadow duration-500 hover:shadow-[0_20px_45px_-12px_hsl(199_89%_50%/0.35)]"
                 style={{
-                  borderColor: "hsl(0 0% 100% / 0.7)",
+                  borderColor: "hsl(217 50% 30% / 0.6)",
                   background:
-                    "linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 99%) 60%, hsl(199 89% 97%) 100%)",
+                    "linear-gradient(135deg, hsl(217 50% 14% / 0.85) 0%, hsl(222 47% 11% / 0.9) 60%, hsl(217 60% 18% / 0.85) 100%)",
                   boxShadow:
-                    "0 12px 32px -14px hsl(199 89% 30% / 0.45), inset 0 1px 0 0 hsl(0 0% 100% / 0.9)",
+                    "0 12px 32px -14px hsl(217 91% 30% / 0.5), inset 0 1px 0 0 hsl(199 89% 70% / 0.15)",
                 }}
               >
                 {/* corner glow */}
