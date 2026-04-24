@@ -51,69 +51,91 @@ const InfrastructureDiagram = () => {
               transition={{ duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
             >
               <motion.div
-                whileHover={{ y: -2, scale: 1.01 }}
-                transition={{ duration: 0.25 }}
-                className="group relative rounded-2xl border backdrop-blur-md px-5 py-4 overflow-hidden"
+                whileHover={{ y: -3 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative rounded-2xl border px-5 py-4 overflow-hidden transition-shadow duration-500 hover:shadow-[0_20px_45px_-15px_hsl(199_89%_30%/0.55)]"
                 style={{
-                  borderColor: "hsl(0 0% 100% / 0.6)",
-                  background: "hsl(0 0% 100%)",
-                  boxShadow: "0 10px 30px -12px hsl(199 89% 30% / 0.45), inset 0 1px 0 0 hsl(0 0% 100% / 0.9)",
+                  borderColor: "hsl(0 0% 100% / 0.7)",
+                  background:
+                    "linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 99%) 60%, hsl(199 89% 97%) 100%)",
+                  boxShadow:
+                    "0 12px 32px -14px hsl(199 89% 30% / 0.45), inset 0 1px 0 0 hsl(0 0% 100% / 0.9)",
                 }}
               >
-                {/* shimmer on hover */}
+                {/* corner glow */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  className="absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-60 pointer-events-none blur-2xl"
                   style={{
                     background:
-                      "linear-gradient(110deg, transparent 30%, hsl(199 89% 70% / 0.12) 50%, transparent 70%)",
+                      "radial-gradient(circle, hsl(199 89% 70% / 0.35), transparent 70%)",
+                  }}
+                />
+
+                {/* shimmer sweep on hover */}
+                <div
+                  className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(110deg, transparent 35%, hsl(199 89% 80% / 0.25) 50%, transparent 65%)",
                   }}
                 />
 
                 {/* left accent bar */}
-                <div
+                <motion.div
                   className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full"
                   style={{
                     background:
                       "linear-gradient(to bottom, hsl(199 89% 48%), hsl(217 91% 60%))",
                   }}
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
                 />
 
                 <div className="relative flex items-center gap-3 mb-3">
-                  <span className="text-[10px] font-mono text-foreground/40 tracking-widest">
+                  <span className="text-[10px] font-mono text-foreground/35 tracking-widest">
                     0{i + 1}
                   </span>
-                  <div
-                    className="flex items-center justify-center w-7 h-7 rounded-lg"
+                  <motion.div
+                    whileHover={{ rotate: 8, scale: 1.08 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    className="flex items-center justify-center w-8 h-8 rounded-lg relative overflow-hidden"
                     style={{
                       background:
-                        "linear-gradient(135deg, hsl(199 89% 48% / 0.15), hsl(217 91% 60% / 0.1))",
-                      border: "1px solid hsl(199 89% 48% / 0.2)",
+                        "linear-gradient(135deg, hsl(199 89% 48% / 0.18), hsl(217 91% 60% / 0.12))",
+                      border: "1px solid hsl(199 89% 48% / 0.25)",
+                      boxShadow: "inset 0 1px 0 0 hsl(0 0% 100% / 0.6)",
                     }}
                   >
-                    <Icon size={14} className="text-primary" strokeWidth={2.2} />
-                  </div>
+                    <Icon size={15} className="text-primary relative z-10" strokeWidth={2.2} />
+                  </motion.div>
                   <span className="text-[13px] font-bold tracking-[0.08em] uppercase text-foreground">
                     {layer.label}
                   </span>
+                  <motion.span
+                    className="ml-auto w-1.5 h-1.5 rounded-full"
+                    style={{ background: "hsl(142 71% 45%)", boxShadow: "0 0 8px hsl(142 71% 45%)" }}
+                    animate={{ opacity: [0.4, 1, 0.4], scale: [0.9, 1.1, 0.9] }}
+                    transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.25 }}
+                  />
                 </div>
 
                 <div className="relative flex flex-wrap gap-1.5 pl-10">
                   {layer.items.map((item, j) => (
                     <motion.span
                       key={item}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, y: 6 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: i * 0.12 + 0.2 + j * 0.05 }}
-                      whileHover={{ y: -1 }}
-                      className="text-[12px] font-medium px-3 py-1.5 rounded-lg cursor-default transition-all"
+                      transition={{ duration: 0.35, delay: i * 0.12 + 0.2 + j * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                      whileHover={{ y: -2 }}
+                      className="text-[12px] font-medium px-3 py-1.5 rounded-lg cursor-default transition-all duration-300 hover:text-white hover:border-transparent hover:shadow-[0_6px_14px_-4px_hsl(199_89%_48%/0.45)] hover:bg-gradient-to-br hover:from-[hsl(199_89%_48%)] hover:to-[hsl(217_91%_60%)]"
                       style={{
-                        color: "hsl(199 89% 35%)",
+                        color: "hsl(199 89% 32%)",
                         borderWidth: "1px",
                         borderStyle: "solid",
-                        borderColor: "hsl(199 89% 48% / 0.2)",
+                        borderColor: "hsl(199 89% 48% / 0.22)",
                         background:
-                          "linear-gradient(135deg, hsl(199 89% 95%) 0%, hsl(217 91% 97%) 100%)",
+                          "linear-gradient(135deg, hsl(199 89% 96%) 0%, hsl(217 91% 98%) 100%)",
                         boxShadow: "0 1px 2px hsl(199 89% 48% / 0.08)",
                       }}
                     >
@@ -124,24 +146,27 @@ const InfrastructureDiagram = () => {
               </motion.div>
 
               {i < layers.length - 1 && (
-                <div className="flex justify-center py-1.5">
-                  <div className="relative flex flex-col items-center">
+                <div className="flex justify-center py-2">
+                  <div className="relative flex flex-col items-center h-6 w-px">
                     <motion.div
                       initial={{ scaleY: 0 }}
                       whileInView={{ scaleY: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.12 + 0.3 }}
-                      className="w-px h-4 origin-top"
+                      transition={{ duration: 0.5, delay: i * 0.12 + 0.3 }}
+                      className="absolute inset-0 origin-top"
                       style={{
                         background:
-                          "linear-gradient(to bottom, hsl(199 89% 48% / 0.5), hsl(199 89% 48% / 0.1))",
+                          "linear-gradient(to bottom, hsl(199 89% 55% / 0.6), hsl(217 91% 60% / 0.15))",
                       }}
                     />
                     <motion.div
-                      animate={{ y: [0, 3, 0], opacity: [0.4, 0.9, 0.4] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                      className="absolute top-0 w-1 h-1 rounded-full"
-                      style={{ background: "hsl(199 89% 55%)", boxShadow: "0 0 6px hsl(199 89% 55%)" }}
+                      animate={{ y: [0, 24, 24], opacity: [0, 1, 0] }}
+                      transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.4, ease: "easeIn" }}
+                      className="absolute top-0 -left-[3px] w-[7px] h-[7px] rounded-full"
+                      style={{
+                        background: "hsl(199 89% 60%)",
+                        boxShadow: "0 0 10px hsl(199 89% 60%), 0 0 20px hsl(199 89% 60% / 0.5)",
+                      }}
                     />
                   </div>
                 </div>
