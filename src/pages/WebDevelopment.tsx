@@ -21,6 +21,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import heroImg from "@/assets/web-dev-hero.jpg";
 import workMaisonNoir from "@/assets/work-maison-noir.png";
 import workSparkleCo from "@/assets/work-sparkleco.png";
+import workHavenCo from "@/assets/work-havenco.png";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -136,6 +137,18 @@ const WebDevelopment = () => {
       img: workSparkleCo,
       url: "https://clean-service-demo.vercel.app/",
       tag: t("Service Booking", "服务预订"),
+    },
+    {
+      title: "Haven Co",
+      subtitle: t("Australian Property House", "澳洲房产展示平台"),
+      desc: t(
+        "An editorial real-estate showcase from Sydney to the Sunshine Coast — cinematic hero imagery, curated listings, and a fast filter-driven search for rentals and sales.",
+        "覆盖悉尼至阳光海岸的编辑风房产展示平台 —— 电影感主视觉、精选房源、租售一体的高速筛选搜索。"
+      ),
+      tags: ["React", "Tailwind", "Property Search"],
+      img: workHavenCo,
+      url: "https://cozy-home-showcase.vercel.app/",
+      tag: t("Real Estate", "房产展示"),
     },
   ];
 
