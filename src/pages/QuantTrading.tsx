@@ -369,6 +369,73 @@ const QuantTrading = () => {
 
       <IntegrationsShowcase />
 
+      {/* ========== FAQ (LIGHT) ========== */}
+      <section className="py-24 relative overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+        <div
+          className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full opacity-20 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.45), transparent 70%)" }}
+        />
+        <div className="section-wrap relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="max-w-2xl mb-12"
+          >
+            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-3">
+              {t("FAQ", "常见问题")}
+            </p>
+            <h2
+              className="font-display font-bold text-foreground"
+              style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+            >
+              {t("Answers for", "关于量化自动化的")}{" "}
+              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                {t("serious quant teams", "实战级解答")}
+              </span>
+            </h2>
+            <p className="text-muted-foreground mt-4 text-[15px] leading-relaxed">
+              {t(
+                "Custody, exchanges, customization, validation, risk and pricing — the questions we hear most before a build.",
+                "资金托管、交易所、定制、验证、风控与报价 — 立项前我们被问到最多的问题。"
+              )}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease }}
+            className="max-w-3xl"
+          >
+            <Accordion type="single" collapsible className="flex flex-col gap-3">
+              {faqs.map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`faq-${i}`}
+                  className="border border-border rounded-2xl bg-card px-5 transition-all duration-300 hover:border-primary/30 data-[state=open]:border-primary/40 data-[state=open]:shadow-lg"
+                  style={{ boxShadow: "var(--shadow-sm)" }}
+                >
+                  <AccordionTrigger className="py-5 text-left font-display font-semibold text-base sm:text-[17px] text-foreground hover:no-underline gap-4">
+                    <span className="flex items-start gap-3">
+                      <span className="text-primary/70 font-mono text-xs mt-1.5 tabular-nums">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {item.q}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-5 pl-9 pr-2 text-muted-foreground text-[15px] leading-relaxed">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ========== CTA ========== */}
       <section
         className="py-24 relative overflow-hidden text-primary-foreground"
