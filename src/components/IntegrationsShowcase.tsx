@@ -13,12 +13,12 @@ const IntegrationsShowcase = () => {
   ];
 
   return (
-    <section className="bg-foreground text-primary-foreground py-[72px] overflow-hidden relative">
+    <section className="bg-background text-foreground py-[72px] overflow-hidden relative">
       <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+            "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
