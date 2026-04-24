@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
 import PerformanceCurve from "@/components/PerformanceCurve";
-import ServicesGrid from "@/components/ServicesGrid";
+
 import { useLang } from "@/i18n/LanguageContext";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
@@ -196,7 +196,7 @@ const QuantTrading = () => {
       </section>
 
       <IntegrationsShowcase />
-      <ServicesGrid />
+      
     </main>
   );
 };
