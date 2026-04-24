@@ -11,7 +11,7 @@ import hero3 from "@/assets/hero-3.jpg";
 
 const heroImages = [hero1, hero2, hero3];
 
-const Index = () => {
+const QuantTrading = () => {
   const [current, setCurrent] = useState(0);
   const { t } = useLang();
 
@@ -40,7 +40,7 @@ const Index = () => {
 
   return (
     <main>
-      <SEO path="/" />
+      <SEO title={t("Quant Trading Automation", "量化交易自动化")} path="/services/quant-trading" />
 
       {/* ========== HERO ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
