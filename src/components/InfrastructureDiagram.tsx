@@ -55,10 +55,9 @@ const InfrastructureDiagram = () => {
                 transition={{ duration: 0.25 }}
                 className="group relative rounded-2xl border backdrop-blur-md px-5 py-4 overflow-hidden"
                 style={{
-                  borderColor: "hsl(199 89% 48% / 0.18)",
-                  background:
-                    "linear-gradient(135deg, hsl(199 89% 60% / 0.08) 0%, hsl(217 91% 60% / 0.04) 60%, hsl(0 0% 100% / 0.4) 100%)",
-                  boxShadow: "0 8px 24px -12px hsl(199 89% 48% / 0.25), inset 0 1px 0 0 hsl(0 0% 100% / 0.6)",
+                  borderColor: "hsl(0 0% 100% / 0.6)",
+                  background: "hsl(0 0% 100%)",
+                  boxShadow: "0 10px 30px -12px hsl(199 89% 30% / 0.45), inset 0 1px 0 0 hsl(0 0% 100% / 0.9)",
                 }}
               >
                 {/* shimmer on hover */}
