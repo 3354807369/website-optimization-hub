@@ -19,10 +19,10 @@ const QuantTrading = () => {
 
   const stats = [
     { value: "3+", label: t("Integrated Exchanges", "已对接交易所") },
-    { value: "<80ms", label: t("Gateway Latency", "网关延迟") },
+    { value: "<80ms", label: t("Latency Target", "延迟目标") },
     { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime Target", "正常运行目标") },
-    { value: "$25,000", label: t("Running Capital", "运行资金") },
+    { value: "99.9%", label: t("Uptime Target", "可用性目标") },
+    { value: "24/7", label: t("Monitoring", "全天候监控") },
   ];
 
 
