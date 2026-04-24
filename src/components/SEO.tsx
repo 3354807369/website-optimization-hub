@@ -5,21 +5,78 @@ interface SEOProps {
   description?: string;
   path?: string;
   image?: string;
+  /** Optional schema type. "Organization" is added on home automatically. */
+  schema?: "Organization" | "Service" | "WebSite" | "AboutPage" | "ContactPage";
+  /** When schema = "Service", provide a service name (e.g. "Quant Trading Automation") */
+  serviceName?: string;
 }
 
 const SITE_NAME = "StarLoop";
 const BASE_URL = "https://starlooptech.com";
-const DEFAULT_DESC = "Data-driven quant trading automation, fast modern websites, and blockchain engineering by StarLoop.";
+const DEFAULT_DESC =
+  "Data-driven quant trading automation, AI agents, fast modern websites, and blockchain engineering by StarLoop.";
 
 const SEO = ({
   title,
   description = DEFAULT_DESC,
   path = "/",
   image = "/og-image.png",
+  schema,
+  serviceName,
 }: SEOProps) => {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Quant Trading Automation`;
   const url = `${BASE_URL}${path}`;
   const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
+
+  // Build JSON-LD blocks
+  const jsonLdBlocks: Record<string, unknown>[] = [];
+
+  // Organization always present (helps brand search)
+  jsonLdBlocks.push({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: BASE_URL,
+    logo: `${BASE_URL}/og-image.png`,
+    description: DEFAULT_DESC,
+    sameAs: [],
+  });
+
+  // Page-specific
+  if (schema === "WebSite" || path === "/") {
+    jsonLdBlocks.push({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: BASE_URL,
+    });
+  }
+  if (schema === "Service" && serviceName) {
+    jsonLdBlocks.push({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: serviceName,
+      provider: { "@type": "Organization", name: SITE_NAME, url: BASE_URL },
+      description,
+      url,
+    });
+  }
+  if (schema === "AboutPage") {
+    jsonLdBlocks.push({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      url,
+      name: fullTitle,
+    });
+  }
+  if (schema === "ContactPage") {
+    jsonLdBlocks.push({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      url,
+      name: fullTitle,
+    });
+  }
 
   return (
     <Helmet>
@@ -40,6 +97,13 @@ const SEO = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+
+      {/* JSON-LD structured data */}
+      {jsonLdBlocks.map((block, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(block)}
+        </script>
+      ))}
     </Helmet>
   );
 };
