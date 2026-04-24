@@ -31,7 +31,7 @@ const QuantTrading = () => {
 
   return (
     <main className="bg-background text-foreground">
-      <SEO title={t("Quant Trading Automation", "量化交易自动化")} path="/services/quant-trading" />
+      <SEO title={t("Quant Trading Automation", "量化交易自动化")} path="/services/quant-trading" schema="Service" serviceName="Quant Trading Automation" description="Non-custodial, exchange-agnostic quant trading bots with modular strategies, risk-first execution, and full observability." />
 
       {/* ========== HERO (DARK) ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
