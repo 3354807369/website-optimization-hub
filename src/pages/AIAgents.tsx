@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
-import heroImg from "@/assets/ai-agent-hero.jpg";
+import heroImg from "@/assets/ai-agent-hero-light.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -153,14 +153,14 @@ const AIAgents = () => {
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "linear-gradient(90deg, hsl(222 47% 6% / 0.95) 0%, hsl(222 47% 8% / 0.7) 60%, hsl(222 47% 6% / 0.4) 100%)",
+              "linear-gradient(90deg, hsl(0 0% 100% / 0.85) 0%, hsl(199 89% 96% / 0.55) 60%, hsl(199 89% 92% / 0.25) 100%)",
           }}
         />
         <div
-          className="absolute inset-0 z-[1] opacity-[0.06] pointer-events-none"
+          className="absolute inset-0 z-[1] opacity-[0.05] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
+              "linear-gradient(hsl(199 89% 40%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 40%) 1px, transparent 1px)",
             backgroundSize: "70px 70px",
             maskImage: "radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%)",
           }}
@@ -177,31 +177,30 @@ const AIAgents = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md mb-8"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-white/70 backdrop-blur-md mb-8 shadow-sm"
             >
-              <Sparkles size={13} className="text-sky-300" />
-              <span className="text-white/85 text-sm font-medium tracking-wide">
+              <Sparkles size={13} className="text-primary" />
+              <span className="text-foreground/80 text-sm font-medium tracking-wide">
                 {t("Custom AI Agents for Business", "为企业定制的 AI 智能代理")}
               </span>
             </motion.div>
 
             <h1
-              className="font-display font-bold text-white mb-6"
+              className="font-display font-bold text-foreground mb-6"
               style={{
                 fontSize: "clamp(2.5rem, 6.5vw, 5rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.035em",
-                textShadow: "0 4px 30px rgba(0,0,0,0.5)",
               }}
             >
               {t("Build agents that", "构建真正能")}
               <br />
-              <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                 {t("actually do the work", "干活的智能代理")}
               </span>
             </h1>
 
-            <p className="text-white/75 max-w-[55ch] text-base md:text-lg mb-10">
+            <p className="text-muted-foreground max-w-[55ch] text-base md:text-lg mb-10">
               {t(
                 "From customer support to internal automation — we design, build, and operate custom AI agents tailored to your workflows and stack.",
                 "从客服到内部自动化 —— 我们为你的业务流程和技术栈,设计、构建并运营定制 AI 代理。"
@@ -211,14 +210,14 @@ const AIAgents = () => {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all no-underline shadow-lg shadow-sky-500/20"
               >
                 {t("Start Your Agent", "启动你的代理")}
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-foreground/15 bg-white/60 backdrop-blur-md text-foreground font-semibold text-sm hover:bg-white/80 transition-all no-underline"
               >
                 {t("All Services", "全部服务")}
               </Link>
