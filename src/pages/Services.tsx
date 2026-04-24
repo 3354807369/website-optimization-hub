@@ -22,9 +22,10 @@ const Services = () => {
   ];
 
   const catalog = [
-    { id: "quant", title: t("Quant Trading Automation", "量化交易自动化"), img: serviceAi, tag: "Trading", bullets: [t("Non-custodial bots across Binance / OKX / Bybit", "跨 Binance / OKX / Bybit 的非托管机器人"), t("Modular strategies: momentum/CTA, market making, arbitrage", "模块化策略：动量/CTA、做市、套利"), t("Risk controls: drawdown limits, stop-losses, position sizing", "风控：回撤限制、止损、仓位管理"), t("Reproducible backtests, versioned configs", "可复现回测、版本化配置")] },
+    { id: "quant", title: t("Quant Trading Automation", "量化交易自动化"), img: serviceQuant, tag: "Trading", bullets: [t("Non-custodial bots across Binance / OKX / Bybit", "跨 Binance / OKX / Bybit 的非托管机器人"), t("Modular strategies: momentum/CTA, market making, arbitrage", "模块化策略：动量/CTA、做市、套利"), t("Risk controls: drawdown limits, stop-losses, position sizing", "风控:回撤限制、止损、仓位管理"), t("Reproducible backtests, versioned configs", "可复现回测、版本化配置")] },
+    { id: "ai", title: t("AI Agents & Automation", "AI 智能代理与自动化"), img: serviceAi, tag: "AI", bullets: [t("Custom AI agents for support, sales, and internal ops", "定制客服、销售、内部运营 AI 代理"), t("LLM-powered assistants & workflow automation", "大模型驱动的助手与流程自动化"), t("Knowledge base integration & RAG pipelines", "知识库集成与 RAG 管道"), t("Observable, governed, and on-brand", "可观测、可治理、契合品牌")] },
     { id: "web", title: t("Website & Landing Pages", "网站与落地页"), img: serviceWeb, tag: "Web", bullets: [t("Modern frontends with clean, accessible design", "现代前端，简洁可访问的设计"), t("Performance, SEO, analytics, A/B testing", "性能、SEO、分析、A/B 测试"), t("Component libraries, CMS integration, CI/CD", "组件库、CMS 集成、CI/CD"), t("Fast iteration to convert visitors", "快速迭代以转化访客")] },
-    { id: "blockchain", title: t("Blockchain & Web3", "区块链与 Web3"), img: serviceDev, tag: "Dev", bullets: [t("Smart contracts & wallet integrations", "智能合约与钱包集成"), t("On-chain indexing, data pipelines, dashboards", "链上索引、数据管道、仪表板"), t("Custody/workflow integrations", "托管/工作流集成"), t("Observability & incident response", "可观测性与事件响应")] },
+    { id: "blockchain", title: t("Blockchain & Web3", "区块链与 Web3"), img: serviceBlockchain, tag: "Web3", bullets: [t("Smart contracts & wallet integrations", "智能合约与钱包集成"), t("On-chain indexing, data pipelines, dashboards", "链上索引、数据管道、仪表板"), t("Custody/workflow integrations", "托管/工作流集成"), t("Observability & incident response", "可观测性与事件响应")] },
   ];
 
   const models = [
