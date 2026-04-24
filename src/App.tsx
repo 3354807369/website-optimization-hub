@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import QuantTrading from "./pages/QuantTrading";
+import AIAgents from "./pages/AIAgents";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
                 <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/quant-trading" element={<QuantTrading />} />
+              <Route path="/services/ai-agents" element={<AIAgents />} />
                 <Route path="/contact" element={<Contact />} />
               </Route>
               <Route path="*" element={<NotFound />} />

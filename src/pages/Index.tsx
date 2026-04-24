@@ -29,7 +29,7 @@ const Index = () => {
       title: t("AI Application R&D", "AI 应用研发"),
       desc: t("LLM agents, intelligent assistants, research tooling and workflow automation.", "大模型应用、智能代理、研究工具和流程自动化。"),
       img: bizAi,
-      href: "/services#ai",
+      href: "/services/ai-agents",
       tag: "AI / ML",
       accent: "from-cyan-500/30 to-sky-600/30",
     },
