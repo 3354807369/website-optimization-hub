@@ -13,13 +13,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const Services = () => {
   const { t } = useLang();
 
-  const faqs = [
-    { q: t("Do you take custody of funds?", "你们会托管资金吗？"), a: t("No. StarLoop is non-custodial by default. Bots use your exchange API keys with least-privilege.", "不会。StarLoop 默认非托管。机器人使用您的交易所 API 密钥，最小权限。") },
-    { q: t("Can you customize strategies?", "可以定制策略吗？"), a: t("Yes. We provide modular building blocks and can implement your logic on top.", "可以。我们提供模块化组件，并可以在此基础上实现您的逻辑。") },
-    { q: t("How do you validate performance?", "如何验证绩效？"), a: t("Reproducible backtests with versioned configs, dry-runs, and observable real-time metrics.", "版本化配置的可复现回测、模拟运行和可观测的实时指标。") },
-    { q: t("What does a typical timeline look like?", "典型的时间线是怎样的？"), a: t("A prototype sprint takes 2–3 weeks; production builds range from 4–8+ weeks.", "原型冲刺需要 2-3 周；生产构建需要 4-8+ 周。") },
-    { q: t("How is pricing structured?", "定价结构是怎样的？"), a: t("We scope by outcome and complexity. Prototype sprints are fixed; production builds are quoted after discovery.", "我们按成果和复杂度定价。原型冲刺固定价格；生产构建在需求调研后报价。") },
-  ];
+
 
   const catalog = [
     { id: "quant", title: t("Quant Trading Automation", "量化交易自动化"), img: serviceQuant, tag: "Trading", bullets: [t("Non-custodial bots across Binance / OKX / Bybit", "跨 Binance / OKX / Bybit 的非托管机器人"), t("Modular strategies: momentum/CTA, market making, arbitrage", "模块化策略：动量/CTA、做市、套利"), t("Risk controls: drawdown limits, stop-losses, position sizing", "风控:回撤限制、止损、仓位管理"), t("Reproducible backtests, versioned configs", "可复现回测、版本化配置")] },
