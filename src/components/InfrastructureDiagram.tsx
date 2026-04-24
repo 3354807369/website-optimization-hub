@@ -128,15 +128,15 @@ const InfrastructureDiagram = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: i * 0.12 + 0.2 + j * 0.06, ease: [0.16, 1, 0.3, 1] }}
                       whileHover={{ y: -2 }}
-                      className="text-[12px] font-medium px-3 py-1.5 rounded-lg cursor-default transition-all duration-300 hover:text-white hover:border-transparent hover:shadow-[0_6px_14px_-4px_hsl(199_89%_48%/0.45)] hover:bg-gradient-to-br hover:from-[hsl(199_89%_48%)] hover:to-[hsl(217_91%_60%)]"
+                      className="text-[12px] font-medium px-3 py-1.5 rounded-lg cursor-default transition-all duration-300 hover:text-white hover:border-transparent hover:shadow-[0_6px_14px_-4px_hsl(199_89%_48%/0.55)] hover:bg-gradient-to-br hover:from-[hsl(199_89%_55%)] hover:to-[hsl(217_91%_65%)]"
                       style={{
-                        color: "hsl(199 89% 32%)",
+                        color: "hsl(199 89% 75%)",
                         borderWidth: "1px",
                         borderStyle: "solid",
-                        borderColor: "hsl(199 89% 48% / 0.22)",
+                        borderColor: "hsl(199 89% 60% / 0.3)",
                         background:
-                          "linear-gradient(135deg, hsl(199 89% 96%) 0%, hsl(217 91% 98%) 100%)",
-                        boxShadow: "0 1px 2px hsl(199 89% 48% / 0.08)",
+                          "linear-gradient(135deg, hsl(217 50% 18% / 0.85) 0%, hsl(222 47% 14% / 0.8) 100%)",
+                        boxShadow: "0 1px 2px hsl(199 89% 30% / 0.25), inset 0 1px 0 0 hsl(199 89% 70% / 0.08)",
                       }}
                     >
                       {item}
