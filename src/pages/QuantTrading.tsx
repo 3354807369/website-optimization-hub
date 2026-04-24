@@ -108,16 +108,7 @@ const QuantTrading = () => {
           </motion.div>
         </motion.div>
 
-        <div className="absolute bottom-12 z-[2] flex items-center gap-2">
-          {heroImages.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`transition-all duration-300 rounded-full ${i === current ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/40 hover:bg-white/60"}`}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
-        </div>
+
 
         <motion.div
           initial={{ opacity: 0 }}
