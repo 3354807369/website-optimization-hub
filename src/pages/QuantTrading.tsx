@@ -175,11 +175,11 @@ const QuantTrading = () => {
 
       <PerformanceCurve />
 
-      {/* ========== STATS (LIGHT) — under performance curve ========== */}
-      <section className="py-20 relative overflow-hidden bg-secondary/30 border-y border-border">
+      {/* ========== STATS — seamless under performance curve ========== */}
+      <section className="pt-4 pb-20 sm:pb-24 bg-background relative overflow-hidden">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.35), transparent 70%)" }}
         />
         <div className="section-wrap relative">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
