@@ -20,6 +20,7 @@ import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import heroImg from "@/assets/web-dev-hero.jpg";
 import workMaisonNoir from "@/assets/work-maison-noir.png";
+import workSparkleCo from "@/assets/work-sparkleco.png";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -123,6 +124,18 @@ const WebDevelopment = () => {
       img: workMaisonNoir,
       url: "https://restaurant-showcase-demo-five.vercel.app/",
       tag: t("Brand Site", "品牌官网"),
+    },
+    {
+      title: "SparkleCo",
+      subtitle: t("Sydney Home Cleaning Service", "悉尼家庭清洁服务"),
+      desc: t(
+        "A trust-first booking site for a Sydney cleaning crew — 60-second checkout flow, live social-proof notifications, and same-day suburb availability.",
+        "为悉尼清洁团队打造的信任优先预订站 —— 60 秒下单流程、实时社交证明提示、覆盖各区当日预约。"
+      ),
+      tags: ["React", "Tailwind", "Booking Flow"],
+      img: workSparkleCo,
+      url: "https://clean-service-demo.vercel.app/",
+      tag: t("Service Booking", "服务预订"),
     },
   ];
 
@@ -402,27 +415,6 @@ const WebDevelopment = () => {
               </motion.a>
             ))}
 
-            {/* Coming-soon placeholder so the single card doesn't look lonely on wide screens */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: 0.2, ease }}
-              className="hidden lg:flex relative rounded-2xl border-2 border-dashed border-border bg-secondary/30 aspect-auto min-h-[420px] items-center justify-center text-center p-10"
-            >
-              <div>
-                <Sparkles size={28} className="text-primary mx-auto mb-4 opacity-60" />
-                <h3 className="font-display text-lg font-bold text-foreground mb-2">
-                  {t("Your project here", "你的项目可能在这里")}
-                </h3>
-                <p className="text-muted-foreground text-sm max-w-[28ch] mx-auto">
-                  {t(
-                    "More case studies launching soon. Want to be the next one?",
-                    "更多案例即将上线 —— 想成为下一个吗？"
-                  )}
-                </p>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
