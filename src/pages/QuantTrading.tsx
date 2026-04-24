@@ -1,15 +1,11 @@
-import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
 import PerformanceCurve from "@/components/PerformanceCurve";
 
 import { useLang } from "@/i18n/LanguageContext";
-import hero1 from "@/assets/quant-hero-1.jpg";
-import hero2 from "@/assets/quant-hero-2.jpg";
-import hero3 from "@/assets/quant-hero-3.jpg";
+import heroImage from "@/assets/quant-hero-1.jpg";
 
-const heroImages = [hero1, hero2, hero3];
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const QuantTrading = () => {
