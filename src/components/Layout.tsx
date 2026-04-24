@@ -8,7 +8,8 @@ const Layout = () => {
   const isHome =
     location.pathname === "/" ||
     location.pathname === "/services/quant-trading" ||
-    location.pathname === "/services/ai-agents";
+    location.pathname === "/services/ai-agents" ||
+    location.pathname === "/services/web-development";
 
   useEffect(() => {
     window.scrollTo(0, 0);
