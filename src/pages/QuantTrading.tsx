@@ -197,11 +197,11 @@ const QuantTrading = () => {
         </div>
       </section>
 
-      {/* ========== STATS (DARK with accent) ========== */}
-      <section className="py-16 relative overflow-hidden" style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 50%, hsl(217 91% 22%) 100%)" }}>
+      {/* ========== STATS (LIGHT) ========== */}
+      <section className="py-20 relative overflow-hidden bg-secondary/30 border-y border-border">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-25 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent 70%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
         />
         <div className="section-wrap relative">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -212,10 +212,11 @@ const QuantTrading = () => {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07, ease }}
-                className="group text-center p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md transition-all duration-300 hover:border-sky-300/40"
+                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40"
+                style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <span className="block text-2xl font-extrabold tracking-tight text-white font-display">{s.value}</span>
-                <span className="block mt-1.5 text-white/55 text-xs uppercase tracking-wider font-medium">{s.label}</span>
+                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">{s.value}</span>
+                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">{s.label}</span>
               </motion.div>
             ))}
           </div>
