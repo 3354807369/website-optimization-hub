@@ -38,7 +38,7 @@ const About = () => {
 
   return (
     <main className="bg-background text-foreground">
-      <SEO title={t("About Us", "关于我们")} description={t("Learn about StarLoop — engineering reliable trading automation.", "了解 StarLoop — 构建可靠的交易自动化。")} path="/about" />
+      <SEO title={t("About Us", "关于我们")} description={t("Learn about StarLoop — engineering reliable trading automation.", "了解 StarLoop — 构建可靠的交易自动化。")} path="/about" schema="AboutPage" />
 
       <section className="relative bg-foreground text-primary-foreground py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />

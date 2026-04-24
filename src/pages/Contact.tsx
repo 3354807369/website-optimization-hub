@@ -45,7 +45,7 @@ const Contact = () => {
 
   return (
     <main className="bg-background text-foreground">
-      <SEO title={t("Contact", "联系我们")} description={t("Get in touch with StarLoop.", "联系 StarLoop。")} path="/contact" />
+      <SEO title={t("Contact", "联系我们")} description={t("Get in touch with StarLoop.", "联系 StarLoop。")} path="/contact" schema="ContactPage" />
 
       <section className="relative bg-foreground text-primary-foreground py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />

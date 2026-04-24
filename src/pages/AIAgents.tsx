@@ -136,6 +136,8 @@ const AIAgents = () => {
           "StarLoop 定制 AI 智能代理：客服、内部助手、销售与流程自动化。"
         )}
         path="/services/ai-agents"
+        schema="Service"
+        serviceName="AI Agents & Automation"
       />
 
       {/* ============ HERO ============ */}
