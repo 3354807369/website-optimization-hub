@@ -23,8 +23,8 @@ const InfrastructureDiagram = () => {
             >
               <div className="absolute -left-px top-1/2 -translate-y-1/2 w-[3px] h-8 rounded-full opacity-60 transition-opacity group-hover:opacity-100" style={{ background: "hsl(199 89% 48%)" }} />
               <div className="flex items-center gap-3 mb-2.5">
-                <span className="text-xs opacity-50 text-primary-foreground/60 font-mono">0{i + 1}</span>
-                <span className="text-[13px] font-semibold tracking-wide uppercase text-primary-foreground/90">{layer.label}</span>
+                <span className="text-xs opacity-60 text-foreground/60 font-mono">0{i + 1}</span>
+                <span className="text-[13px] font-semibold tracking-wide uppercase text-foreground">{layer.label}</span>
               </div>
               <div className="flex flex-wrap gap-1.5 pl-7">
                 {layer.items.map((item) => (
