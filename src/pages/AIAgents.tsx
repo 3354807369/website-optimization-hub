@@ -511,18 +511,10 @@ const AIAgents = () => {
         </div>
       </section>
 
-      {/* ============ TECH STACK (DARK) ============ */}
-      <section className="py-20 bg-foreground text-primary-foreground relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="section-wrap text-center relative">
-          <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-6">
+      {/* ============ TECH STACK ============ */}
+      <section className="py-20 bg-secondary/30 border-y border-border">
+        <div className="section-wrap text-center">
+          <p className="uppercase tracking-[0.2em] text-muted-foreground text-xs font-semibold mb-6">
             {t("Tools & Stack We Work With", "我们使用的工具与技术栈")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2.5">
@@ -533,7 +525,7 @@ const AIAgents = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.04 }}
-                className="px-4 py-2 rounded-full bg-white/[0.04] border border-white/15 text-primary-foreground text-sm font-medium hover:border-sky-400/50 hover:text-sky-300 transition-colors"
+                className="px-4 py-2 rounded-full bg-card border border-border text-foreground text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors"
               >
                 {s}
               </motion.span>
@@ -542,20 +534,18 @@ const AIAgents = () => {
         </div>
       </section>
 
-      {/* ============ CTA (LIGHT) ============ */}
-      <section className="py-24 relative overflow-hidden bg-background">
+      {/* ============ CTA ============ */}
+      <section className="py-24 relative overflow-hidden">
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            maskImage: "radial-gradient(ellipse at center, black, transparent 70%)",
+            background:
+              "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 50%, hsl(217 91% 25%) 100%)",
           }}
         />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-25 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent 70%)" }}
         />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -565,12 +555,12 @@ const AIAgents = () => {
           className="section-wrap relative text-center"
         >
           <h2
-            className="font-display font-bold text-foreground mb-5"
+            className="font-display font-bold text-white mb-5"
             style={{ fontSize: "clamp(1.85rem, 5vw, 3.25rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
           >
             {t("Ready to deploy your first agent?", "准备好部署你的第一个代理了吗?")}
           </h2>
-          <p className="text-muted-foreground max-w-[55ch] mx-auto text-base md:text-lg mb-10">
+          <p className="text-white/70 max-w-[55ch] mx-auto text-base md:text-lg mb-10">
             {t(
               "Tell us about your workflow. We'll come back with a use-case map, an architecture, and a 2–3 week pilot plan.",
               "告诉我们你的业务流程。我们会回复一份场景图、架构方案和 2-3 周试点计划。"
@@ -579,14 +569,14 @@ const AIAgents = () => {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all no-underline shadow-xl shadow-sky-500/10"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-2xl shadow-sky-500/30"
             >
               {t("Talk to Us", "联系我们")}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border bg-card text-foreground font-semibold text-sm hover:border-primary/40 hover:text-primary transition-all no-underline"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
             >
               {t("Other Services", "其他服务")}
             </Link>
