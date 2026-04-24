@@ -1,19 +1,14 @@
-import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
 import PerformanceCurve from "@/components/PerformanceCurve";
 
 import { useLang } from "@/i18n/LanguageContext";
-import hero1 from "@/assets/quant-hero-1.jpg";
-import hero2 from "@/assets/quant-hero-2.jpg";
-import hero3 from "@/assets/quant-hero-3.jpg";
+import heroImage from "@/assets/quant-hero-1.jpg";
 
-const heroImages = [hero1, hero2, hero3];
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const QuantTrading = () => {
-  const [current, setCurrent] = useState(0);
   const { t } = useLang();
 
   const features = [
@@ -30,14 +25,7 @@ const QuantTrading = () => {
     { value: "$25,000", label: t("Running Capital", "运行资金") },
   ];
 
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % heroImages.length);
-  }, []);
 
-  useEffect(() => {
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
-  }, [next]);
 
   return (
     <main className="bg-background text-foreground">
@@ -46,16 +34,14 @@ const QuantTrading = () => {
       {/* ========== HERO (DARK) ========== */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          {heroImages.map((img, i) => (
-            <motion.img
-              key={img}
-              src={img}
-              alt=""
-              animate={{ opacity: i === current ? 1 : 0, scale: i === current ? 1.06 : 1 }}
-              transition={{ opacity: { duration: 1.2 }, scale: { duration: 6, ease: "linear" } }}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          ))}
+          <motion.img
+            src={heroImage}
+            alt=""
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.06 }}
+            transition={{ duration: 12, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
         {/* Dark overlay matching AI page hero */}
         <div
@@ -122,16 +108,7 @@ const QuantTrading = () => {
           </motion.div>
         </motion.div>
 
-        <div className="absolute bottom-12 z-[2] flex items-center gap-2">
-          {heroImages.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`transition-all duration-300 rounded-full ${i === current ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/40 hover:bg-white/60"}`}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
-        </div>
+
 
         <motion.div
           initial={{ opacity: 0 }}
