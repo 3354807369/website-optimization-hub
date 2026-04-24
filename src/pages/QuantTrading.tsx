@@ -201,4 +201,4 @@ const QuantTrading = () => {
   );
 };
 
-export default Index;
+export default QuantTrading;
