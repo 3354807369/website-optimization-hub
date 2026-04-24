@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
-import heroImg from "@/assets/ai-agent-hero.jpg";
+import heroImg from "@/assets/ai-agent-hero-light.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -153,14 +153,14 @@ const AIAgents = () => {
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "linear-gradient(90deg, hsl(222 47% 6% / 0.95) 0%, hsl(222 47% 8% / 0.7) 60%, hsl(222 47% 6% / 0.4) 100%)",
+              "linear-gradient(90deg, hsl(0 0% 100% / 0.85) 0%, hsl(199 89% 96% / 0.55) 60%, hsl(199 89% 92% / 0.25) 100%)",
           }}
         />
         <div
-          className="absolute inset-0 z-[1] opacity-[0.06] pointer-events-none"
+          className="absolute inset-0 z-[1] opacity-[0.05] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
+              "linear-gradient(hsl(199 89% 40%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 40%) 1px, transparent 1px)",
             backgroundSize: "70px 70px",
             maskImage: "radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%)",
           }}
@@ -177,31 +177,30 @@ const AIAgents = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md mb-8"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-white/70 backdrop-blur-md mb-8 shadow-sm"
             >
-              <Sparkles size={13} className="text-sky-300" />
-              <span className="text-white/85 text-sm font-medium tracking-wide">
+              <Sparkles size={13} className="text-primary" />
+              <span className="text-foreground/80 text-sm font-medium tracking-wide">
                 {t("Custom AI Agents for Business", "为企业定制的 AI 智能代理")}
               </span>
             </motion.div>
 
             <h1
-              className="font-display font-bold text-white mb-6"
+              className="font-display font-bold text-foreground mb-6"
               style={{
                 fontSize: "clamp(2.5rem, 6.5vw, 5rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.035em",
-                textShadow: "0 4px 30px rgba(0,0,0,0.5)",
               }}
             >
               {t("Build agents that", "构建真正能")}
               <br />
-              <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                 {t("actually do the work", "干活的智能代理")}
               </span>
             </h1>
 
-            <p className="text-white/75 max-w-[55ch] text-base md:text-lg mb-10">
+            <p className="text-muted-foreground max-w-[55ch] text-base md:text-lg mb-10">
               {t(
                 "From customer support to internal automation — we design, build, and operate custom AI agents tailored to your workflows and stack.",
                 "从客服到内部自动化 —— 我们为你的业务流程和技术栈,设计、构建并运营定制 AI 代理。"
@@ -211,14 +210,14 @@ const AIAgents = () => {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all no-underline shadow-lg shadow-sky-500/20"
               >
                 {t("Start Your Agent", "启动你的代理")}
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-foreground/15 bg-white/60 backdrop-blur-md text-foreground font-semibold text-sm hover:bg-white/80 transition-all no-underline"
               >
                 {t("All Services", "全部服务")}
               </Link>
@@ -303,18 +302,18 @@ const AIAgents = () => {
       </section>
 
       {/* ============ DEMO + CAPABILITIES ============ */}
-      <section className="py-24 bg-foreground text-primary-foreground relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden bg-secondary/40 border-y border-border">
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
             backgroundSize: "50px 50px",
           }}
         />
         <div
-          className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
+          className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.5), transparent)" }}
         />
 
         <div className="section-wrap relative">
@@ -327,11 +326,11 @@ const AIAgents = () => {
               transition={{ duration: 0.7, ease }}
             >
               <div
-                className="relative rounded-3xl border border-white/10 backdrop-blur-md p-5 md:p-6"
+                className="relative rounded-3xl border border-foreground/10 backdrop-blur-md p-5 md:p-6"
                 style={{
                   background:
-                    "linear-gradient(135deg, hsl(0 0% 100% / 0.04) 0%, hsl(199 89% 48% / 0.05) 100%)",
-                  boxShadow: "0 20px 60px -20px hsl(199 89% 48% / 0.3)",
+                    "linear-gradient(135deg, hsl(222 47% 9%) 0%, hsl(222 47% 12%) 100%)",
+                  boxShadow: "0 25px 70px -25px hsl(199 89% 48% / 0.45), 0 0 0 1px hsl(199 89% 48% / 0.08)",
                 }}
               >
                 {/* terminal header */}
@@ -417,11 +416,11 @@ const AIAgents = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1, ease }}
             >
-              <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-4">
+              <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
                 {t("Core Capabilities", "核心能力")}
               </p>
               <h2
-                className="font-display font-bold text-primary-foreground mb-8"
+                className="font-display font-bold text-foreground mb-8"
                 style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
                 {t("Production-grade by default", "生产级别,开箱即用")}
@@ -437,11 +436,12 @@ const AIAgents = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.06 }}
-                      className="p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-sky-400/30 transition-all duration-300"
+                      className="p-4 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300"
+                      style={{ boxShadow: "var(--shadow-card)" }}
                     >
-                      <Icon size={16} className="text-sky-300 mb-2" strokeWidth={2.2} />
-                      <h3 className="font-semibold text-primary-foreground text-sm mb-1">{c.title}</h3>
-                      <p className="text-primary-foreground/55 text-[12px] leading-relaxed">{c.desc}</p>
+                      <Icon size={16} className="text-primary mb-2" strokeWidth={2.2} />
+                      <h3 className="font-semibold text-foreground text-sm mb-1">{c.title}</h3>
+                      <p className="text-muted-foreground text-[12px] leading-relaxed">{c.desc}</p>
                     </motion.div>
                   );
                 })}
@@ -538,12 +538,12 @@ const AIAgents = () => {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 50%, hsl(217 91% 25%) 100%)",
+              "linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(199 89% 96%) 50%, hsl(217 91% 92%) 100%)",
           }}
         />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent 70%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-50 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
         />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -553,12 +553,12 @@ const AIAgents = () => {
           className="section-wrap relative text-center"
         >
           <h2
-            className="font-display font-bold text-white mb-5"
+            className="font-display font-bold text-foreground mb-5"
             style={{ fontSize: "clamp(1.85rem, 5vw, 3.25rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
           >
             {t("Ready to deploy your first agent?", "准备好部署你的第一个代理了吗?")}
           </h2>
-          <p className="text-white/70 max-w-[55ch] mx-auto text-base md:text-lg mb-10">
+          <p className="text-muted-foreground max-w-[55ch] mx-auto text-base md:text-lg mb-10">
             {t(
               "Tell us about your workflow. We'll come back with a use-case map, an architecture, and a 2–3 week pilot plan.",
               "告诉我们你的业务流程。我们会回复一份场景图、架构方案和 2-3 周试点计划。"
@@ -567,14 +567,14 @@ const AIAgents = () => {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-2xl shadow-sky-500/30"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-foreground text-background font-semibold text-sm hover:bg-foreground/90 transition-all no-underline shadow-2xl shadow-sky-500/30"
             >
               {t("Talk to Us", "联系我们")}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-foreground/15 bg-white/70 backdrop-blur-md text-foreground font-semibold text-sm hover:bg-white transition-all no-underline"
             >
               {t("Other Services", "其他服务")}
             </Link>
