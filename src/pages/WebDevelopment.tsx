@@ -111,6 +111,21 @@ const WebDevelopment = () => {
     "Supabase", "Postgres", "Stripe", "Vercel", "Cloudflare", "Sanity",
   ];
 
+  const work = [
+    {
+      title: "Maison Noir",
+      subtitle: t("Modern Brunch & Coffee House", "现代早午餐与咖啡馆"),
+      desc: t(
+        "A moody black-and-gold marketing site for an Adelaide brunch spot — slow scroll storytelling, online reservations, and rich food photography.",
+        "为阿德莱德早午餐店打造的暗黑金调营销站 —— 缓慢滚动叙事、在线预订与精致餐饮摄影。"
+      ),
+      tags: ["React", "Tailwind", "Framer Motion"],
+      img: workMaisonNoir,
+      url: "https://restaurant-showcase-demo-five.vercel.app/",
+      tag: t("Brand Site", "品牌官网"),
+    },
+  ];
+
   // Animated demo: simulated build pipeline
   const demoSteps = [
     { label: t("npm install", "npm install"), out: t("✓ 482 packages installed", "✓ 已安装 482 个依赖"), kind: "cmd" },
