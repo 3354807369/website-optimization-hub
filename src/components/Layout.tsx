@@ -5,7 +5,7 @@ import SiteFooter from "./SiteFooter";
 
 const Layout = () => {
   const location = useLocation();
-  const isHome = location.pathname === "/services/quant-trading";
+  const isHome = location.pathname === "/" || location.pathname === "/services/quant-trading";
 
   useEffect(() => {
     window.scrollTo(0, 0);
