@@ -512,7 +512,7 @@ const AIAgents = () => {
       </section>
 
       {/* ============ TECH STACK ============ */}
-      <section className="py-20 bg-secondary/30 border-y border-border">
+      <section className="pt-4 pb-20 bg-background">
         <div className="section-wrap text-center">
           <p className="uppercase tracking-[0.2em] text-muted-foreground text-xs font-semibold mb-6">
             {t("Tools & Stack We Work With", "我们使用的工具与技术栈")}
