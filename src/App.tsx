@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import QuantTrading from "./pages/QuantTrading";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,7 +27,8 @@ const App = () => (
               <Route element={<Layout />}>
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/quant-trading" element={<QuantTrading />} />
                 <Route path="/contact" element={<Contact />} />
               </Route>
               <Route path="*" element={<NotFound />} />

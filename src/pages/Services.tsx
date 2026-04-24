@@ -65,20 +65,34 @@ const Services = () => {
           <p className="uppercase tracking-[0.15em] text-muted-foreground text-xs font-semibold mb-3">{t("Our Offerings", "我们的产品")}</p>
           <h2 className="font-display text-foreground mb-10" style={{ fontSize: "clamp(1.75rem, 4.5vw, 2.5rem)", letterSpacing: "-0.02em" }}>{t("What We Offer", "我们提供什么")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {catalog.map((c, i) => (
-              <motion.article key={c.id} id={c.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease }} className="group rounded-2xl bg-card border border-border overflow-hidden transition-all duration-300 hover:border-primary/25" style={{ boxShadow: "var(--shadow-card)" }}>
-                <div className="aspect-[16/10] bg-secondary overflow-hidden relative">
-                  <img src={c.img} alt={c.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-card/90 backdrop-blur-sm text-foreground text-xs font-semibold border border-border">{c.tag}</span>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display text-lg font-bold mb-3">{c.title}</h3>
-                  <ul className="text-muted-foreground text-sm space-y-2">
-                    {c.bullets.map((b) => (<li key={b} className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-1.5 shrink-0" />{b}</li>))}
-                  </ul>
-                </div>
-              </motion.article>
-            ))}
+            {catalog.map((c, i) => {
+              const href = c.id === "quant" ? "/services/quant-trading" : undefined;
+              const Inner = (
+                <>
+                  <div className="aspect-[16/10] bg-secondary overflow-hidden relative">
+                    <img src={c.img} alt={c.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-card/90 backdrop-blur-sm text-foreground text-xs font-semibold border border-border">{c.tag}</span>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-display text-lg font-bold mb-3">{c.title}</h3>
+                    <ul className="text-muted-foreground text-sm space-y-2">
+                      {c.bullets.map((b) => (<li key={b} className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-1.5 shrink-0" />{b}</li>))}
+                    </ul>
+                    {href && (
+                      <span className="inline-flex items-center gap-1.5 mt-4 text-foreground font-semibold text-sm group-hover:text-primary transition-colors">
+                        {t("Learn more", "了解更多")}
+                        <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                      </span>
+                    )}
+                  </div>
+                </>
+              );
+              return (
+                <motion.article key={c.id} id={c.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease }} className="group rounded-2xl bg-card border border-border overflow-hidden transition-all duration-300 hover:border-primary/25" style={{ boxShadow: "var(--shadow-card)" }}>
+                  {href ? <Link to={href} className="block no-underline text-inherit">{Inner}</Link> : Inner}
+                </motion.article>
+              );
+            })}
           </div>
         </div>
       </section>
