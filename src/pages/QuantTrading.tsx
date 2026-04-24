@@ -27,6 +27,51 @@ const QuantTrading = () => {
     { value: "24/7", label: t("Monitoring", "全天候监控") },
   ];
 
+  const audiences = [
+    {
+      icon: "👤",
+      tag: t("Individual", "个人玩家"),
+      title: t("Individual Quant Traders", "个人量化玩家"),
+      pains: [
+        t("Strategies tested in notebooks but hard to put on real exchanges", "策略在 notebook 里跑得好，但难落地到实盘"),
+        t("Worry about API security and fund custody", "担心 API 安全和资金托管风险"),
+        t("No time to babysit bots 24/7", "没精力 7×24 盯盘"),
+      ],
+      solution: t(
+        "Non-custodial bots on your own keys, hosted execution, mobile alerts.",
+        "非托管机器人 + 自有 API Key，托管执行，手机告警。"
+      ),
+    },
+    {
+      icon: "🏢",
+      tag: t("Studio", "工作室"),
+      title: t("Trading Studios & Prop Teams", "交易工作室 / 自营团队"),
+      pains: [
+        t("Multiple strategies, multiple accounts, hard to manage centrally", "多策略多账户，集中管理困难"),
+        t("Need reproducible backtests and version-controlled configs", "需要可复现回测与版本化配置"),
+        t("Risk events need to surface in seconds, not hours", "风险事件需要秒级感知，而非小时级"),
+      ],
+      solution: t(
+        "Unified dashboard, role-based access, audit logs, and real-time risk alerts.",
+        "统一控制台、角色权限、审计日志、实时风控告警。"
+      ),
+    },
+    {
+      icon: "🏛️",
+      tag: t("Institution", "资管机构"),
+      title: t("Asset Managers & Funds", "资管机构与基金"),
+      pains: [
+        t("Compliance requires full traceability of every order", "合规要求每笔订单完整可追溯"),
+        t("Need SLA-grade uptime and disaster recovery", "需要 SLA 级别的可用性与灾备"),
+        t("Custom strategies must integrate with internal systems", "自研策略需对接内部系统"),
+      ],
+      solution: t(
+        "Private deployment, SLA-backed infra, full audit trails, and custom strategy SDK.",
+        "私有化部署、SLA 基础设施、完整审计链路、定制策略 SDK。"
+      ),
+    },
+  ];
+
 
 
   return (
@@ -130,6 +175,32 @@ const QuantTrading = () => {
 
       <PerformanceCurve />
 
+      {/* ========== STATS (LIGHT) — under performance curve ========== */}
+      <section className="py-20 relative overflow-hidden bg-secondary/30 border-y border-border">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
+        />
+        <div className="section-wrap relative">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease }}
+                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
+                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">{s.value}</span>
+                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">{s.label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ========== FEATURES (DARK) ========== */}
       <section className="py-24 bg-foreground text-primary-foreground relative overflow-hidden">
         <div
@@ -176,26 +247,74 @@ const QuantTrading = () => {
         </div>
       </section>
 
-      {/* ========== STATS (LIGHT) ========== */}
-      <section className="py-20 relative overflow-hidden bg-secondary/30 border-y border-border">
+      {/* ========== AUDIENCE / WHO IT'S FOR (LIGHT) ========== */}
+      <section className="py-24 relative overflow-hidden bg-secondary/30 border-y border-border">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.4), transparent 70%)" }}
+          className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full opacity-25 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.5), transparent 70%)" }}
         />
         <div className="section-wrap relative">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {stats.map((s, i) => (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mb-14"
+          >
+            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-3">
+              {t("Who It's For", "适用人群")}
+            </p>
+            <h2
+              className="font-display font-bold text-foreground"
+              style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+            >
+              {t("Built for traders at", "为不同阶段的")}{" "}
+              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                {t("every stage", "交易者而设计")}
+              </span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {audiences.map((a, i) => (
               <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                key={a.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07, ease }}
-                className="group text-center p-5 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40"
+                transition={{ duration: 0.6, delay: i * 0.12, ease }}
+                className="group relative flex flex-col p-7 rounded-2xl bg-card border border-border transition-all duration-300 hover:border-primary/40 hover:-translate-y-1"
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <span className="block text-2xl font-extrabold tracking-tight text-foreground font-display">{s.value}</span>
-                <span className="block mt-1.5 text-muted-foreground text-xs uppercase tracking-wider font-medium">{s.label}</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-3xl">{a.icon}</div>
+                  <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wide">
+                    {a.tag}
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-foreground mb-4 leading-tight">
+                  {a.title}
+                </h3>
+
+                <p className="text-muted-foreground/80 text-[11px] uppercase tracking-[0.15em] font-semibold mb-2">
+                  {t("Pain points", "痛点")}
+                </p>
+                <ul className="space-y-2 mb-5">
+                  {a.pains.map((p) => (
+                    <li key={p} className="flex gap-2 text-muted-foreground text-sm leading-relaxed">
+                      <span className="text-primary/60 mt-1">•</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto pt-4 border-t border-border">
+                  <p className="text-muted-foreground/80 text-[11px] uppercase tracking-[0.15em] font-semibold mb-2">
+                    {t("Our solution", "我们的方案")}
+                  </p>
+                  <p className="text-foreground text-sm leading-relaxed font-medium">
+                    {a.solution}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
