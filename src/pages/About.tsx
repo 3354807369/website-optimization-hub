@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
+import CtaSection from "@/components/CtaSection";
 import { useLang } from "@/i18n/LanguageContext";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
