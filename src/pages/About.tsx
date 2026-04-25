@@ -39,21 +39,32 @@ const About = () => {
 
   return (
     <main className="bg-background text-foreground">
-      <SEO title={t("About Us", "关于我们")} description={t("Learn about StarLoop — engineering reliable trading automation.", "了解 StarLoop — 构建可靠的交易自动化。")} path="/about" schema="AboutPage" />
+      <SEO
+        title={t("About StarLoop — Full-Stack IT Engineering Team", "关于 StarLoop — 全栈 IT 工程团队")}
+        description={t(
+          "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and blockchain infrastructure.",
+          "StarLoop 是一支全栈 IT 工程团队,专注构建生产级量化交易自动化、AI 智能体、现代网站产品与区块链基础设施。"
+        )}
+        path="/about"
+        schema="AboutPage"
+      />
 
       <section className="relative bg-foreground text-primary-foreground py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "var(--gradient-accent)" }} />
         <div className="section-wrap relative">
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }} className="uppercase tracking-[0.2em] text-primary-foreground/50 text-xs font-semibold mb-4">
-            {t("About Us", "关于我们")}
+            {t("About StarLoop", "关于 StarLoop")}
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="font-display font-bold text-primary-foreground mb-4" style={{ fontSize: "clamp(2.25rem, 6vw, 3.5rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-            {t("Engineering reliable", "构建可靠的")}<br />
-            <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("trading automation", "交易自动化")}</span>
+            {t("A full-stack IT team", "一支全栈 IT 团队")}<br />
+            <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("shipping production systems", "交付生产级系统")}</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease }} className="text-primary-foreground/70 max-w-[60ch] text-lg">
-            {t("And building fast, modern web and blockchain products for the next generation.", "同时构建快速、现代的网站和区块链产品。")}
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease }} className="text-primary-foreground/70 max-w-[62ch] text-lg">
+            {t(
+              "From quant trading automation and AI agents to modern web products and blockchain infrastructure — we engineer reliable software that runs in production, not just in demos.",
+              "从量化交易自动化、AI 智能体,到现代网站产品与区块链基础设施 — 我们构建可在生产中长期运行的可靠软件,而不仅是演示。"
+            )}
           </motion.p>
         </div>
       </section>
