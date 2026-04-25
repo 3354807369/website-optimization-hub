@@ -138,7 +138,7 @@ const Services = () => {
       </section>
 
       {/* ENGAGEMENT MODELS */}
-      <section className="py-20 bg-background">
+      <section className="py-20" style={{ background: "var(--gradient-section)" }}>
         <div className="section-wrap">
           <SectionHeading
             eyebrow={t("Flexible Plans", "灵活方案")}
