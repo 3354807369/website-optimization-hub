@@ -111,11 +111,11 @@ const Services = () => {
             description={t("End-to-end engineering across trading, AI, web and Web3 — pick a track or combine them.", "覆盖交易、AI、网站与 Web3 的端到端工程能力 — 单独选用，或自由组合。")}
             className="mb-12"
           />
-          {/* Bento layout: 3 large feature cards on top, 3 compact spec cards below */}
-          <div className="max-w-6xl mx-auto">
-            {/* === FEATURE CARDS (3 main services, equal-height row) === */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
-              {catalog.slice(0, 3).map((c, i) => {
+          {/* 4 large feature cards in a 2x2 grid */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
+              {catalog.map((c, i) => {
+                const href = c.id === "quant" ? "/services/quant-trading" : c.id === "ai" ? "/services/ai-agents" : c.id === "web" ? "/services/web-development" : undefined;
                 const href = c.id === "quant" ? "/services/quant-trading" : c.id === "ai" ? "/services/ai-agents" : c.id === "web" ? "/services/web-development" : undefined;
                 return (
                   <motion.article
