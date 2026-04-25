@@ -14,26 +14,26 @@ const About = () => {
   const { t } = useLang();
 
   const services = [
-    { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Non-custodial, exchange-agnostic bots with modular strategies.", "非托管、跨交易所的模块化策略机器人。"), img: serviceQuant, tag: "Trading" },
-    { title: t("AI Agents & Automation", "AI 智能体与自动化"), desc: t("LLM assistants, RAG pipelines, and workflow automation tailored to your stack.", "面向业务场景的 LLM 助手、RAG 管线与工作流自动化。"), img: serviceAi, tag: "AI" },
-    { title: t("Website & Landing Pages", "网站与落地页"), desc: t("Performance-first sites built with modern frameworks. SEO, analytics, continuous iteration.", "性能优先的现代框架网站。SEO、分析、持续迭代。"), img: serviceWeb, tag: "Web" },
-    { title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, wallet integrations, on-chain indexing and dashboards.", "智能合约、钱包集成、链上索引和仪表板。"), img: serviceBlockchain, tag: "Blockchain" },
+    { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Production-grade trading systems. Non-custodial, exchange-agnostic, risk-controlled by design.", "生产级量化交易系统。非托管、跨交易所、内置风控。"), img: serviceQuant, tag: "Trading" },
+    { title: t("AI Agents & LLM Engineering", "AI 智能体与大模型工程"), desc: t("Custom LLM agents, RAG pipelines, and intelligent automation built into your workflows.", "定制 LLM 智能体、RAG 管线与嵌入业务流程的智能自动化。"), img: serviceAi, tag: "AI" },
+    { title: t("Web & Product Engineering", "网站与产品工程"), desc: t("High-performance marketing sites and SaaS products. TypeScript, edge-deployed, SEO-ready.", "高性能营销站与 SaaS 产品。TypeScript、边缘部署、SEO 就绪。"), img: serviceWeb, tag: "Web" },
+    { title: t("Blockchain & Web3 Infrastructure", "区块链与 Web3 基础设施"), desc: t("Smart contracts, on-chain indexing, wallet integrations, and crypto-native data pipelines.", "智能合约、链上索引、钱包集成与加密原生数据管线。"), img: serviceBlockchain, tag: "Blockchain" },
   ];
 
   const whyPoints = [
-    { title: t("Risk-First by Design", "风控优先设计"), body: t("We prioritize capital protection with guardrails at every layer.", "我们在每一层都优先保护资本。"), icon: "🛡️" },
-    { title: t("Reliability Over Novelty", "可靠性优于新颖性"), body: t("Deterministic execution, reproducible backtests, observable systems.", "确定性执行、可复现回测、可观测系统。"), icon: "⚙️" },
-    { title: t("Measurable Impact", "可衡量的影响"), body: t("Ship in small increments, measure outcomes, iterate quickly.", "小步迭代、衡量结果、快速优化。"), icon: "📊" },
-    { title: t("Open & Modular", "开放与模块化"), body: t("Strategy SDKs, clear interfaces, versioned configs, auditable logs.", "策略 SDK、清晰接口、版本化配置、可审计日志。"), icon: "🧩" },
-    { title: t("Transparent Collaboration", "透明协作"), body: t("We work as an extension of your team and share what we learn.", "我们作为您团队的延伸，分享我们的发现。"), icon: "🤝" },
-    { title: t("Non-custodial by Default", "默认非托管"), body: t("Your funds stay on your exchange; we never take custody.", "您的资金留在交易所；我们从不托管。"), icon: "🔒" },
+    { title: t("Engineering-First Mindset", "工程思维优先"), body: t("Code reviews, CI/CD, observability and SLOs — software best practices in every project.", "代码审查、CI/CD、可观测性与 SLO — 把软件最佳实践带入每个项目。"), icon: "⚙️" },
+    { title: t("Production-Grade by Default", "默认生产级"), body: t("Versioned configs, audit logs, monitoring dashboards. Built to run, not just to demo.", "版本化配置、审计日志、监控仪表板。为长期运行而构建，不止是演示。"), icon: "🚀" },
+    { title: t("Security & Risk Built-In", "安全与风控内建"), body: t("Least-privilege access, encrypted secrets, non-custodial architecture, defense in depth.", "最小权限访问、加密密钥、非托管架构、纵深防御。"), icon: "🛡️" },
+    { title: t("Modular & Composable", "模块化与可组合"), body: t("Clear interfaces, reusable building blocks. Scale from MVP to production without rewrites.", "清晰接口、可复用模块。从 MVP 到生产级无需重写。"), icon: "🧩" },
+    { title: t("Full-Stack Coverage", "全栈覆盖"), body: t("Frontend to infrastructure, ML to smart contracts — one team, one delivery standard.", "从前端到基础设施、从 ML 到智能合约 — 一个团队、统一交付标准。"), icon: "🌐" },
+    { title: t("Long-Term Partnership", "长期合作伙伴"), body: t("We embed with your team, document everything, and stay accountable post-launch.", "我们融入您的团队、完整文档化、上线后持续负责。"), icon: "🤝" },
   ];
 
   const stats = [
-    { value: "3+", label: t("Integrated Exchanges", "已对接交易所") },
+    { value: "4", label: t("Practice Areas", "业务领域") },
     { value: "<80ms", label: t("Latency Target", "延迟目标") },
     { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime Target", "可用性目标") },
+    { value: "99.9%", label: t("Uptime SLO", "可用性 SLO") },
     { value: "24/7", label: t("Monitoring", "全天候监控") },
   ];
 
