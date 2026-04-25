@@ -313,8 +313,6 @@ const Services = () => {
         />
         <div className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
         <div className="absolute -bottom-40 right-1/4 w-[520px] h-[520px] rounded-full opacity-[0.14] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
-        {/* bottom fade to separate from CTA */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, hsl(222 47% 8% / 0.6))" }} />
 
         <div className="section-wrap relative">
           <SectionHeading
@@ -399,32 +397,60 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="py-24 relative overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
-      >
+      {/* CTA — light premium (creates dark→light contrast with Tech Stack above) */}
+      <section className="relative py-28 overflow-hidden bg-background">
+
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
+            maskImage: "radial-gradient(ellipse at center, black 25%, transparent 70%)",
           }}
         />
-        <div
-          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
-        />
-        <div className="section-wrap relative text-center">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="font-display font-bold text-white mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
-            {t("Ready to get started?", "准备好开始了吗？")}
-          </motion.h2>
-          <p className="text-white/70 max-w-[55ch] mx-auto mb-8 text-base md:text-lg">{t("Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.", "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。")}</p>
-          <Link to="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20">
-            {t("Contact Us", "联系我们")}
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </Link>
+        <div className="absolute -top-32 -left-20 w-[480px] h-[480px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+        <div className="absolute -bottom-32 -right-20 w-[520px] h-[520px] rounded-full opacity-[0.14] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+
+        <div className="section-wrap relative">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="relative max-w-4xl mx-auto rounded-3xl p-[1.5px] bg-gradient-to-br from-sky-300/80 via-blue-400/40 to-blue-600/60"
+            style={{ boxShadow: "0 30px 80px -30px hsl(217 91% 50% / 0.35)" }}
+          >
+            <div className="relative rounded-3xl bg-card overflow-hidden px-8 py-14 md:px-16 md:py-20 text-center">
+              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+              <span className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/25 bg-primary/5 text-primary uppercase tracking-[0.22em] text-[11px] font-bold mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                {t("Let's Build", "开始合作")}
+              </span>
+              <h2
+                className="relative font-display font-bold text-foreground mb-5"
+                style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)", letterSpacing: "-0.025em", lineHeight: 1.05 }}
+              >
+                {t("Ready to ", "准备好")}
+                <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">{t("get started", "开始了吗")}</span>
+                {t("?", "？")}
+              </h2>
+              <p className="relative text-muted-foreground max-w-[55ch] mx-auto mb-9 text-base md:text-lg leading-relaxed">
+                {t(
+                  "Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.",
+                  "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。"
+                )}
+              </p>
+              <Link
+                to="/contact"
+                className="relative group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm hover:from-sky-400 hover:to-blue-500 transition-all no-underline"
+                style={{ boxShadow: "0 18px 40px -12px hsl(217 91% 50% / 0.55)" }}
+              >
+                {t("Contact Us", "联系我们")}
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>
