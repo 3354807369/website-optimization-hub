@@ -98,6 +98,7 @@ const SEO = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={KEYWORDS} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}
