@@ -207,8 +207,6 @@ const About = () => {
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
         />
-        <div className="absolute -top-32 left-1/4 w-[420px] h-[420px] rounded-full opacity-[0.12] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
-        <div className="absolute -bottom-32 right-1/4 w-[420px] h-[420px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
 
         <div className="section-wrap relative">
           {/* heading */}
