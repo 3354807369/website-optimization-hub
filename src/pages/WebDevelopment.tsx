@@ -350,22 +350,22 @@ const WebDevelopment = () => {
           >
             <div className="max-w-2xl">
               <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
-                {t("Selected Work", "精选案例")}
+                {t("Concept Showcase", "概念展示")}
               </p>
               <h2
                 className="font-display font-bold text-foreground"
                 style={{ fontSize: "clamp(1.85rem, 4.5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
-                {t("Recent projects we've", "我们近期")}{" "}
+                {t("Demo concepts we've", "我们设计并上线的")}{" "}
                 <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                  {t("designed and shipped", "设计并上线的项目")}
+                  {t("designed and shipped", "概念演示项目")}
                 </span>
               </h2>
             </div>
             <p className="text-muted-foreground text-[15px] max-w-sm">
               {t(
-                "Live demos you can click through. Each one designed, built, and deployed end-to-end.",
-                "每个案例都可点击访问 —— 全程由我们设计、构建并部署上线。"
+                "Click-through demos showcasing our design and engineering. Brands shown are fictional — built to demonstrate what we can ship for you.",
+                "可点击访问的概念演示,展示我们的设计与工程能力。所示品牌为虚构,旨在呈现我们能为你交付的效果。"
               )}
             </p>
           </motion.div>
