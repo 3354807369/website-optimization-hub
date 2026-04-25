@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
 import { useLang } from "@/i18n/LanguageContext";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
@@ -110,35 +111,73 @@ const Services = () => {
             description={t("End-to-end engineering across trading, AI, web and Web3 — pick a track or combine them.", "覆盖交易、AI、网站与 Web3 的端到端工程能力 — 单独选用，或自由组合。")}
             className="mb-12"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {catalog.map((c, i) => {
+          {/* Bento layout: 3 feature cards (large) + 3 spec cards (small) */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
+            {/* === FEATURE CARDS (3 main services) === */}
+            {catalog.slice(0, 3).map((c, i) => {
               const href = c.id === "quant" ? "/services/quant-trading" : c.id === "ai" ? "/services/ai-agents" : c.id === "web" ? "/services/web-development" : undefined;
-              const Inner = (
-                <>
-                  <div className="aspect-[16/10] bg-secondary overflow-hidden relative">
-                    <img src={c.img} alt={c.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-card/90 backdrop-blur-sm text-foreground text-xs font-semibold border border-border">{c.tag}</span>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-lg font-bold mb-3">{c.title}</h3>
-                    <ul className="text-muted-foreground text-sm space-y-2">
-                      {c.bullets.map((b) => (<li key={b} className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-1.5 shrink-0" />{b}</li>))}
-                    </ul>
-                    {href && (
-                      <span className="inline-flex items-center gap-1.5 mt-4 text-foreground font-semibold text-sm group-hover:text-primary transition-colors">
-                        {t("Learn more", "了解更多")}
-                        <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-                      </span>
-                    )}
-                  </div>
-                </>
-              );
               return (
-                <motion.article key={c.id} id={c.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.12, ease }} className="group rounded-2xl bg-card border border-border overflow-hidden transition-all duration-300 hover:border-primary/25" style={{ boxShadow: "var(--shadow-card)" }}>
-                  {href ? <Link to={href} className="block no-underline text-inherit">{Inner}</Link> : Inner}
+                <motion.article
+                  key={c.id}
+                  id={c.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease }}
+                  className="group relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/70 via-border to-blue-200/40 transition-all duration-500 hover:from-sky-400/70 hover:to-blue-500/50"
+                >
+                  <div className="relative h-full rounded-2xl bg-card overflow-hidden flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+                    {href && <Link to={href} className="absolute inset-0 z-10" aria-label={c.title} />}
+                    <div className="aspect-[16/10] bg-secondary overflow-hidden relative">
+                      <img src={c.img} alt={c.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-60" />
+                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-card/95 backdrop-blur-sm text-foreground text-[11px] font-semibold border border-border">{c.tag}</span>
+                      <span aria-hidden className="absolute top-2 right-3 font-display font-black text-foreground/[0.18] select-none" style={{ fontSize: "3.5rem", lineHeight: 1, letterSpacing: "-0.05em" }}>{String(i + 1).padStart(2, "0")}</span>
+                    </div>
+                    <div className="p-5 flex flex-col flex-1">
+                      <h3 className="font-display text-lg font-bold mb-3">{c.title}</h3>
+                      <ul className="text-muted-foreground text-sm space-y-2 flex-1">
+                        {c.bullets.map((b) => (<li key={b} className="flex items-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-1.5 shrink-0" />{b}</li>))}
+                      </ul>
+                      {href && (
+                        <span className="inline-flex items-center gap-1.5 mt-4 text-foreground font-semibold text-sm group-hover:text-primary transition-colors">
+                          {t("Learn more", "了解更多")}
+                          <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                        </span>
+                      )}
+                    </div>
+                    <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
+                  </div>
                 </motion.article>
               );
             })}
+
+            {/* === SPEC CARDS (compact) — Web3 / Data / Reliability === */}
+            {[
+              { id: "blockchain", icon: "◈", tag: "Web3", title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, on-chain indexing, wallet & custody integrations.", "智能合约、链上索引、钱包与托管集成。") },
+              { id: "data", icon: "▣", tag: "Data", title: t("Data & Pipelines", "数据与管道"), desc: t("Time-series storage, streaming ETL, dashboards and analytics.", "时序存储、流式 ETL、仪表板与分析。") },
+              { id: "reliability", icon: "⚙", tag: "Ops", title: t("Reliability & Ops", "可靠性与运维"), desc: t("Monitoring, alerting, incident response and 24/7 uptime.", "监控、告警、事件响应与全天候运行。") },
+            ].map((s, i) => (
+              <motion.article
+                key={s.id}
+                id={s.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: 0.3 + i * 0.08, ease }}
+                className="group relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/60 via-border to-blue-200/30 transition-all duration-500 hover:from-sky-400/60 hover:to-blue-500/40"
+              >
+                <div className="relative h-full rounded-2xl bg-card overflow-hidden p-5 flex flex-col" style={{ boxShadow: "var(--shadow-card)" }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm shadow-[0_6px_18px_-4px_hsl(199_89%_48%_/_0.45)]">{s.icon}</span>
+                    <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-[0.18em]">{s.tag}</span>
+                  </div>
+                  <h3 className="font-display text-base font-bold mb-2 leading-tight">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">{s.desc}</p>
+                  <div className="absolute bottom-0 left-5 right-5 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
+                </div>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>
@@ -293,6 +332,107 @@ const Services = () => {
             </motion.div>
           </div>
           <p className="mt-5 text-muted-foreground text-xs text-center">{t("StarLoop provides software and engineering services only. Nothing here is investment advice.", "StarLoop 仅提供软件和工程服务。本站内容不构成投资建议。")}</p>
+        </div>
+      </section>
+
+      {/* FAQ — light, addresses common pre-sales questions */}
+      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+        <div
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        <div className="absolute -top-32 right-1/4 w-[420px] h-[420px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+
+        <div className="section-wrap relative">
+          <SectionHeading
+            eyebrow={t("FAQ", "常见问题")}
+            title={t("Questions, answered", "常见问题，逐一解答")}
+            highlight={t("answered", "解答")}
+            description={t(
+              "Everything you'd ask before sending the first message — pricing, NDAs, timelines, and ownership.",
+              "在发出第一条消息前你想问的一切 — 定价、保密协议、周期与归属。"
+            )}
+            align="center"
+            className="mb-12"
+          />
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-3">
+              {[
+                {
+                  q: t("How do you price a project?", "你们如何报价？"),
+                  a: t(
+                    "Most engagements are scoped as a fixed-price Prototype Sprint (2–3 weeks) or a milestone-based Production Build. Ongoing Success is a flat monthly retainer. We share a written estimate within 48 hours of an intro call.",
+                    "大多数项目按固定价格的「原型冲刺」（2-3 周）或按里程碑的「生产构建」计费；「持续成功」按月固定收取。介绍通话后 48 小时内提供书面报价。"
+                  ),
+                },
+                {
+                  q: t("What's a typical delivery timeline?", "通常的交付周期是多久？"),
+                  a: t(
+                    "A Prototype Sprint ships in 2–3 weeks. A Production Build typically runs 4–8 weeks, though complex Web3 or trading systems can extend to 3 months. We commit to weekly demos so you always see progress.",
+                    "原型冲刺 2-3 周交付。生产构建一般 4-8 周，复杂的 Web3 或交易系统可能延长到 3 个月。我们承诺每周演示，进度始终可见。"
+                  ),
+                },
+                {
+                  q: t("Will you sign an NDA?", "你们会签保密协议吗？"),
+                  a: t(
+                    "Yes — we sign NDAs by default before sharing any technical details. For trading clients, we also operate non-custodially: your API keys and wallets stay under your control.",
+                    "会 — 在交流任何技术细节前我们默认签署保密协议。对交易类客户我们采用非托管模式：API 密钥与钱包始终在您的掌控中。"
+                  ),
+                },
+                {
+                  q: t("Who owns the code and IP?", "代码与知识产权归谁？"),
+                  a: t(
+                    "You do. Once final invoices are paid, all code, designs, and infrastructure configuration are transferred to your repositories with full IP rights. We retain only the right to mention the engagement at a high level.",
+                    "归您所有。尾款结清后，全部代码、设计与基础设施配置移交至您的仓库，知识产权完整转让。我们仅保留对合作进行高层次提及的权利。"
+                  ),
+                },
+                {
+                  q: t("Do you offer post-launch support?", "上线后是否提供持续支持？"),
+                  a: t(
+                    "Yes. Every Production Build includes a 30-day warranty for bug fixes. Beyond that, our Ongoing Success plan covers monitoring, incident response, security updates, and strategy iterations on a monthly retainer.",
+                    "是的。所有「生产构建」附带 30 天 bug 修复保修期；此后可选「持续成功」按月套餐，覆盖监控、事件响应、安全更新与策略迭代。"
+                  ),
+                },
+                {
+                  q: t("Can you work with our existing team or codebase?", "可以与我们现有团队或代码协作吗？"),
+                  a: t(
+                    "Absolutely. We routinely integrate with internal teams, follow existing conventions, and contribute via pull requests with code review. We can also act as a fully autonomous squad — whichever fits your workflow.",
+                    "当然。我们经常嵌入客户团队，遵循既有规范，通过 PR + Code Review 协作；也可作为独立小队完整交付 — 按您的流程来。"
+                  ),
+                },
+              ].map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`item-${i}`}
+                  className="rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30"
+                  style={{ boxShadow: "var(--shadow-card)" }}
+                >
+                  <AccordionTrigger className="px-5 py-4 text-left font-display font-semibold text-foreground hover:no-underline hover:text-primary text-[15px]">
+                    <span className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-primary font-bold">{String(i + 1).padStart(2, "0")}</span>
+                      {item.q}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed pl-12">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+
+            <p className="mt-8 text-center text-sm text-muted-foreground">
+              {t("Still have questions?", "还有其他问题？")}{" "}
+              <Link to="/contact" className="text-primary font-semibold hover:underline">
+                {t("Get in touch →", "联系我们 →")}
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
 
