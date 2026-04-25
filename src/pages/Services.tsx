@@ -8,7 +8,38 @@ import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
 import serviceBlockchain from "@/assets/service-blockchain.jpg";
 
-const tech = ["Python", "Node.js", "Nuxt/Vue", "Tailwind", "Postgres", "Redis", "Kafka", "ClickHouse", "Docker", "Kubernetes", "AWS/GCP", "Binance", "OKX", "Bybit"];
+const techGroups = [
+  {
+    label: { en: "Languages", zh: "编程语言" },
+    icon: "{ }",
+    items: ["TypeScript", "Python", "Rust", "Solidity", "Go"],
+  },
+  {
+    label: { en: "Frontend & Web", zh: "前端与网站" },
+    icon: "</>",
+    items: ["React", "Next.js", "Nuxt / Vue", "Tailwind CSS", "Vite"],
+  },
+  {
+    label: { en: "Backend & APIs", zh: "后端与接口" },
+    icon: "⚡",
+    items: ["Node.js", "FastAPI", "tRPC", "GraphQL", "WebSockets"],
+  },
+  {
+    label: { en: "Data & Infra", zh: "数据与基础设施" },
+    icon: "▣",
+    items: ["Postgres", "Redis", "Kafka", "ClickHouse", "TimescaleDB"],
+  },
+  {
+    label: { en: "DevOps & Cloud", zh: "DevOps 与云" },
+    icon: "☁",
+    items: ["Docker", "Kubernetes", "AWS", "GCP", "GitHub Actions"],
+  },
+  {
+    label: { en: "Exchanges & Web3", zh: "交易所与 Web3" },
+    icon: "◈",
+    items: ["Binance", "OKX", "Bybit", "Ethereum", "Solana"],
+  },
+];
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const Services = () => {
