@@ -8,7 +8,38 @@ import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
 import serviceBlockchain from "@/assets/service-blockchain.jpg";
 
-const tech = ["Python", "Node.js", "Nuxt/Vue", "Tailwind", "Postgres", "Redis", "Kafka", "ClickHouse", "Docker", "Kubernetes", "AWS/GCP", "Binance", "OKX", "Bybit"];
+const techGroups = [
+  {
+    label: { en: "Languages", zh: "编程语言" },
+    icon: "{ }",
+    items: ["TypeScript", "Python", "Rust", "Solidity", "Go"],
+  },
+  {
+    label: { en: "Frontend & Web", zh: "前端与网站" },
+    icon: "</>",
+    items: ["React", "Next.js", "Nuxt / Vue", "Tailwind CSS", "Vite"],
+  },
+  {
+    label: { en: "Backend & APIs", zh: "后端与接口" },
+    icon: "⚡",
+    items: ["Node.js", "FastAPI", "tRPC", "GraphQL", "WebSockets"],
+  },
+  {
+    label: { en: "Data & Infra", zh: "数据与基础设施" },
+    icon: "▣",
+    items: ["Postgres", "Redis", "Kafka", "ClickHouse", "TimescaleDB"],
+  },
+  {
+    label: { en: "DevOps & Cloud", zh: "DevOps 与云" },
+    icon: "☁",
+    items: ["Docker", "Kubernetes", "AWS", "GCP", "GitHub Actions"],
+  },
+  {
+    label: { en: "Exchanges & Web3", zh: "交易所与 Web3" },
+    icon: "◈",
+    items: ["Binance", "OKX", "Bybit", "Ethereum", "Solana"],
+  },
+];
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const Services = () => {
@@ -107,7 +138,7 @@ const Services = () => {
       </section>
 
       {/* ENGAGEMENT MODELS */}
-      <section className="py-20 bg-background">
+      <section className="py-20" style={{ background: "var(--gradient-section)" }}>
         <div className="section-wrap">
           <SectionHeading
             eyebrow={t("Flexible Plans", "灵活方案")}
@@ -132,9 +163,8 @@ const Services = () => {
       </section>
 
       {/* PROCESS — light, premium, connected timeline */}
-      <section className="relative py-24 overflow-hidden bg-background">
+      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
         {/* layered backgrounds */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(210 40% 97%) 50%, hsl(var(--background)) 100%)" }} />
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
@@ -258,17 +288,94 @@ const Services = () => {
         </div>
       </section>
 
-      {/* TECH */}
-      <section className="py-16 bg-background">
-        <div className="section-wrap">
-          <h2 className="font-display text-foreground text-center mb-8" style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: "-0.02em" }}>{t("Tech Stack & Integrations", "技术栈与集成")}</h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {tech.map((te, i) => (
-              <motion.span key={te} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.03 }} className="px-4 py-2 rounded-full border border-border bg-card text-sm font-medium transition-all duration-200 hover:border-primary/40 hover:bg-primary/5" style={{ boxShadow: "var(--shadow-sm)" }}>
-                {te}
-              </motion.span>
+      {/* TECH STACK — categorized, premium grid */}
+      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+        {/* decorative grid */}
+        <div
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        <div className="absolute -top-32 left-1/3 w-[460px] h-[460px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+        <div className="absolute -bottom-32 right-1/3 w-[460px] h-[460px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+
+        <div className="section-wrap relative">
+          <SectionHeading
+            eyebrow={t("Tech Stack", "技术栈")}
+            title={t("Tools we ship with", "我们用的工具")}
+            highlight={t("ship with", "工具")}
+            description={t(
+              "Battle-tested languages, frameworks, infrastructure and integrations — selected for reliability and long-term maintainability.",
+              "经过实战检验的语言、框架、基础设施与集成 — 为可靠性与长期可维护性而选。"
+            )}
+            align="center"
+            className="mb-14"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {techGroups.map((g, i) => (
+              <motion.div
+                key={g.label.en}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.07, ease }}
+                className="group relative"
+              >
+                {/* gradient border wrapper */}
+                <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/80 via-border to-blue-200/40 transition-all duration-500 group-hover:from-sky-400/70 group-hover:to-blue-500/40 h-full">
+                  <div className="relative rounded-2xl bg-card overflow-hidden p-6 h-full transition-all duration-300" style={{ boxShadow: "var(--shadow-card)" }}>
+                    {/* faint group index */}
+                    <span
+                      aria-hidden
+                      className="absolute -top-2 right-3 font-display font-black text-foreground/[0.04] select-none transition-colors duration-300 group-hover:text-primary/10"
+                      style={{ fontSize: "5rem", lineHeight: 1, letterSpacing: "-0.05em" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    {/* group header */}
+                    <div className="relative flex items-center gap-3 mb-5">
+                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm shadow-[0_6px_18px_-4px_hsl(199_89%_48%_/_0.45)]">
+                        {g.icon}
+                      </span>
+                      <div>
+                        <h3 className="font-display text-base font-bold text-foreground leading-tight">{t(g.label.en, g.label.zh)}</h3>
+                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">{g.items.length} {t("tools", "工具")}</span>
+                      </div>
+                    </div>
+
+                    {/* items as pills */}
+                    <div className="relative flex flex-wrap gap-2">
+                      {g.items.map((item) => (
+                        <span
+                          key={item}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border bg-secondary/40 text-foreground text-xs font-medium transition-colors duration-200 hover:border-primary/40 hover:bg-primary/5"
+                        >
+                          <span className="inline-block w-1 h-1 rounded-full bg-primary/60" />
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* bottom hover accent */}
+                    <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
+
+          <p className="mt-10 text-muted-foreground text-xs text-center max-w-[55ch] mx-auto">
+            {t(
+              "Stack picked per project — we'll recommend the right tools for your goals, scale, and team.",
+              "技术栈按项目挑选 — 我们会根据您的目标、规模与团队推荐合适的工具。"
+            )}
+          </p>
         </div>
       </section>
 
