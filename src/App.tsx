@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import QuantTrading from "./pages/QuantTrading";
 import AIAgents from "./pages/AIAgents";
 import WebDevelopment from "./pages/WebDevelopment";
+import Blockchain from "./pages/Blockchain";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/services/quant-trading" element={<QuantTrading />} />
               <Route path="/services/ai-agents" element={<AIAgents />} />
               <Route path="/services/web-development" element={<WebDevelopment />} />
+              <Route path="/services/blockchain" element={<Blockchain />} />
                 <Route path="/contact" element={<Contact />} />
               </Route>
               <Route path="*" element={<NotFound />} />
