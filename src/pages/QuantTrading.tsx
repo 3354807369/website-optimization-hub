@@ -258,15 +258,29 @@ const QuantTrading = () => {
           style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
         />
         <div className="section-wrap relative">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <p className="uppercase tracking-[0.2em] text-sky-300 text-xs font-semibold mb-3">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16 max-w-3xl mx-auto">
+            <p className="uppercase tracking-[0.25em] text-sky-300/90 text-[11px] font-semibold mb-5">
               {t("Core Capabilities", "核心能力")}
             </p>
-            <h2 className="font-display text-primary-foreground" style={{ fontSize: "clamp(1.75rem, 5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-              {t("Trade Smarter with", "用数据驱动的量化机器人")}
-              <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent"> {t("Data-Driven Quant Bots", "更聪明地交易")}</span>
+            <h2
+              className="font-display font-bold text-primary-foreground"
+              style={{
+                fontSize: "clamp(2rem, 5.5vw, 3.5rem)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.035em",
+              }}
+            >
+              {t("Trade smarter with", "用数据驱动的")}{" "}
+              <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-blue-400 bg-clip-text text-transparent">
+                {t("data-driven quant bots", "量化机器人更聪明地交易")}
+              </span>
             </h2>
+            <p className="mt-5 text-primary-foreground/55 text-[15px] md:text-base leading-relaxed max-w-xl mx-auto">
+              {t(
+                "Modular execution, exchange-agnostic connectivity, and risk-first design — built for production trading.",
+                "模块化执行、跨交易所连接、风控优先设计 —— 为实盘交易而构建。"
+              )}
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

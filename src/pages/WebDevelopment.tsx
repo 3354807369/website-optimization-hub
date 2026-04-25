@@ -116,39 +116,39 @@ const WebDevelopment = () => {
   const work = [
     {
       title: "Maison Noir",
-      subtitle: t("Modern Brunch & Coffee House", "现代早午餐与咖啡馆"),
+      subtitle: t("Brunch & Coffee Concept", "早午餐与咖啡概念站"),
       desc: t(
-        "A moody black-and-gold marketing site for an Adelaide brunch spot — slow scroll storytelling, online reservations, and rich food photography.",
-        "为阿德莱德早午餐店打造的暗黑金调营销站 —— 缓慢滚动叙事、在线预订与精致餐饮摄影。"
+        "A concept marketing site for a moody black-and-gold brunch brand — slow scroll storytelling, online reservations, and rich food photography.",
+        "为暗黑金调早午餐品牌打造的概念营销站 —— 缓慢滚动叙事、在线预订与精致餐饮摄影。"
       ),
       tags: ["React", "Tailwind", "Framer Motion"],
       img: workMaisonNoir,
       url: "https://restaurant-showcase-demo-five.vercel.app/",
-      tag: t("Brand Site", "品牌官网"),
+      tag: t("Concept · Brand Site", "概念 · 品牌官网"),
     },
     {
       title: "SparkleCo",
-      subtitle: t("Sydney Home Cleaning Service", "悉尼家庭清洁服务"),
+      subtitle: t("Home Cleaning Booking Concept", "家庭清洁预订概念站"),
       desc: t(
-        "A trust-first booking site for a Sydney cleaning crew — 60-second checkout flow, live social-proof notifications, and same-day suburb availability.",
-        "为悉尼清洁团队打造的信任优先预订站 —— 60 秒下单流程、实时社交证明提示、覆盖各区当日预约。"
+        "A trust-first booking flow concept for a home cleaning brand — 60-second checkout, live social-proof notifications, and same-day availability UX.",
+        "为家庭清洁品牌设计的信任优先预订流程概念 —— 60 秒下单、实时社交证明提示、当日可约 UX。"
       ),
       tags: ["React", "Tailwind", "Booking Flow"],
       img: workSparkleCo,
       url: "https://clean-service-demo.vercel.app/",
-      tag: t("Service Booking", "服务预订"),
+      tag: t("Concept · Service Booking", "概念 · 服务预订"),
     },
     {
       title: "Haven Co",
-      subtitle: t("Australian Property House", "澳洲房产展示平台"),
+      subtitle: t("Real Estate Showcase Concept", "房产展示概念站"),
       desc: t(
-        "An editorial real-estate showcase from Sydney to the Sunshine Coast — cinematic hero imagery, curated listings, and a fast filter-driven search for rentals and sales.",
-        "覆盖悉尼至阳光海岸的编辑风房产展示平台 —— 电影感主视觉、精选房源、租售一体的高速筛选搜索。"
+        "An editorial real-estate showcase concept — cinematic hero imagery, curated listings, and a fast filter-driven search for rentals and sales.",
+        "编辑风房产展示概念站 —— 电影感主视觉、精选房源、租售一体的高速筛选搜索。"
       ),
       tags: ["React", "Tailwind", "Property Search"],
       img: workHavenCo,
       url: "https://cozy-home-showcase.vercel.app/",
-      tag: t("Real Estate", "房产展示"),
+      tag: t("Concept · Real Estate", "概念 · 房产展示"),
     },
   ];
 
@@ -350,22 +350,22 @@ const WebDevelopment = () => {
           >
             <div className="max-w-2xl">
               <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
-                {t("Selected Work", "精选案例")}
+                {t("Concept Showcase", "概念展示")}
               </p>
               <h2
                 className="font-display font-bold text-foreground"
                 style={{ fontSize: "clamp(1.85rem, 4.5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
-                {t("Recent projects we've", "我们近期")}{" "}
+                {t("Demo concepts we've", "我们设计并上线的")}{" "}
                 <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                  {t("designed and shipped", "设计并上线的项目")}
+                  {t("designed and shipped", "概念演示项目")}
                 </span>
               </h2>
             </div>
             <p className="text-muted-foreground text-[15px] max-w-sm">
               {t(
-                "Live demos you can click through. Each one designed, built, and deployed end-to-end.",
-                "每个案例都可点击访问 —— 全程由我们设计、构建并部署上线。"
+                "Click-through demos showcasing our design and engineering. Brands shown are fictional — built to demonstrate what we can ship for you.",
+                "可点击访问的概念演示,展示我们的设计与工程能力。所示品牌为虚构,旨在呈现我们能为你交付的效果。"
               )}
             </p>
           </motion.div>
@@ -547,11 +547,20 @@ const WebDevelopment = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.45, delay: i * 0.06, ease }}
-                      className="p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:border-sky-400/30 hover:bg-white/[0.05] transition-all"
+                      className="group relative p-5 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-sky-400/40 hover:bg-white/[0.06] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
                     >
-                      <Icon size={18} className="text-sky-300 mb-2" strokeWidth={2.2} />
-                      <h3 className="font-display text-[15px] font-bold text-white mb-1">{c.title}</h3>
-                      <p className="text-white/60 text-[13px] leading-relaxed">{c.desc}</p>
+                      <div
+                        className="absolute -top-12 -right-12 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-500 pointer-events-none"
+                        style={{ background: "radial-gradient(circle, hsl(199 89% 60% / 0.4), transparent)" }}
+                      />
+                      <div
+                        className="relative w-9 h-9 rounded-lg flex items-center justify-center mb-3 border border-sky-400/20"
+                        style={{ background: "linear-gradient(135deg, hsl(199 89% 48% / 0.15), hsl(217 91% 60% / 0.08))" }}
+                      >
+                        <Icon size={16} className="text-sky-300" strokeWidth={2.2} />
+                      </div>
+                      <h3 className="relative font-display text-[15px] font-bold text-white mb-1.5 leading-tight">{c.title}</h3>
+                      <p className="relative text-white/60 text-[12.5px] leading-relaxed">{c.desc}</p>
                     </motion.div>
                   );
                 })}
