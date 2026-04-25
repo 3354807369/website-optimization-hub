@@ -126,8 +126,6 @@ const About = () => {
 
       {/* Engineering at a glance — light, premium, layered */}
       <section className="relative py-24 overflow-hidden bg-background">
-        {/* layered backgrounds */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(210 40% 97%) 50%, hsl(var(--background)) 100%)" }} />
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
