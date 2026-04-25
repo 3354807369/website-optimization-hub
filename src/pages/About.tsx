@@ -124,14 +124,78 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-foreground text-primary-foreground">
-        <div className="section-wrap">
-          <h2 className="font-display text-center text-primary-foreground mb-10" style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: "-0.02em" }}>{t("Engineering at a glance", "工程实力一览")}</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {/* Engineering at a glance — light, premium, layered */}
+      <section className="relative py-24 overflow-hidden bg-background">
+        {/* layered backgrounds */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(210 40% 97%) 50%, hsl(var(--background)) 100%)" }} />
+        <div
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        <div className="absolute -top-32 left-1/4 w-[420px] h-[420px] rounded-full opacity-[0.12] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+        <div className="absolute -bottom-32 right-1/4 w-[420px] h-[420px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+
+        <div className="section-wrap relative">
+          {/* heading */}
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-3 mb-4 justify-center">
+              <span aria-hidden className="h-px w-8 bg-primary/60" />
+              <span className="uppercase tracking-[0.22em] text-[11px] font-bold text-primary">{t("Engineering Metrics", "工程指标")}</span>
+              <span aria-hidden className="h-px w-8 bg-primary/60" />
+            </div>
+            <h2 className="font-display font-bold text-foreground" style={{ fontSize: "clamp(1.875rem, 4.5vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+              {t("Engineering at a", "工程实力")} <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">{t("glance", "一览")}</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed max-w-[58ch] mx-auto">
+              {t("Numbers that describe how we build, ship, and run software in production.", "用数据描述我们如何在生产环境中构建、交付与运行软件。")}
+            </p>
+          </motion.div>
+
+          {/* premium stat cards with index numbers, gradient borders, hover glow */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
             {stats.map((s, i) => (
-              <motion.div key={s.label} initial={{ opacity: 0, y: 16, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07, ease }} className="text-center p-5 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 transition-all duration-300 hover:border-primary-foreground/20">
-                <span className="block text-2xl font-extrabold tracking-tight font-display">{s.value}</span>
-                <span className="block mt-1.5 text-primary-foreground/60 text-xs uppercase tracking-wider font-medium">{s.label}</span>
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.08, ease }}
+                className="group relative"
+              >
+                {/* gradient border wrapper */}
+                <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/80 via-border to-blue-200/40 transition-all duration-500 group-hover:from-sky-400/70 group-hover:to-blue-500/40">
+                  <div className="relative rounded-2xl bg-card overflow-hidden p-6 h-full transition-all duration-300" style={{ boxShadow: "var(--shadow-card)" }}>
+                    {/* faint index number */}
+                    <span
+                      aria-hidden
+                      className="absolute -top-2 right-3 font-display font-black text-foreground/[0.04] select-none transition-colors duration-300 group-hover:text-primary/10"
+                      style={{ fontSize: "5rem", lineHeight: 1, letterSpacing: "-0.05em" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    {/* corner accent dot */}
+                    <span className="absolute top-4 left-4 inline-flex h-1.5 w-1.5 rounded-full bg-primary/70 shadow-[0_0_8px_hsl(var(--primary))]" />
+
+                    {/* value */}
+                    <div className="relative pt-3">
+                      <span className="block font-display font-extrabold tabular-nums bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent" style={{ fontSize: "clamp(1.75rem, 2.6vw, 2.25rem)", letterSpacing: "-0.03em", lineHeight: 1 }}>
+                        {s.value}
+                      </span>
+                      <span className="block mt-2 text-muted-foreground text-[10.5px] uppercase tracking-[0.18em] font-semibold">
+                        {s.label}
+                      </span>
+                    </div>
+
+                    {/* bottom hover accent line */}
+                    <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
