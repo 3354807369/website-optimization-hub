@@ -351,7 +351,7 @@ const Services = () => {
                       </span>
                       <div>
                         <h3 className="font-display text-base font-bold text-foreground leading-tight">{t(g.label.en, g.label.zh)}</h3>
-                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">{g.items.length} {t("tools", "工具")}</span>
+                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">{t(g.caption.en, g.caption.zh)}</span>
                       </div>
                     </div>
 
