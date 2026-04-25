@@ -133,21 +133,6 @@ const Index = () => {
           transition={{ duration: 0.9, delay: 0.15, ease }}
           className="relative z-[2] text-center px-6 max-w-[1180px]"
         >
-          {/* live status pill */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/12 bg-white/[0.04] backdrop-blur-md mb-8"
-          >
-            <span className="relative flex w-1.5 h-1.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
-            </span>
-            <span className="text-white/85 text-[12px] font-medium tracking-[0.12em] uppercase">
-              {t("Systems Live · Strategies Running", "系统在线 · 策略运行中")}
-            </span>
-          </motion.div>
 
           <h1
             className="font-display font-bold text-white mb-7"
