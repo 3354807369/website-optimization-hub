@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
 import { useLang } from "@/i18n/LanguageContext";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
@@ -331,6 +332,107 @@ const Services = () => {
             </motion.div>
           </div>
           <p className="mt-5 text-muted-foreground text-xs text-center">{t("StarLoop provides software and engineering services only. Nothing here is investment advice.", "StarLoop 仅提供软件和工程服务。本站内容不构成投资建议。")}</p>
+        </div>
+      </section>
+
+      {/* FAQ — light, addresses common pre-sales questions */}
+      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+        <div
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        <div className="absolute -top-32 right-1/4 w-[420px] h-[420px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+
+        <div className="section-wrap relative">
+          <SectionHeading
+            eyebrow={t("FAQ", "常见问题")}
+            title={t("Questions, answered", "常见问题，逐一解答")}
+            highlight={t("answered", "解答")}
+            description={t(
+              "Everything you'd ask before sending the first message — pricing, NDAs, timelines, and ownership.",
+              "在发出第一条消息前你想问的一切 — 定价、保密协议、周期与归属。"
+            )}
+            align="center"
+            className="mb-12"
+          />
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-3">
+              {[
+                {
+                  q: t("How do you price a project?", "你们如何报价？"),
+                  a: t(
+                    "Most engagements are scoped as a fixed-price Prototype Sprint (2–3 weeks) or a milestone-based Production Build. Ongoing Success is a flat monthly retainer. We share a written estimate within 48 hours of an intro call.",
+                    "大多数项目按固定价格的「原型冲刺」（2-3 周）或按里程碑的「生产构建」计费；「持续成功」按月固定收取。介绍通话后 48 小时内提供书面报价。"
+                  ),
+                },
+                {
+                  q: t("What's a typical delivery timeline?", "通常的交付周期是多久？"),
+                  a: t(
+                    "A Prototype Sprint ships in 2–3 weeks. A Production Build typically runs 4–8 weeks, though complex Web3 or trading systems can extend to 3 months. We commit to weekly demos so you always see progress.",
+                    "原型冲刺 2-3 周交付。生产构建一般 4-8 周，复杂的 Web3 或交易系统可能延长到 3 个月。我们承诺每周演示，进度始终可见。"
+                  ),
+                },
+                {
+                  q: t("Will you sign an NDA?", "你们会签保密协议吗？"),
+                  a: t(
+                    "Yes — we sign NDAs by default before sharing any technical details. For trading clients, we also operate non-custodially: your API keys and wallets stay under your control.",
+                    "会 — 在交流任何技术细节前我们默认签署保密协议。对交易类客户我们采用非托管模式：API 密钥与钱包始终在您的掌控中。"
+                  ),
+                },
+                {
+                  q: t("Who owns the code and IP?", "代码与知识产权归谁？"),
+                  a: t(
+                    "You do. Once final invoices are paid, all code, designs, and infrastructure configuration are transferred to your repositories with full IP rights. We retain only the right to mention the engagement at a high level.",
+                    "归您所有。尾款结清后，全部代码、设计与基础设施配置移交至您的仓库，知识产权完整转让。我们仅保留对合作进行高层次提及的权利。"
+                  ),
+                },
+                {
+                  q: t("Do you offer post-launch support?", "上线后是否提供持续支持？"),
+                  a: t(
+                    "Yes. Every Production Build includes a 30-day warranty for bug fixes. Beyond that, our Ongoing Success plan covers monitoring, incident response, security updates, and strategy iterations on a monthly retainer.",
+                    "是的。所有「生产构建」附带 30 天 bug 修复保修期；此后可选「持续成功」按月套餐，覆盖监控、事件响应、安全更新与策略迭代。"
+                  ),
+                },
+                {
+                  q: t("Can you work with our existing team or codebase?", "可以与我们现有团队或代码协作吗？"),
+                  a: t(
+                    "Absolutely. We routinely integrate with internal teams, follow existing conventions, and contribute via pull requests with code review. We can also act as a fully autonomous squad — whichever fits your workflow.",
+                    "当然。我们经常嵌入客户团队，遵循既有规范，通过 PR + Code Review 协作；也可作为独立小队完整交付 — 按您的流程来。"
+                  ),
+                },
+              ].map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`item-${i}`}
+                  className="rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30"
+                  style={{ boxShadow: "var(--shadow-card)" }}
+                >
+                  <AccordionTrigger className="px-5 py-4 text-left font-display font-semibold text-foreground hover:no-underline hover:text-primary text-[15px]">
+                    <span className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-primary font-bold">{String(i + 1).padStart(2, "0")}</span>
+                      {item.q}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed pl-12">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+
+            <p className="mt-8 text-center text-sm text-muted-foreground">
+              {t("Still have questions?", "还有其他问题？")}{" "}
+              <Link to="/contact" className="text-primary font-semibold hover:underline">
+                {t("Get in touch →", "联系我们 →")}
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
 
