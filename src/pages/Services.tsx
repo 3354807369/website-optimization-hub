@@ -153,42 +153,6 @@ const Services = () => {
                 );
               })}
             </div>
-
-            {/* divider label */}
-            <div className="flex items-center gap-4 my-8">
-              <div className="h-px flex-1 bg-border" />
-              <span className="text-[10.5px] uppercase tracking-[0.22em] font-bold text-muted-foreground">{t("Also Available", "其他能力")}</span>
-              <div className="h-px flex-1 bg-border" />
-            </div>
-
-            {/* === SPEC CARDS (compact horizontal, smaller than feature cards) === */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                { id: "blockchain", icon: "◈", tag: "Web3", title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, on-chain indexing, wallet & custody integrations.", "智能合约、链上索引、钱包与托管集成。") },
-                { id: "data", icon: "▣", tag: "Data", title: t("Data & Pipelines", "数据与管道"), desc: t("Time-series storage, streaming ETL, dashboards and analytics.", "时序存储、流式 ETL、仪表板与分析。") },
-                { id: "reliability", icon: "⚙", tag: "Ops", title: t("Reliability & Ops", "可靠性与运维"), desc: t("Monitoring, alerting, incident response and 24/7 uptime.", "监控、告警、事件响应与全天候运行。") },
-              ].map((s, i) => (
-                <motion.article
-                  key={s.id}
-                  id={s.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease }}
-                  className="group relative rounded-xl bg-card border border-border overflow-hidden p-4 flex items-start gap-3 transition-all duration-300 hover:border-primary/30 hover:-translate-y-0.5"
-                  style={{ boxShadow: "var(--shadow-card)" }}
-                >
-                  <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm shadow-[0_4px_14px_-3px_hsl(199_89%_48%_/_0.4)]">{s.icon}</span>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-display text-[14px] font-bold leading-tight truncate">{s.title}</h3>
-                      <span className="px-1.5 py-0.5 rounded-full bg-primary/10 text-primary text-[9px] font-bold uppercase tracking-[0.16em] shrink-0">{s.tag}</span>
-                    </div>
-                    <p className="text-muted-foreground text-[12.5px] leading-snug">{s.desc}</p>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
           </div>
         </div>
       </section>
