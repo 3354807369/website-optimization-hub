@@ -310,7 +310,7 @@ const Services = () => {
       </section>
 
       {/* FAQ — light, addresses common pre-sales questions */}
-      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+      <section className="relative py-24 overflow-hidden bg-background">
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
@@ -320,7 +320,6 @@ const Services = () => {
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
         />
-        <div className="absolute -top-32 right-1/4 w-[420px] h-[420px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
 
         <div className="section-wrap relative">
           <SectionHeading
