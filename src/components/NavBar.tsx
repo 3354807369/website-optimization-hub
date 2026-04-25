@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe, ChevronDown, LineChart, Bot, Globe2 } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, LineChart, Bot, Globe2, Boxes } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
 import logo from "@/assets/logo.png";
@@ -32,6 +32,12 @@ const NavBar = () => {
       label: t("Web Development", "网站开发"),
       desc: t("Modern sites & landing pages", "现代网站与落地页"),
       icon: Globe2,
+    },
+    {
+      to: "/services/blockchain",
+      label: t("Blockchain & Web3", "区块链与 Web3"),
+      desc: t("Smart contracts & dApps", "智能合约与 dApp"),
+      icon: Boxes,
     },
   ];
 
