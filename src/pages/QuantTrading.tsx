@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import IntegrationsShowcase from "@/components/IntegrationsShowcase";
 import PerformanceCurve from "@/components/PerformanceCurve";
+import CtaSection from "@/components/CtaSection";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 import { useLang } from "@/i18n/LanguageContext";
