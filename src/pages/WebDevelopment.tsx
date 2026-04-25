@@ -606,31 +606,43 @@ const WebDevelopment = () => {
       </section>
 
       {/* ============ TECH STACK ============ */}
-      <section className="pt-4 pb-20 bg-background">
-        <div className="section-wrap">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
-            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.025] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        <div className="section-wrap relative">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <p className="uppercase tracking-[0.25em] text-primary text-[11px] font-semibold mb-4">
               {t("Tools & Stack", "工具与技术栈")}
             </p>
             <h2
               className="font-display font-bold text-foreground"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2rem)", letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(1.5rem, 3.2vw, 2rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}
             >
-              {t("Modern tools we work with", "我们使用的现代工具")}
+              {t("Built with the", "构建于")}{" "}
+              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+                {t("modern web stack", "现代 Web 技术栈之上")}
+              </span>
             </h2>
           </motion.div>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto">
             {stack.map((s, i) => (
               <motion.span
                 key={s}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.03 }}
-                className="px-4 py-2 rounded-full border border-border bg-card text-sm font-medium transition-all duration-200 hover:border-primary/40 hover:bg-primary/5"
+                transition={{ duration: 0.35, delay: i * 0.04, ease }}
+                className="group relative px-4 py-2 rounded-full border border-border bg-card text-foreground text-[13px] font-medium tracking-tight transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:text-primary cursor-default"
                 style={{ boxShadow: "var(--shadow-sm)" }}
               >
-                {s}
+                <span className="relative">{s}</span>
               </motion.span>
             ))}
           </div>
