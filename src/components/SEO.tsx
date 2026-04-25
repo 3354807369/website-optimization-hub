@@ -14,7 +14,9 @@ interface SEOProps {
 const SITE_NAME = "StarLoop";
 const BASE_URL = "https://starlooptech.com";
 const DEFAULT_DESC =
-  "Data-driven quant trading automation, AI agents, fast modern websites, and blockchain engineering by StarLoop.";
+  "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and blockchain infrastructure.";
+const KEYWORDS =
+  "quant trading automation, AI agents, LLM engineering, web development, blockchain engineering, IT solutions, software engineering team, full-stack development";
 
 const SEO = ({
   title,
@@ -24,7 +26,7 @@ const SEO = ({
   schema,
   serviceName,
 }: SEOProps) => {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Quant Trading Automation`;
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Full-Stack IT Engineering Team`;
   const url = `${BASE_URL}${path}`;
   const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
 
@@ -39,6 +41,20 @@ const SEO = ({
     url: BASE_URL,
     logo: `${BASE_URL}/og-image.png`,
     description: DEFAULT_DESC,
+    foundingDate: "2023",
+    slogan: "Full-stack IT engineering team",
+    knowsAbout: [
+      "Quantitative Trading Automation",
+      "Algorithmic Trading",
+      "AI Agents",
+      "Large Language Models",
+      "Web Development",
+      "Blockchain Engineering",
+      "Smart Contracts",
+      "DevOps",
+      "Cloud Infrastructure",
+    ],
+    areaServed: "Worldwide",
     sameAs: [],
   });
 
@@ -82,6 +98,7 @@ const SEO = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={KEYWORDS} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}
