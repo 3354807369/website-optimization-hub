@@ -399,11 +399,9 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="py-24 relative overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
-      >
+      {/* CTA — light premium (creates dark→light contrast with Tech Stack above) */}
+      <section className="relative py-28 overflow-hidden bg-background">
+
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
