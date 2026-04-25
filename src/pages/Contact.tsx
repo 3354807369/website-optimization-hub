@@ -39,8 +39,10 @@ const Contact = () => {
 
   const needOptions = [
     t("Quant Trading Automation", "量化交易自动化"),
-    t("Website / Landing Pages", "网站 / 落地页"),
-    t("Blockchain / Web3", "区块链 / Web3"),
+    t("AI Agents & Automation", "AI 智能代理与自动化"),
+    t("Website & Landing Pages", "网站与落地页制作"),
+    t("Blockchain & Web3", "区块链与 Web3"),
+    t("Other / Not sure yet", "其他 / 暂未确定"),
   ];
 
   return (
