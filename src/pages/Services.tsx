@@ -309,13 +309,16 @@ const Services = () => {
         </div>
       </section>
 
-      {/* FAQ — light, addresses common pre-sales questions */}
-      <section className="relative py-24 overflow-hidden bg-background">
+      {/* FAQ — dark theme, addresses common pre-sales questions */}
+      <section
+        className="relative py-24 overflow-hidden text-primary-foreground"
+        style={{ background: "linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(217 50% 10%) 50%, hsl(222 47% 7%) 100%)" }}
+      >
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
@@ -331,6 +334,7 @@ const Services = () => {
               "在发出第一条消息前你想问的一切 — 定价、保密协议、周期与归属。"
             )}
             align="center"
+            invert
             className="mb-12"
           />
 
@@ -383,25 +387,28 @@ const Services = () => {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  className="rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30"
-                  style={{ boxShadow: "var(--shadow-card)" }}
+                  className="rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 hover:border-sky-300/40 backdrop-blur-md"
+                  style={{
+                    background: "linear-gradient(160deg, hsl(217 50% 12% / 0.7), hsl(222 47% 8% / 0.85))",
+                    boxShadow: "0 12px 32px -16px hsl(222 47% 2% / 0.6), inset 0 1px 0 hsl(199 89% 70% / 0.06)",
+                  }}
                 >
-                  <AccordionTrigger className="px-5 py-4 text-left font-display font-semibold text-foreground hover:no-underline hover:text-primary text-[15px]">
+                  <AccordionTrigger className="px-5 py-4 text-left font-display font-semibold text-primary-foreground hover:no-underline hover:text-sky-300 text-[15px]">
                     <span className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-primary font-bold">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-xs text-sky-300 font-bold">{String(i + 1).padStart(2, "0")}</span>
                       {item.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed pl-12">
+                  <AccordionContent className="px-5 pb-5 text-primary-foreground/70 text-sm leading-relaxed pl-12">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
 
-            <p className="mt-8 text-center text-sm text-muted-foreground">
+            <p className="mt-8 text-center text-sm text-primary-foreground/60">
               {t("Still have questions?", "还有其他问题？")}{" "}
-              <Link to="/contact" className="text-primary font-semibold hover:underline">
+              <Link to="/contact" className="text-sky-300 font-semibold hover:underline">
                 {t("Get in touch →", "联系我们 →")}
               </Link>
             </p>
