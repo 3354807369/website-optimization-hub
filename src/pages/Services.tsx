@@ -163,9 +163,8 @@ const Services = () => {
       </section>
 
       {/* PROCESS — light, premium, connected timeline */}
-      <section className="relative py-24 overflow-hidden bg-background">
+      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
         {/* layered backgrounds */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(210 40% 97%) 50%, hsl(var(--background)) 100%)" }} />
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
