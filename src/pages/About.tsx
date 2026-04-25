@@ -29,12 +29,13 @@ const About = () => {
     { title: t("Long-Term Partnership", "长期合作伙伴"), body: t("We embed with your team, document everything, and stay accountable post-launch.", "我们融入您的团队、完整文档化、上线后持续负责。"), icon: "🤝" },
   ];
 
+  // Engineering-culture stats: depth signals (how we work)
   const stats = [
-    { value: "4", label: t("Practice Areas", "业务领域") },
-    { value: "<80ms", label: t("Latency Target", "延迟目标") },
-    { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime SLO", "可用性 SLO") },
-    { value: "24/7", label: t("Monitoring", "全天候监控") },
+    { value: "100%", label: t("Code Review Coverage", "代码审查覆盖") },
+    { value: "<24h", label: t("Avg PR Review", "平均 PR 审查") },
+    { value: "85%+", label: t("Test Coverage", "测试覆盖率") },
+    { value: "<15min", label: t("Incident MTTR", "事件平均恢复") },
+    { value: "0", label: t("Untracked Deploys", "无追踪上线") },
   ];
 
   return (
