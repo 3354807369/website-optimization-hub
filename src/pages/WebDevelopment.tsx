@@ -574,125 +574,31 @@ const WebDevelopment = () => {
       </section>
 
       {/* ============ DELIVERY PROCESS ============ */}
-      <section className="py-24 bg-background">
-        <div className="section-wrap">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
-              {t("Delivery Process", "交付流程")}
-            </p>
-            <h2
-              className="font-display font-bold text-foreground"
-              style={{ fontSize: "clamp(1.85rem, 4.5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
-            >
-              {t("From idea to live site in weeks", "从想法到上线，仅需数周")}
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {workflow.map((w, i) => (
-              <motion.div
-                key={w.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease }}
-                className="relative p-5 rounded-2xl border border-border bg-card hover:border-primary/30 transition-all"
-                style={{ boxShadow: "var(--shadow-card)" }}
-              >
-                <div className="font-display text-xs font-bold text-primary tracking-widest mb-2">{w.num}</div>
-                <h3 className="font-display text-lg font-extrabold text-foreground mb-1">{w.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{w.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ============ DELIVERY PROCESS ============ */}
+      <DeliveryProcess
+        headingPrefix={t("From idea to", "从想法到")}
+        headingHighlight={t("live site in weeks", "上线，仅需数周")}
+        steps={workflow}
+      />
 
       {/* ============ TECH STACK ============ */}
-      <section className="py-20 bg-background relative overflow-hidden">
-        <div className="section-wrap relative">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="uppercase tracking-[0.25em] text-primary text-[11px] font-semibold mb-4">
-              {t("Tools & Stack", "工具与技术栈")}
-            </p>
-            <h2
-              className="font-display font-bold text-foreground"
-              style={{ fontSize: "clamp(1.5rem, 3.2vw, 2rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}
-            >
-              {t("Built with the", "构建于")}{" "}
-              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                {t("modern web stack", "现代 Web 技术栈之上")}
-              </span>
-            </h2>
-          </motion.div>
-          <div className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto">
-            {stack.map((s, i) => (
-              <motion.span
-                key={s}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: i * 0.04, ease }}
-                className="group relative px-4 py-2 rounded-full border border-border bg-card text-foreground text-[13px] font-medium tracking-tight transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:text-primary cursor-default"
-                style={{ boxShadow: "var(--shadow-sm)" }}
-              >
-                <span className="relative">{s}</span>
-              </motion.span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ToolsStack
+        headingPrefix={t("Built with the", "构建于")}
+        headingHighlight={t("modern web stack", "现代 Web 技术栈之上")}
+        items={stack}
+      />
 
       {/* ============ CTA ============ */}
-      <section
-        className="py-24 relative overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div
-          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
-        />
-        <div className="section-wrap relative text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-display font-bold text-white mb-4"
-            style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}
-          >
-            {t("Ready to build your next site?", "准备好打造你的下一个网站？")}
-          </motion.h2>
-          <p className="text-white/70 max-w-[55ch] mx-auto mb-8 text-base md:text-lg">
-            {t(
-              "Tell us about your project — we'll respond within one business day with a clear scope and plan.",
-              "告诉我们你的项目 —— 我们将在一个工作日内回复，提供清晰的范围与方案。"
-            )}
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20"
-            >
-              {t("Get a Quote", "获取报价")}
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
-            >
-              {t("Explore Services", "查看其他服务")}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        title={t("Ready to build your next site?", "准备好打造你的下一个网站？")}
+        description={t(
+          "Tell us about your project — we'll respond within one business day with a clear scope and plan.",
+          "告诉我们你的项目 —— 我们将在一个工作日内回复，提供清晰的范围与方案。"
+        )}
+        primaryLabel={t("Get a Quote", "获取报价")}
+        secondaryLabel={t("Explore Services", "查看其他服务")}
+        secondaryHref="/services"
+      />
     </main>
   );
 };
