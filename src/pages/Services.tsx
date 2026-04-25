@@ -131,18 +131,94 @@ const Services = () => {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="py-20 bg-foreground text-primary-foreground">
-        <div className="section-wrap">
-          <h2 className="font-display text-center text-primary-foreground mb-12" style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: "-0.02em" }}>{t("How We Work", "我们如何工作")}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {steps.map((st, i) => (
-              <motion.div key={st.b} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08, ease }} className="p-5 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 transition-all duration-300 hover:border-primary-foreground/20">
-                <span className="font-display text-xs font-bold text-primary-foreground/40 tracking-wider">{st.num}</span>
-                <h3 className="font-display text-lg font-extrabold mt-1">{st.b}</h3>
-                <span className="text-primary-foreground/60 text-sm">{st.s}</span>
-              </motion.div>
-            ))}
+      {/* PROCESS — light, premium, connected timeline */}
+      <section className="relative py-24 overflow-hidden bg-background">
+        {/* layered backgrounds */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(210 40% 97%) 50%, hsl(var(--background)) 100%)" }} />
+        <div
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        <div className="absolute -top-32 right-1/4 w-[420px] h-[420px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+        <div className="absolute -bottom-32 left-1/4 w-[420px] h-[420px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+
+        <div className="section-wrap relative">
+          {/* heading */}
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-3 mb-4 justify-center">
+              <span aria-hidden className="h-px w-8 bg-primary/60" />
+              <span className="uppercase tracking-[0.22em] text-[11px] font-bold text-primary">{t("Our Process", "工作流程")}</span>
+              <span aria-hidden className="h-px w-8 bg-primary/60" />
+            </div>
+            <h2 className="font-display font-bold text-foreground" style={{ fontSize: "clamp(1.875rem, 4.5vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+              {t("How we", "我们如何")} <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">{t("work", "工作")}</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed max-w-[58ch] mx-auto">
+              {t("Five disciplined phases — from discovery to launch — every step versioned, observable, and accountable.", "五个严谨阶段 — 从发现到上线 — 每一步都可版本化、可观测、可追责。")}
+            </p>
+          </motion.div>
+
+          {/* timeline with connecting line */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* connecting horizontal line (desktop) */}
+            <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 relative">
+              {steps.map((st, i) => (
+                <motion.div
+                  key={st.b}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease }}
+                  className="group relative"
+                >
+                  {/* numbered node circle (sits on the line on desktop) */}
+                  <div className="hidden lg:flex absolute -top-1 left-1/2 -translate-x-1/2 z-10 items-center justify-center">
+                    <div className="relative w-[68px] h-[68px] flex items-center justify-center">
+                      {/* outer ring with gradient */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 p-[1.5px] shadow-[0_8px_24px_-8px_hsl(199_89%_48%_/_0.45)]">
+                        <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
+                          <span className="font-display font-extrabold text-foreground text-lg tabular-nums">{st.num}</span>
+                        </div>
+                      </div>
+                      {/* pulse on hover */}
+                      <div className="absolute inset-0 rounded-full bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 blur-xl" />
+                    </div>
+                  </div>
+
+                  {/* card */}
+                  <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/80 via-border to-blue-200/40 transition-all duration-500 group-hover:from-sky-400/70 group-hover:to-blue-500/40 lg:mt-20">
+                    <div className="relative rounded-2xl bg-card overflow-hidden p-6 h-full transition-all duration-300" style={{ boxShadow: "var(--shadow-card)" }}>
+                      {/* mobile/tablet number badge */}
+                      <span className="lg:hidden inline-flex items-center justify-center mb-3 w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm">
+                        {st.num}
+                      </span>
+
+                      {/* faint corner number for desktop */}
+                      <span
+                        aria-hidden
+                        className="hidden lg:block absolute -bottom-3 -right-1 font-display font-black text-foreground/[0.04] select-none transition-colors duration-300 group-hover:text-primary/10"
+                        style={{ fontSize: "4.5rem", lineHeight: 1, letterSpacing: "-0.05em" }}
+                      >
+                        {st.num}
+                      </span>
+
+                      <h3 className="relative font-display text-base font-bold text-foreground mb-1.5">{st.b}</h3>
+                      <p className="relative text-muted-foreground text-[13px] leading-relaxed">{st.s}</p>
+
+                      {/* bottom hover accent line */}
+                      <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
