@@ -438,12 +438,21 @@ const AIAgents = () => {
                       initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.06 }}
-                      className="p-4 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-sky-400/30 transition-all duration-300"
+                      transition={{ duration: 0.45, delay: i * 0.06, ease }}
+                      className="group relative p-5 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-sky-400/40 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
                     >
-                      <Icon size={16} className="text-sky-300 mb-2" strokeWidth={2.2} />
-                      <h3 className="font-semibold text-primary-foreground text-sm mb-1">{c.title}</h3>
-                      <p className="text-primary-foreground/55 text-[12px] leading-relaxed">{c.desc}</p>
+                      <div
+                        className="absolute -top-12 -right-12 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-500 pointer-events-none"
+                        style={{ background: "radial-gradient(circle, hsl(199 89% 60% / 0.4), transparent)" }}
+                      />
+                      <div
+                        className="relative w-9 h-9 rounded-lg flex items-center justify-center mb-3 border border-sky-400/20"
+                        style={{ background: "linear-gradient(135deg, hsl(199 89% 48% / 0.15), hsl(217 91% 60% / 0.08))" }}
+                      >
+                        <Icon size={16} className="text-sky-300" strokeWidth={2.2} />
+                      </div>
+                      <h3 className="relative font-display font-bold text-primary-foreground text-[15px] mb-1.5 leading-tight">{c.title}</h3>
+                      <p className="relative text-primary-foreground/55 text-[12.5px] leading-relaxed">{c.desc}</p>
                     </motion.div>
                   );
                 })}
