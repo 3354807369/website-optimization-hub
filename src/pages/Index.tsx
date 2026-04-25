@@ -393,7 +393,7 @@ const Index = () => {
           </div>
 
           {/* stats inline */}
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
