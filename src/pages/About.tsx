@@ -124,8 +124,80 @@ const About = () => {
         </div>
       </section>
 
-      {/* Engineering at a glance — light, premium, layered */}
-      <section className="relative py-24 overflow-hidden bg-background">
+      {/* HOW WE ENGINEER — DARK process strip (creates rhythm) */}
+      <section
+        className="relative py-20 overflow-hidden text-primary-foreground"
+        style={{ background: "linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(217 50% 11%) 50%, hsl(222 47% 6%) 100%)" }}
+      >
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
+        <div className="absolute -top-32 right-1/4 w-[460px] h-[460px] rounded-full opacity-25 blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+        <div className="absolute -bottom-32 left-1/4 w-[420px] h-[420px] rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+
+        <div className="section-wrap relative">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-3 mb-4 justify-center">
+              <span aria-hidden className="h-px w-8 bg-sky-300/70" />
+              <span className="uppercase tracking-[0.22em] text-[11px] font-bold text-sky-300">{t("Process", "工程流程")}</span>
+              <span aria-hidden className="h-px w-8 bg-sky-300/70" />
+            </div>
+            <h2 className="font-display font-bold text-white" style={{ fontSize: "clamp(1.875rem, 4.5vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+              {t("How we", "我们如何")} <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("engineer", "工程化")}</span>
+            </h2>
+            <p className="mt-4 text-white/65 text-[15px] leading-relaxed max-w-[58ch] mx-auto">
+              {t("From kickoff to production, every project moves through four disciplined phases.", "从启动到上线,每个项目都经过四个严谨阶段。")}
+            </p>
+          </motion.div>
+
+          <div className="relative max-w-5xl mx-auto">
+            <div className="hidden md:block absolute top-6 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent pointer-events-none" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 relative">
+              {[
+                { num: "01", title: t("Discover", "发现"), desc: t("Goals, risks, constraints — surfaced fast.", "快速厘清目标、风险与约束。") },
+                { num: "02", title: t("Architect", "架构"), desc: t("Modular, observable, secure-by-default.", "模块化、可观测、默认安全。") },
+                { num: "03", title: t("Build & Test", "构建与测试"), desc: t("Code reviews, CI, reproducible builds.", "代码审查、CI、可复现构建。") },
+                { num: "04", title: t("Run", "运行"), desc: t("Deploy, monitor, iterate, support.", "部署、监控、迭代、支持。") },
+              ].map((step, i) => (
+                <motion.div
+                  key={step.num}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease }}
+                  className="group relative"
+                >
+                  <div className="hidden md:flex justify-center mb-4">
+                    <div className="relative w-12 h-12">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 p-[1.5px] shadow-[0_8px_24px_-6px_hsl(199_89%_55%_/_0.55)]">
+                        <div className="w-full h-full rounded-full bg-[hsl(222_47%_8%)] flex items-center justify-center">
+                          <span className="font-display font-extrabold text-white text-xs tabular-nums">{step.num}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-xl p-[1.5px] bg-gradient-to-br from-white/15 via-white/5 to-white/[0.03] transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-blue-500/30">
+                    <div className="rounded-xl bg-white/[0.04] backdrop-blur-md p-5 h-full">
+                      <span className="md:hidden inline-flex items-center justify-center mb-2.5 w-9 h-9 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-xs">{step.num}</span>
+                      <h3 className="font-display text-base font-bold text-white mb-1">{step.title}</h3>
+                      <p className="text-white/60 text-[13px] leading-relaxed">{step.desc}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Engineering at a glance — light gradient, premium, layered */}
+      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{

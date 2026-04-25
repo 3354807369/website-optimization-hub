@@ -143,8 +143,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* ENGAGEMENT MODELS */}
-      <section className="py-20" style={{ background: "var(--gradient-section)" }}>
+      {/* ENGAGEMENT MODELS — white */}
+      <section className="py-20 bg-background">
         <div className="section-wrap">
           <SectionHeading
             eyebrow={t("Flexible Plans", "灵活方案")}
@@ -168,41 +168,45 @@ const Services = () => {
         </div>
       </section>
 
-      {/* PROCESS — light, premium, connected timeline */}
-      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
-        {/* layered backgrounds */}
+      {/* PROCESS — DARK premium connected timeline */}
+      <section
+        className="relative py-24 overflow-hidden text-primary-foreground"
+        style={{ background: "linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(217 50% 11%) 50%, hsl(222 47% 6%) 100%)" }}
+      >
+        {/* fine grid */}
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
         />
-        <div className="absolute -top-32 right-1/4 w-[420px] h-[420px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
-        <div className="absolute -bottom-32 left-1/4 w-[420px] h-[420px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+        {/* corner glows */}
+        <div className="absolute -top-32 right-1/4 w-[460px] h-[460px] rounded-full opacity-25 blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+        <div className="absolute -bottom-32 left-1/4 w-[460px] h-[460px] rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
 
         <div className="section-wrap relative">
           {/* heading */}
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-flex items-center gap-3 mb-4 justify-center">
-              <span aria-hidden className="h-px w-8 bg-primary/60" />
-              <span className="uppercase tracking-[0.22em] text-[11px] font-bold text-primary">{t("Our Process", "工作流程")}</span>
-              <span aria-hidden className="h-px w-8 bg-primary/60" />
+              <span aria-hidden className="h-px w-8 bg-sky-300/70" />
+              <span className="uppercase tracking-[0.22em] text-[11px] font-bold text-sky-300">{t("Our Process", "工作流程")}</span>
+              <span aria-hidden className="h-px w-8 bg-sky-300/70" />
             </div>
-            <h2 className="font-display font-bold text-foreground" style={{ fontSize: "clamp(1.875rem, 4.5vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-              {t("How we", "我们如何")} <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">{t("work", "工作")}</span>
+            <h2 className="font-display font-bold text-white" style={{ fontSize: "clamp(1.875rem, 4.5vw, 2.75rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+              {t("How we", "我们如何")} <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("work", "工作")}</span>
             </h2>
-            <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed max-w-[58ch] mx-auto">
+            <p className="mt-4 text-white/65 text-[15px] leading-relaxed max-w-[58ch] mx-auto">
               {t("Five disciplined phases — from discovery to launch — every step versioned, observable, and accountable.", "五个严谨阶段 — 从发现到上线 — 每一步都可版本化、可观测、可追责。")}
             </p>
           </motion.div>
 
           {/* timeline with connecting line */}
           <div className="relative max-w-6xl mx-auto">
-            {/* connecting horizontal line (desktop) */}
-            <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" />
+            {/* connecting horizontal line (desktop) — glowing */}
+            <div className="hidden lg:block absolute top-8 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent pointer-events-none" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 relative">
               {steps.map((st, i) => (
@@ -217,39 +221,37 @@ const Services = () => {
                   {/* numbered node circle (sits on the line on desktop) */}
                   <div className="hidden lg:flex absolute -top-1 left-1/2 -translate-x-1/2 z-10 items-center justify-center">
                     <div className="relative w-[68px] h-[68px] flex items-center justify-center">
-                      {/* outer ring with gradient */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 p-[1.5px] shadow-[0_8px_24px_-8px_hsl(199_89%_48%_/_0.45)]">
-                        <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
-                          <span className="font-display font-extrabold text-foreground text-lg tabular-nums">{st.num}</span>
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 p-[1.5px] shadow-[0_8px_28px_-6px_hsl(199_89%_55%_/_0.6)]">
+                        <div className="w-full h-full rounded-full bg-[hsl(222_47%_8%)] flex items-center justify-center">
+                          <span className="font-display font-extrabold text-white text-lg tabular-nums">{st.num}</span>
                         </div>
                       </div>
-                      {/* pulse on hover */}
-                      <div className="absolute inset-0 rounded-full bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500 blur-xl" />
+                      <div className="absolute inset-0 rounded-full bg-sky-400/0 group-hover:bg-sky-400/20 transition-colors duration-500 blur-xl" />
                     </div>
                   </div>
 
-                  {/* card */}
-                  <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/80 via-border to-blue-200/40 transition-all duration-500 group-hover:from-sky-400/70 group-hover:to-blue-500/40 lg:mt-20">
-                    <div className="relative rounded-2xl bg-card overflow-hidden p-6 h-full transition-all duration-300" style={{ boxShadow: "var(--shadow-card)" }}>
+                  {/* card — dark glass */}
+                  <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-white/15 via-white/5 to-white/[0.03] transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-blue-500/30 group-hover:to-white/[0.05] lg:mt-20">
+                    <div className="relative rounded-2xl bg-white/[0.04] backdrop-blur-md overflow-hidden p-6 h-full transition-all duration-300">
                       {/* mobile/tablet number badge */}
                       <span className="lg:hidden inline-flex items-center justify-center mb-3 w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm">
                         {st.num}
                       </span>
 
-                      {/* faint corner number for desktop */}
+                      {/* faint corner number desktop */}
                       <span
                         aria-hidden
-                        className="hidden lg:block absolute -bottom-3 -right-1 font-display font-black text-foreground/[0.04] select-none transition-colors duration-300 group-hover:text-primary/10"
+                        className="hidden lg:block absolute -bottom-3 -right-1 font-display font-black text-white/[0.05] select-none transition-colors duration-300 group-hover:text-sky-400/15"
                         style={{ fontSize: "4.5rem", lineHeight: 1, letterSpacing: "-0.05em" }}
                       >
                         {st.num}
                       </span>
 
-                      <h3 className="relative font-display text-base font-bold text-foreground mb-1.5">{st.b}</h3>
-                      <p className="relative text-muted-foreground text-[13px] leading-relaxed">{st.s}</p>
+                      <h3 className="relative font-display text-base font-bold text-white mb-1.5">{st.b}</h3>
+                      <p className="relative text-white/60 text-[13px] leading-relaxed">{st.s}</p>
 
                       {/* bottom hover accent line */}
-                      <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
+                      <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-sky-400/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/70 group-hover:via-sky-300/90 group-hover:to-blue-500/70" />
                     </div>
                   </div>
                 </motion.div>
@@ -259,8 +261,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* DELIVERABLES */}
-      <section className="py-20" style={{ background: "var(--gradient-section)" }}>
+      {/* DELIVERABLES — white */}
+      <section className="py-20 bg-background">
         <div className="section-wrap">
           <SectionHeading
             eyebrow={t("What You Get", "您将获得")}
