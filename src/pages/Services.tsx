@@ -296,20 +296,25 @@ const Services = () => {
         </div>
       </section>
 
-      {/* TECH STACK — categorized, premium grid */}
-      <section className="relative py-24 overflow-hidden" style={{ background: "var(--gradient-section)" }}>
+      {/* TECH STACK — dark premium grid (sharp light→dark transition) */}
+      <section
+        className="relative py-28 overflow-hidden text-primary-foreground"
+        style={{ background: "linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(217 50% 10%) 50%, hsl(222 47% 7%) 100%)" }}
+      >
         {/* decorative grid */}
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
         />
-        <div className="absolute -top-32 left-1/3 w-[460px] h-[460px] rounded-full opacity-[0.10] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
-        <div className="absolute -bottom-32 right-1/3 w-[460px] h-[460px] rounded-full opacity-[0.08] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+        <div className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
+        <div className="absolute -bottom-40 right-1/4 w-[520px] h-[520px] rounded-full opacity-[0.14] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
+        {/* bottom fade to separate from CTA */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, hsl(222 47% 8% / 0.6))" }} />
 
         <div className="section-wrap relative">
           <SectionHeading
@@ -321,6 +326,7 @@ const Services = () => {
               "经过实战检验的语言、框架、基础设施与集成 — 为可靠性与长期可维护性而选。"
             )}
             align="center"
+            invert
             className="mb-14"
           />
 
@@ -335,12 +341,18 @@ const Services = () => {
                 className="group relative"
               >
                 {/* gradient border wrapper */}
-                <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/80 via-border to-blue-200/40 transition-all duration-500 group-hover:from-sky-400/70 group-hover:to-blue-500/40 h-full">
-                  <div className="relative rounded-2xl bg-card overflow-hidden p-6 h-full transition-all duration-300" style={{ boxShadow: "var(--shadow-card)" }}>
+                <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-400/40 via-white/10 to-blue-500/30 transition-all duration-500 group-hover:from-sky-300/70 group-hover:to-blue-400/60 h-full">
+                  <div
+                    className="relative rounded-2xl overflow-hidden p-6 h-full transition-all duration-300 backdrop-blur-md"
+                    style={{
+                      background: "linear-gradient(160deg, hsl(217 50% 12% / 0.85), hsl(222 47% 8% / 0.9))",
+                      boxShadow: "0 20px 50px -20px hsl(222 47% 2% / 0.8), inset 0 1px 0 hsl(199 89% 70% / 0.08)",
+                    }}
+                  >
                     {/* faint group index */}
                     <span
                       aria-hidden
-                      className="absolute -top-2 right-3 font-display font-black text-foreground/[0.04] select-none transition-colors duration-300 group-hover:text-primary/10"
+                      className="absolute -top-2 right-3 font-display font-black text-white/[0.05] select-none transition-colors duration-300 group-hover:text-sky-300/20"
                       style={{ fontSize: "5rem", lineHeight: 1, letterSpacing: "-0.05em" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -348,12 +360,12 @@ const Services = () => {
 
                     {/* group header */}
                     <div className="relative flex items-center gap-3 mb-5">
-                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm shadow-[0_6px_18px_-4px_hsl(199_89%_48%_/_0.45)]">
+                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm shadow-[0_8px_22px_-4px_hsl(199_89%_48%_/_0.6)]">
                         {g.icon}
                       </span>
                       <div>
-                        <h3 className="font-display text-base font-bold text-foreground leading-tight">{t(g.label.en, g.label.zh)}</h3>
-                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">{t(g.caption.en, g.caption.zh)}</span>
+                        <h3 className="font-display text-base font-bold text-primary-foreground leading-tight">{t(g.label.en, g.label.zh)}</h3>
+                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-sky-300/80">{t(g.caption.en, g.caption.zh)}</span>
                       </div>
                     </div>
 
@@ -362,23 +374,23 @@ const Services = () => {
                       {g.items.map((item) => (
                         <span
                           key={item}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border bg-secondary/40 text-foreground text-xs font-medium transition-colors duration-200 hover:border-primary/40 hover:bg-primary/5"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-primary-foreground/90 text-xs font-medium transition-colors duration-200 hover:border-sky-300/50 hover:bg-sky-400/10"
                         >
-                          <span className="inline-block w-1 h-1 rounded-full bg-primary/60" />
+                          <span className="inline-block w-1 h-1 rounded-full bg-sky-300/80" />
                           {item}
                         </span>
                       ))}
                     </div>
 
                     {/* bottom hover accent */}
-                    <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
+                    <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-sky-300/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/70 group-hover:via-sky-300/90 group-hover:to-blue-500/70" />
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <p className="mt-10 text-muted-foreground text-xs text-center max-w-[55ch] mx-auto">
+          <p className="mt-10 text-primary-foreground/60 text-xs text-center max-w-[55ch] mx-auto">
             {t(
               "Stack picked per project — we'll recommend the right tools for your goals, scale, and team.",
               "技术栈按项目挑选 — 我们会根据您的目标、规模与团队推荐合适的工具。"
