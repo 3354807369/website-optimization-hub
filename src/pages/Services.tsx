@@ -309,13 +309,16 @@ const Services = () => {
         </div>
       </section>
 
-      {/* FAQ — light, addresses common pre-sales questions */}
-      <section className="relative py-24 overflow-hidden bg-background">
+      {/* FAQ — dark theme, addresses common pre-sales questions */}
+      <section
+        className="relative py-24 overflow-hidden text-primary-foreground"
+        style={{ background: "linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(217 50% 10%) 50%, hsl(222 47% 7%) 100%)" }}
+      >
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
@@ -331,6 +334,7 @@ const Services = () => {
               "在发出第一条消息前你想问的一切 — 定价、保密协议、周期与归属。"
             )}
             align="center"
+            invert
             className="mb-12"
           />
 
@@ -383,25 +387,28 @@ const Services = () => {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  className="rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30"
-                  style={{ boxShadow: "var(--shadow-card)" }}
+                  className="rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 hover:border-sky-300/40 backdrop-blur-md"
+                  style={{
+                    background: "linear-gradient(160deg, hsl(217 50% 12% / 0.7), hsl(222 47% 8% / 0.85))",
+                    boxShadow: "0 12px 32px -16px hsl(222 47% 2% / 0.6), inset 0 1px 0 hsl(199 89% 70% / 0.06)",
+                  }}
                 >
-                  <AccordionTrigger className="px-5 py-4 text-left font-display font-semibold text-foreground hover:no-underline hover:text-primary text-[15px]">
+                  <AccordionTrigger className="px-5 py-4 text-left font-display font-semibold text-primary-foreground hover:no-underline hover:text-sky-300 text-[15px]">
                     <span className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-primary font-bold">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-xs text-sky-300 font-bold">{String(i + 1).padStart(2, "0")}</span>
                       {item.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed pl-12">
+                  <AccordionContent className="px-5 pb-5 text-primary-foreground/70 text-sm leading-relaxed pl-12">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
 
-            <p className="mt-8 text-center text-sm text-muted-foreground">
+            <p className="mt-8 text-center text-sm text-primary-foreground/60">
               {t("Still have questions?", "还有其他问题？")}{" "}
-              <Link to="/contact" className="text-primary font-semibold hover:underline">
+              <Link to="/contact" className="text-sky-300 font-semibold hover:underline">
                 {t("Get in touch →", "联系我们 →")}
               </Link>
             </p>
@@ -409,23 +416,18 @@ const Services = () => {
         </div>
       </section>
 
-      {/* TECH STACK — dark premium grid (sharp light→dark transition) */}
-      <section
-        className="relative py-28 overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(217 50% 10%) 50%, hsl(222 47% 7%) 100%)" }}
-      >
+      {/* TECH STACK — light, categorized premium grid */}
+      <section className="relative py-24 overflow-hidden bg-background">
         {/* decorative grid */}
         <div
-          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
+              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
         />
-        <div className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
-        <div className="absolute -bottom-40 right-1/4 w-[520px] h-[520px] rounded-full opacity-[0.14] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
 
         <div className="section-wrap relative">
           <SectionHeading
@@ -437,7 +439,6 @@ const Services = () => {
               "经过实战检验的语言、框架、基础设施与集成 — 为可靠性与长期可维护性而选。"
             )}
             align="center"
-            invert
             className="mb-14"
           />
 
@@ -452,18 +453,12 @@ const Services = () => {
                 className="group relative"
               >
                 {/* gradient border wrapper */}
-                <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-400/40 via-white/10 to-blue-500/30 transition-all duration-500 group-hover:from-sky-300/70 group-hover:to-blue-400/60 h-full">
-                  <div
-                    className="relative rounded-2xl overflow-hidden p-6 h-full transition-all duration-300 backdrop-blur-md"
-                    style={{
-                      background: "linear-gradient(160deg, hsl(217 50% 12% / 0.85), hsl(222 47% 8% / 0.9))",
-                      boxShadow: "0 20px 50px -20px hsl(222 47% 2% / 0.8), inset 0 1px 0 hsl(199 89% 70% / 0.08)",
-                    }}
-                  >
+                <div className="relative rounded-2xl p-[1.5px] bg-gradient-to-br from-sky-200/80 via-border to-blue-200/40 transition-all duration-500 group-hover:from-sky-400/70 group-hover:to-blue-500/40 h-full">
+                  <div className="relative rounded-2xl bg-card overflow-hidden p-6 h-full transition-all duration-300" style={{ boxShadow: "var(--shadow-card)" }}>
                     {/* faint group index */}
                     <span
                       aria-hidden
-                      className="absolute -top-2 right-3 font-display font-black text-white/[0.05] select-none transition-colors duration-300 group-hover:text-sky-300/20"
+                      className="absolute -top-2 right-3 font-display font-black text-foreground/[0.04] select-none transition-colors duration-300 group-hover:text-primary/10"
                       style={{ fontSize: "5rem", lineHeight: 1, letterSpacing: "-0.05em" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -471,12 +466,12 @@ const Services = () => {
 
                     {/* group header */}
                     <div className="relative flex items-center gap-3 mb-5">
-                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm shadow-[0_8px_22px_-4px_hsl(199_89%_48%_/_0.6)]">
+                      <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-sm shadow-[0_6px_18px_-4px_hsl(199_89%_48%_/_0.45)]">
                         {g.icon}
                       </span>
                       <div>
-                        <h3 className="font-display text-base font-bold text-primary-foreground leading-tight">{t(g.label.en, g.label.zh)}</h3>
-                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-sky-300/80">{t(g.caption.en, g.caption.zh)}</span>
+                        <h3 className="font-display text-base font-bold text-foreground leading-tight">{t(g.label.en, g.label.zh)}</h3>
+                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">{t(g.caption.en, g.caption.zh)}</span>
                       </div>
                     </div>
 
@@ -485,23 +480,23 @@ const Services = () => {
                       {g.items.map((item) => (
                         <span
                           key={item}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-primary-foreground/90 text-xs font-medium transition-colors duration-200 hover:border-sky-300/50 hover:bg-sky-400/10"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border bg-secondary/40 text-foreground text-xs font-medium transition-colors duration-200 hover:border-primary/40 hover:bg-primary/5"
                         >
-                          <span className="inline-block w-1 h-1 rounded-full bg-sky-300/80" />
+                          <span className="inline-block w-1 h-1 rounded-full bg-primary/60" />
                           {item}
                         </span>
                       ))}
                     </div>
 
                     {/* bottom hover accent */}
-                    <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-sky-300/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/70 group-hover:via-sky-300/90 group-hover:to-blue-500/70" />
+                    <div className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-primary/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-primary/80 group-hover:to-blue-500/60" />
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <p className="mt-10 text-primary-foreground/60 text-xs text-center max-w-[55ch] mx-auto">
+          <p className="mt-10 text-muted-foreground text-xs text-center max-w-[55ch] mx-auto">
             {t(
               "Stack picked per project — we'll recommend the right tools for your goals, scale, and team.",
               "技术栈按项目挑选 — 我们会根据您的目标、规模与团队推荐合适的工具。"
@@ -510,57 +505,32 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA — light premium (creates dark→light contrast with Tech Stack above) */}
-      <section className="relative py-28 overflow-hidden bg-background">
-
+      {/* CTA — same style as About page CTA */}
+      <section
+        className="py-24 relative overflow-hidden text-primary-foreground"
+        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
+      >
         <div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
+              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
-            maskImage: "radial-gradient(ellipse at center, black 25%, transparent 70%)",
           }}
         />
-
-        <div className="section-wrap relative">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-            className="relative max-w-4xl mx-auto rounded-3xl p-[1.5px] bg-gradient-to-br from-sky-300/80 via-blue-400/40 to-blue-600/60"
-            style={{ boxShadow: "0 30px 80px -30px hsl(217 91% 50% / 0.35)" }}
-          >
-            <div className="relative rounded-3xl bg-card overflow-hidden px-8 py-14 md:px-16 md:py-20 text-center">
-              <span className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/25 bg-primary/5 text-primary uppercase tracking-[0.22em] text-[11px] font-bold mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                {t("Let's Build", "开始合作")}
-              </span>
-              <h2
-                className="relative font-display font-bold text-foreground mb-5"
-                style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)", letterSpacing: "-0.025em", lineHeight: 1.05 }}
-              >
-                {t("Ready to ", "准备好")}
-                <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">{t("get started", "开始了吗")}</span>
-                {t("?", "？")}
-              </h2>
-              <p className="relative text-muted-foreground max-w-[55ch] mx-auto mb-9 text-base md:text-lg leading-relaxed">
-                {t(
-                  "Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.",
-                  "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。"
-                )}
-              </p>
-              <Link
-                to="/contact"
-                className="relative group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm hover:from-sky-400 hover:to-blue-500 transition-all no-underline"
-                style={{ boxShadow: "0 18px 40px -12px hsl(217 91% 50% / 0.55)" }}
-              >
-                {t("Contact Us", "联系我们")}
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
-            </div>
-          </motion.div>
+        <div
+          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
+        />
+        <div className="section-wrap relative text-center">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="font-display font-bold text-white mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+            {t("Ready to get started?", "准备好开始了吗？")}
+          </motion.h2>
+          <p className="text-white/70 max-w-[55ch] mx-auto mb-8 text-base md:text-lg">{t("Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.", "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。")}</p>
+          <Link to="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20">
+            {t("Contact Us", "联系我们")}
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </Link>
         </div>
       </section>
     </main>
