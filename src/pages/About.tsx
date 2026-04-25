@@ -72,10 +72,13 @@ const About = () => {
       <section className="py-20" style={{ background: "var(--gradient-section)" }}>
         <div className="section-wrap">
           <SectionHeading
-            eyebrow={t("Our Expertise", "专业领域")}
-            title={t("What We Do", "我们做什么")}
-            highlight={t("We Do", "做什么")}
-            description={t("Four practice areas, one engineering bar — built for reliability, observability, and speed.", "四大业务方向，统一的工程标准 — 为可靠性、可观测性与速度而生。")}
+            eyebrow={t("Our Capabilities", "技术能力")}
+            title={t("End-to-end IT engineering", "端到端 IT 工程")}
+            highlight={t("IT engineering", "IT 工程")}
+            description={t(
+              "Four practice areas, one engineering bar — built for reliability, observability, and long-term maintainability.",
+              "四大业务方向、统一工程标准 — 为可靠性、可观测性与长期可维护性而生。"
+            )}
             className="mb-12"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -98,10 +101,13 @@ const About = () => {
       <section className="py-20 bg-background">
         <div className="section-wrap">
           <SectionHeading
-            eyebrow={t("Our Values", "我们的价值观")}
-            title={t("Why StarLoop", "为什么选择 StarLoop")}
+            eyebrow={t("How We Engineer", "我们如何工程")}
+            title={t("Why teams choose StarLoop", "团队为什么选择 StarLoop")}
             highlight={t("StarLoop", "StarLoop")}
-            description={t("Six principles that shape how we design, build, and ship every system.", "塑造我们设计、构建与交付每一套系统的六项准则。")}
+            description={t(
+              "Six engineering principles that shape every system we ship — from the first commit to production rollout.",
+              "塑造我们交付的每一套系统的六项工程准则 — 从第一次提交到生产上线。"
+            )}
             align="center"
             className="mb-14"
           />
@@ -120,7 +126,7 @@ const About = () => {
 
       <section className="py-16 bg-foreground text-primary-foreground">
         <div className="section-wrap">
-          <h2 className="font-display text-center text-primary-foreground mb-10" style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: "-0.02em" }}>{t("By the Numbers", "数据说话")}</h2>
+          <h2 className="font-display text-center text-primary-foreground mb-10" style={{ fontSize: "clamp(1.5rem, 4vw, 2rem)", letterSpacing: "-0.02em" }}>{t("Engineering at a glance", "工程实力一览")}</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {stats.map((s, i) => (
               <motion.div key={s.label} initial={{ opacity: 0, y: 16, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07, ease }} className="text-center p-5 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 transition-all duration-300 hover:border-primary-foreground/20">
@@ -150,11 +156,11 @@ const About = () => {
         />
         <div className="section-wrap relative text-center">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="font-display font-bold text-white mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
-            {t("Ready to work together?", "准备好合作了吗？")}
+            {t("Let's build something production-grade", "一起构建生产级系统")}
           </motion.h2>
-          <p className="text-white/70 max-w-[55ch] mx-auto mb-8 text-base md:text-lg">{t("Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.", "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。")}</p>
+          <p className="text-white/70 max-w-[58ch] mx-auto mb-8 text-base md:text-lg">{t("Trading automation, AI agents, web platforms, or blockchain infrastructure — tell us what you want to ship and we'll engineer it.", "量化交易自动化、AI 智能体、网站平台或区块链基础设施 — 告诉我们您想交付什么,我们负责把它工程化。")}</p>
           <Link to="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20">
-            {t("Contact Us", "联系我们")}
+            {t("Start a Project", "开启合作")}
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
