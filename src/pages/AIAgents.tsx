@@ -16,6 +16,9 @@ import {
   Sparkles,
 } from "lucide-react";
 import SEO from "@/components/SEO";
+import DeliveryProcess from "@/components/DeliveryProcess";
+import ToolsStack from "@/components/ToolsStack";
+import CtaSection from "@/components/CtaSection";
 import { useLang } from "@/i18n/LanguageContext";
 import heroImg from "@/assets/ai-agent-hero.jpg";
 
@@ -462,158 +465,31 @@ const AIAgents = () => {
         </div>
       </section>
 
-      {/* ============ WORKFLOW ============ */}
-      <section className="py-24 bg-background relative">
-        <div className="section-wrap">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mb-14"
-          >
-            <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
-              {t("Delivery Process", "交付流程")}
-            </p>
-            <h2
-              className="font-display font-bold text-foreground"
-              style={{ fontSize: "clamp(1.85rem, 4.5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
-            >
-              {t("From idea to", "从想法到")}{" "}
-              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                {t("operating agent", "运行中的代理")}
-              </span>
-            </h2>
-          </motion.div>
-
-          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
-            <div
-              className="hidden lg:block absolute top-12 left-0 right-0 h-px pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, hsl(199 89% 48% / 0.3), hsl(199 89% 48% / 0.3), transparent)",
-              }}
-            />
-            {workflow.map((w, i) => (
-              <motion.div
-                key={w.num}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease }}
-                className="relative p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300"
-                style={{ boxShadow: "var(--shadow-card)" }}
-              >
-                <div
-                  className="w-11 h-11 rounded-xl mb-3 flex items-center justify-center font-display font-bold text-primary text-base relative z-10"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(199 89% 95%), hsl(217 91% 97%))",
-                    border: "1px solid hsl(199 89% 48% / 0.2)",
-                  }}
-                >
-                  {w.num}
-                </div>
-                <h3 className="font-display text-base font-bold text-foreground mb-1.5">{w.title}</h3>
-                <p className="text-muted-foreground text-[13px] leading-relaxed">{w.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ============ DELIVERY PROCESS ============ */}
+      <DeliveryProcess
+        headingPrefix={t("From idea to", "从想法到")}
+        headingHighlight={t("operating agent", "运行中的代理")}
+        steps={workflow}
+      />
 
       {/* ============ TECH STACK ============ */}
-      <section className="py-20 bg-background relative overflow-hidden">
-        <div className="section-wrap relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <p className="uppercase tracking-[0.25em] text-primary text-[11px] font-semibold mb-4">
-              {t("Tools & Stack", "工具与技术栈")}
-            </p>
-            <h2
-              className="font-display font-bold text-foreground"
-              style={{ fontSize: "clamp(1.5rem, 3.2vw, 2rem)", letterSpacing: "-0.02em", lineHeight: 1.15 }}
-            >
-              {t("Built on the", "构建于")}{" "}
-              <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                {t("modern AI stack", "现代 AI 技术栈之上")}
-              </span>
-            </h2>
-          </motion.div>
-
-          <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto">
-            {stack.map((s, i) => (
-              <motion.span
-                key={s}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: i * 0.04, ease }}
-                className="group relative px-4 py-2 rounded-full bg-card border border-border text-foreground text-[13px] font-medium tracking-tight transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:text-primary cursor-default"
-                style={{ boxShadow: "var(--shadow-sm)" }}
-              >
-                <span className="relative">{s}</span>
-              </motion.span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ToolsStack
+        headingPrefix={t("Built on the", "构建于")}
+        headingHighlight={t("modern AI stack", "现代 AI 技术栈之上")}
+        items={stack}
+      />
 
       {/* ============ CTA ============ */}
-      <section
-        className="py-24 relative overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div
-          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
-        />
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease }}
-          className="section-wrap relative text-center"
-        >
-          <h2
-            className="font-display font-bold text-white mb-4"
-            style={{ fontSize: "clamp(2rem, 5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
-          >
-            {t("Ready to deploy your first agent?", "准备好部署你的第一个代理了吗?")}
-          </h2>
-          <p className="text-white/70 max-w-[55ch] mx-auto mb-8 text-base md:text-lg">
-            {t(
-              "Tell us about your workflow. We'll come back with a use-case map, an architecture, and a 2–3 week pilot plan.",
-              "告诉我们你的业务流程。我们会回复一份场景图、架构方案和 2-3 周试点计划。"
-            )}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20"
-            >
-              {t("Talk to Us", "联系我们")}
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
-            >
-              {t("Other Services", "其他服务")}
-            </Link>
-          </div>
-        </motion.div>
-      </section>
+      <CtaSection
+        title={t("Ready to deploy your first agent?", "准备好部署你的第一个代理了吗?")}
+        description={t(
+          "Tell us about your workflow. We'll come back with a use-case map, an architecture, and a 2–3 week pilot plan.",
+          "告诉我们你的业务流程。我们会回复一份场景图、架构方案和 2-3 周试点计划。"
+        )}
+        primaryLabel={t("Talk to Us", "联系我们")}
+        secondaryLabel={t("Other Services", "其他服务")}
+        secondaryHref="/services"
+      />
     </main>
   );
 };

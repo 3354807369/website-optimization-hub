@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
+import CtaSection from "@/components/CtaSection";
 import { useLang } from "@/i18n/LanguageContext";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import serviceQuant from "@/assets/service-quant.jpg";
@@ -506,33 +507,14 @@ const Services = () => {
       </section>
 
       {/* CTA — same style as About page CTA */}
-      <section
-        className="py-24 relative overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div
-          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
-        />
-        <div className="section-wrap relative text-center">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="font-display font-bold text-white mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
-            {t("Ready to get started?", "准备好开始了吗？")}
-          </motion.h2>
-          <p className="text-white/70 max-w-[55ch] mx-auto mb-8 text-base md:text-lg">{t("Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.", "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。")}</p>
-          <Link to="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20">
-            {t("Contact Us", "联系我们")}
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </Link>
-        </div>
-      </section>
+      <CtaSection
+        title={t("Ready to get started?", "准备好开始了吗？")}
+        description={t(
+          "Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.",
+          "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。"
+        )}
+        primaryLabel={t("Contact Us", "联系我们")}
+      />
     </main>
   );
 };

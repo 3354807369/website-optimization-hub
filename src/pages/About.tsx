@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
 import SectionHeading from "@/components/SectionHeading";
+import CtaSection from "@/components/CtaSection";
 import { useLang } from "@/i18n/LanguageContext";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
@@ -29,12 +29,13 @@ const About = () => {
     { title: t("Long-Term Partnership", "长期合作伙伴"), body: t("We embed with your team, document everything, and stay accountable post-launch.", "我们融入您的团队、完整文档化、上线后持续负责。"), icon: "🤝" },
   ];
 
+  // Engineering-culture stats: depth signals (how we work)
   const stats = [
-    { value: "4", label: t("Practice Areas", "业务领域") },
-    { value: "<80ms", label: t("Latency Target", "延迟目标") },
-    { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime SLO", "可用性 SLO") },
-    { value: "24/7", label: t("Monitoring", "全天候监控") },
+    { value: "100%", label: t("Code Review Coverage", "代码审查覆盖") },
+    { value: "<24h", label: t("Avg PR Review", "平均 PR 审查") },
+    { value: "85%+", label: t("Test Coverage", "测试覆盖率") },
+    { value: "<15min", label: t("Incident MTTR", "事件平均恢复") },
+    { value: "0", label: t("Untracked Deploys", "无追踪上线") },
   ];
 
   return (
@@ -124,7 +125,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* HOW WE ENGINEER — DARK process strip (creates rhythm) */}
+      {/* ENGINEERING PHILOSOPHY — DARK, 3 principles (replaces duplicated Process section) */}
       <section
         className="relative py-20 overflow-hidden text-primary-foreground"
         style={{ background: "linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(217 50% 11%) 50%, hsl(222 47% 6%) 100%)" }}
@@ -145,53 +146,59 @@ const About = () => {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="text-center max-w-2xl mx-auto mb-14">
             <div className="inline-flex items-center gap-3 mb-4 justify-center">
               <span aria-hidden className="h-px w-8 bg-sky-300/70" />
-              <span className="uppercase tracking-[0.22em] text-[11px] font-bold text-sky-300">{t("Process", "工程流程")}</span>
+              <span className="uppercase tracking-[0.22em] text-[11px] font-bold text-sky-300">{t("Philosophy", "工程哲学")}</span>
               <span aria-hidden className="h-px w-8 bg-sky-300/70" />
             </div>
             <h2 className="font-display font-bold text-white" style={{ fontSize: "clamp(1.875rem, 4.5vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-              {t("How we", "我们如何")} <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("engineer", "工程化")}</span>
+              {t("How we", "我们如何")} <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("think", "思考")}</span>
             </h2>
             <p className="mt-4 text-white/65 text-[15px] leading-relaxed max-w-[58ch] mx-auto">
-              {t("From kickoff to production, every project moves through four disciplined phases.", "从启动到上线,每个项目都经过四个严谨阶段。")}
+              {t("Three principles that shape every architectural decision — long before the first line of code.", "在写下第一行代码之前,三项原则塑造我们的每一个架构决策。")}
             </p>
           </motion.div>
 
-          <div className="relative max-w-5xl mx-auto">
-            <div className="hidden md:block absolute top-6 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent pointer-events-none" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 relative">
-              {[
-                { num: "01", title: t("Discover", "发现"), desc: t("Goals, risks, constraints — surfaced fast.", "快速厘清目标、风险与约束。") },
-                { num: "02", title: t("Architect", "架构"), desc: t("Modular, observable, secure-by-default.", "模块化、可观测、默认安全。") },
-                { num: "03", title: t("Build & Test", "构建与测试"), desc: t("Code reviews, CI, reproducible builds.", "代码审查、CI、可复现构建。") },
-                { num: "04", title: t("Run", "运行"), desc: t("Deploy, monitor, iterate, support.", "部署、监控、迭代、支持。") },
-              ].map((step, i) => (
-                <motion.div
-                  key={step.num}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease }}
-                  className="group relative"
-                >
-                  <div className="hidden md:flex justify-center mb-4">
-                    <div className="relative w-12 h-12">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 p-[1.5px] shadow-[0_8px_24px_-6px_hsl(199_89%_55%_/_0.55)]">
-                        <div className="w-full h-full rounded-full bg-[hsl(222_47%_8%)] flex items-center justify-center">
-                          <span className="font-display font-extrabold text-white text-xs tabular-nums">{step.num}</span>
-                        </div>
-                      </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {[
+              {
+                k: "01",
+                title: t("Observable by default", "默认可观测"),
+                desc: t("If we can't measure it, we don't ship it. Every system emits structured logs, metrics, and traces from day one — no bolt-on monitoring later.", "无法度量,就不上线。每个系统从第一天起就输出结构化日志、指标与追踪 — 而非事后补丁式监控。"),
+              },
+              {
+                k: "02",
+                title: t("Reproducible everything", "全栈可复现"),
+                desc: t("Builds, infra, data pipelines, even backtests — all version-controlled and reproducible. No 'works on my machine', no untracked production state.", "构建、基础设施、数据管线乃至回测 — 全部版本化、可复现。拒绝『我电脑上能跑』,拒绝无追踪的生产状态。"),
+              },
+              {
+                k: "03",
+                title: t("Risk-first architecture", "风控优先架构"),
+                desc: t("We design for the failure case before the happy path. Least-privilege access, blast-radius isolation, and rollback paths are non-negotiable defaults.", "在设计正常路径之前,先设计失败路径。最小权限、爆炸半径隔离与回滚路径是不可妥协的默认项。"),
+              },
+            ].map((p, i) => (
+              <motion.div
+                key={p.k}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55, delay: i * 0.1, ease }}
+                className="group relative rounded-2xl p-[1.5px] bg-gradient-to-br from-white/15 via-white/5 to-white/[0.03] transition-all duration-500 hover:from-sky-400/60 hover:via-blue-500/30"
+              >
+                <div className="relative h-full rounded-2xl bg-white/[0.04] backdrop-blur-md p-7 overflow-hidden">
+                  <span aria-hidden className="absolute -top-2 right-4 font-display font-black text-white/[0.06] select-none transition-colors duration-300 group-hover:text-sky-400/15" style={{ fontSize: "5rem", lineHeight: 1, letterSpacing: "-0.05em" }}>
+                    {p.k}
+                  </span>
+                  <div className="relative">
+                    <div className="inline-flex items-center gap-2 mb-4">
+                      <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shadow-[0_0_10px_hsl(199_89%_55%)]" />
+                      <span className="text-[10.5px] font-mono text-sky-300/70 tracking-[0.2em]">PRINCIPLE {p.k}</span>
                     </div>
+                    <h3 className="font-display text-lg font-bold text-white mb-2.5 leading-snug">{p.title}</h3>
+                    <p className="text-white/65 text-[13.5px] leading-relaxed">{p.desc}</p>
                   </div>
-                  <div className="rounded-xl p-[1.5px] bg-gradient-to-br from-white/15 via-white/5 to-white/[0.03] transition-all duration-500 group-hover:from-sky-400/60 group-hover:via-blue-500/30">
-                    <div className="rounded-xl bg-white/[0.04] backdrop-blur-md p-5 h-full">
-                      <span className="md:hidden inline-flex items-center justify-center mb-2.5 w-9 h-9 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 text-white font-display font-extrabold text-xs">{step.num}</span>
-                      <h3 className="font-display text-base font-bold text-white mb-1">{step.title}</h3>
-                      <p className="text-white/60 text-[13px] leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  <div className="absolute bottom-0 left-7 right-7 h-[2px] rounded-full bg-gradient-to-r from-sky-400/0 via-sky-400/0 to-blue-500/0 transition-all duration-500 group-hover:from-sky-400/70 group-hover:via-sky-300/90 group-hover:to-blue-500/70" />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -270,33 +277,14 @@ const About = () => {
         </div>
       </section>
 
-      <section
-        className="py-24 relative overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div
-          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
-        />
-        <div className="section-wrap relative text-center">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="font-display font-bold text-white mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
-            {t("Let's build something production-grade", "一起构建生产级系统")}
-          </motion.h2>
-          <p className="text-white/70 max-w-[58ch] mx-auto mb-8 text-base md:text-lg">{t("Trading automation, AI agents, web platforms, or blockchain infrastructure — tell us what you want to ship and we'll engineer it.", "量化交易自动化、AI 智能体、网站平台或区块链基础设施 — 告诉我们您想交付什么,我们负责把它工程化。")}</p>
-          <Link to="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20">
-            {t("Start a Project", "开启合作")}
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </Link>
-        </div>
-      </section>
+      <CtaSection
+        title={t("Let's build something production-grade", "一起构建生产级系统")}
+        description={t(
+          "Trading automation, AI agents, web platforms, or blockchain infrastructure — tell us what you want to ship and we'll engineer it.",
+          "量化交易自动化、AI 智能体、网站平台或区块链基础设施 — 告诉我们您想交付什么,我们负责把它工程化。"
+        )}
+        primaryLabel={t("Start a Project", "开启合作")}
+      />
     </main>
   );
 };
