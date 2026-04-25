@@ -223,10 +223,6 @@ const QuantTrading = () => {
 
       {/* ========== STATS — seamless under performance curve ========== */}
       <section className="pt-4 pb-20 sm:pb-24 bg-background relative overflow-hidden">
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.35), transparent 70%)" }}
-        />
         <div className="section-wrap relative">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {stats.map((s, i) => (
@@ -295,10 +291,6 @@ const QuantTrading = () => {
 
       {/* ========== AUDIENCE / WHO IT'S FOR (LIGHT) ========== */}
       <section className="py-24 relative overflow-hidden bg-secondary/30 border-y border-border">
-        <div
-          className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full opacity-25 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.5), transparent 70%)" }}
-        />
         <div className="section-wrap relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -371,10 +363,6 @@ const QuantTrading = () => {
 
       {/* ========== FAQ (LIGHT) ========== */}
       <section className="py-24 relative overflow-hidden" style={{ background: "var(--gradient-section)" }}>
-        <div
-          className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 70% / 0.45), transparent 70%)" }}
-        />
         <div className="section-wrap relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
