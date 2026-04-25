@@ -39,19 +39,26 @@ const Services = () => {
 
   return (
     <main className="bg-background text-foreground">
-      <SEO title={t("Services", "服务")} description={t("Quant trading automation, website development, and blockchain engineering by StarLoop.", "StarLoop 提供量化交易自动化、网站开发和区块链工程服务。")} path="/services" />
+      <SEO
+        title={t("IT Services — Quant, AI, Web & Blockchain Engineering", "IT 服务 — 量化、AI、网站与区块链工程")}
+        description={t(
+          "Full-stack IT services from StarLoop: quant trading automation, AI agents, modern web development, and blockchain engineering — production-grade, end to end.",
+          "StarLoop 提供全栈 IT 服务:量化交易自动化、AI 智能体、现代网站开发、区块链工程 — 端到端生产级交付。"
+        )}
+        path="/services"
+      />
 
       <section className="relative bg-foreground text-primary-foreground py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
         <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: "var(--gradient-accent)" }} />
         <div className="section-wrap relative">
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }} className="uppercase tracking-[0.2em] text-primary-foreground/50 text-xs font-semibold mb-4">{t("Services", "服务")}</motion.p>
+          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }} className="uppercase tracking-[0.2em] text-primary-foreground/50 text-xs font-semibold mb-4">{t("IT Services", "IT 服务")}</motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="font-display font-bold text-primary-foreground mb-4" style={{ fontSize: "clamp(2.25rem, 6vw, 3.5rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-            {t("Built for performance,", "为性能而生，")}<br />
-            <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("designed for scale", "为规模而设计")}</span>
+            {t("End-to-end software,", "端到端软件,")}<br />
+            <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("engineered to ship", "工程化交付")}</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease }} className="text-primary-foreground/70 max-w-[60ch] text-lg">
-            {t("We engineer reliable trading automation — and build fast, modern web and blockchain products.", "我们构建可靠的交易自动化 — 以及快速、现代的网站和区块链产品。")}
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease }} className="text-primary-foreground/70 max-w-[62ch] text-lg">
+            {t("Four practice areas, one engineering team. From quant trading bots to AI agents, web products, and Web3 infrastructure — production-grade by default.", "四大业务方向、同一支工程团队。从量化交易机器人到 AI 智能体、网站产品与 Web3 基础设施 — 默认生产级。")}
           </motion.p>
         </div>
       </section>

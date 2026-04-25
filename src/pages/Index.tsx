@@ -158,10 +158,10 @@ const Index = () => {
               textShadow: "0 4px 30px rgba(0,0,0,0.45)",
             }}
           >
-            {t("Engineering trust", "工程化")}
+            {t("Full-stack engineering", "全栈工程能力,")}
             <br />
             <span className="bg-gradient-to-r from-sky-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
-              {t("into every system", "可信赖的每个系统")}
+              {t("for serious software", "构建严肃软件")}
             </span>
           </h1>
 
@@ -169,11 +169,11 @@ const Index = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="text-white/75 max-w-[62ch] mx-auto text-[15px] md:text-lg leading-relaxed mb-10"
+            className="text-white/75 max-w-[64ch] mx-auto text-[15px] md:text-lg leading-relaxed mb-10"
           >
             {t(
-              "From quant trading automation to AI, web, and blockchain — we build modular, observable, production-grade systems trusted by builders and capital allocators.",
-              "从量化交易自动化到 AI、网站与区块链 —— 我们构建模块化、可观测、生产级的系统，赢得开发者与资金管理者的信赖。"
+              "StarLoop is a full-stack IT engineering team. We design and ship production-grade quant trading automation, AI agents, modern web products, and blockchain infrastructure — modular, observable, and built to last.",
+              "StarLoop 是一支全栈 IT 工程团队。我们设计并交付生产级的量化交易自动化、AI 智能体、现代网站产品与区块链基础设施 — 模块化、可观测、长期可靠。"
             )}
           </motion.p>
 
