@@ -16,6 +16,9 @@ import {
   Sparkles,
 } from "lucide-react";
 import SEO from "@/components/SEO";
+import DeliveryProcess from "@/components/DeliveryProcess";
+import ToolsStack from "@/components/ToolsStack";
+import CtaSection from "@/components/CtaSection";
 import { useLang } from "@/i18n/LanguageContext";
 import heroImg from "@/assets/ai-agent-hero.jpg";
 
