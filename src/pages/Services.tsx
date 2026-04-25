@@ -313,8 +313,6 @@ const Services = () => {
         />
         <div className="absolute -top-40 left-1/4 w-[520px] h-[520px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
         <div className="absolute -bottom-40 right-1/4 w-[520px] h-[520px] rounded-full opacity-[0.14] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
-        {/* bottom fade to separate from CTA */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, hsl(222 47% 8% / 0.6))" }} />
 
         <div className="section-wrap relative">
           <SectionHeading
