@@ -277,33 +277,14 @@ const About = () => {
         </div>
       </section>
 
-      <section
-        className="py-24 relative overflow-hidden text-primary-foreground"
-        style={{ background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(217 60% 18%) 100%)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div
-          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(199 89% 48%), transparent)" }}
-        />
-        <div className="section-wrap relative text-center">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease }} className="font-display font-bold text-white mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", letterSpacing: "-0.025em", lineHeight: 1.1 }}>
-            {t("Let's build something production-grade", "一起构建生产级系统")}
-          </motion.h2>
-          <p className="text-white/70 max-w-[58ch] mx-auto mb-8 text-base md:text-lg">{t("Trading automation, AI agents, web platforms, or blockchain infrastructure — tell us what you want to ship and we'll engineer it.", "量化交易自动化、AI 智能体、网站平台或区块链基础设施 — 告诉我们您想交付什么,我们负责把它工程化。")}</p>
-          <Link to="/contact" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20">
-            {t("Start a Project", "开启合作")}
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </Link>
-        </div>
-      </section>
+      <CtaSection
+        title={t("Let's build something production-grade", "一起构建生产级系统")}
+        description={t(
+          "Trading automation, AI agents, web platforms, or blockchain infrastructure — tell us what you want to ship and we'll engineer it.",
+          "量化交易自动化、AI 智能体、网站平台或区块链基础设施 — 告诉我们您想交付什么,我们负责把它工程化。"
+        )}
+        primaryLabel={t("Start a Project", "开启合作")}
+      />
     </main>
   );
 };
