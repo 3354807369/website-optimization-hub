@@ -87,80 +87,75 @@ const Index = () => {
             alt=""
             width={1920}
             height={1080}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
           />
         </div>
-        {/* gradient overlay */}
+        {/* layered gradient overlay (deeper at top & bottom for typography contrast) */}
         <div
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "linear-gradient(180deg, hsl(222 47% 6% / 0.85) 0%, hsl(222 47% 8% / 0.7) 50%, hsl(222 47% 6% / 0.95) 100%)",
+              "linear-gradient(180deg, hsl(222 47% 4% / 0.92) 0%, hsl(222 47% 6% / 0.78) 35%, hsl(222 47% 5% / 0.82) 65%, hsl(222 47% 3% / 0.96) 100%)",
           }}
         />
-        {/* animated grid */}
+        {/* subtle radial vignette toward center for spotlight */}
         <div
-          className="absolute inset-0 z-[1] opacity-[0.08] pointer-events-none"
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 45%, transparent 0%, hsl(222 47% 4% / 0.55) 100%)",
+          }}
+        />
+        {/* refined grid (finer, calmer) */}
+        <div
+          className="absolute inset-0 z-[1] opacity-[0.07] pointer-events-none"
           style={{
             backgroundImage:
               "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+            backgroundSize: "64px 64px",
+            maskImage:
+              "radial-gradient(ellipse at center, black 25%, transparent 70%)",
           }}
         />
-        {/* floating particles */}
-        <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 rounded-full bg-sky-400"
-              style={{
-                left: `${(i * 53) % 100}%`,
-                top: `${(i * 37) % 100}%`,
-                boxShadow: "0 0 8px hsl(199 89% 60%)",
-              }}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0.2, 0.8, 0.2],
-              }}
-              transition={{
-                duration: 4 + (i % 4),
-                repeat: Infinity,
-                delay: i * 0.2,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
+        {/* corner accent glows — restrained */}
+        <div
+          className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full opacity-20 blur-3xl pointer-events-none z-[1]"
+          style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-32 -right-32 w-[480px] h-[480px] rounded-full opacity-15 blur-3xl pointer-events-none z-[1]"
+          style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }}
+        />
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease }}
-          className="relative z-[2] text-center px-6 max-w-[1100px]"
+          transition={{ duration: 0.9, delay: 0.15, ease }}
+          className="relative z-[2] text-center px-6 max-w-[1180px]"
         >
+          {/* live status pill */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md mb-8"
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/12 bg-white/[0.04] backdrop-blur-md mb-8"
           >
-            <span className="relative flex w-2 h-2">
+            <span className="relative flex w-1.5 h-1.5">
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
             </span>
-            <span className="text-white/85 text-sm font-medium tracking-wide">
-              {t("Building the future of finance", "构建金融的未来")}
+            <span className="text-white/85 text-[12px] font-medium tracking-[0.12em] uppercase">
+              {t("Systems Live · Strategies Running", "系统在线 · 策略运行中")}
             </span>
           </motion.div>
 
           <h1
-            className="font-display font-bold text-white mb-6"
+            className="font-display font-bold text-white mb-7"
             style={{
-              fontSize: "clamp(2.75rem, 7vw, 5.5rem)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.035em",
-              textShadow: "0 4px 30px rgba(0,0,0,0.5)",
+              fontSize: "clamp(2.75rem, 7.5vw, 6rem)",
+              lineHeight: 1.02,
+              letterSpacing: "-0.04em",
+              textShadow: "0 4px 30px rgba(0,0,0,0.45)",
             }}
           >
             {t("Engineering trust", "工程化")}
@@ -171,36 +166,63 @@ const Index = () => {
           </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-white/75 max-w-[60ch] mx-auto text-base md:text-lg mb-10"
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="text-white/75 max-w-[62ch] mx-auto text-[15px] md:text-lg leading-relaxed mb-10"
           >
             {t(
-              "From quant trading automation to AI, web, and blockchain — we build modular, observable, production-grade systems.",
-              "从量化交易自动化到 AI、网站与区块链 —— 我们构建模块化、可观测、生产级的系统。"
+              "From quant trading automation to AI, web, and blockchain — we build modular, observable, production-grade systems trusted by builders and capital allocators.",
+              "从量化交易自动化到 AI、网站与区块链 —— 我们构建模块化、可观测、生产级的系统，赢得开发者与资金管理者的信赖。"
             )}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55 }}
-            className="flex flex-wrap items-center justify-center gap-3"
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="flex flex-wrap items-center justify-center gap-3 mb-14"
           >
             <Link
               to="/services/quant-trading"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/95 transition-all no-underline shadow-[0_10px_40px_-10px_rgba(56,189,248,0.55)] hover:shadow-[0_14px_44px_-10px_rgba(56,189,248,0.7)] hover:-translate-y-0.5 duration-300"
             >
               {t("Explore Quant Trading", "探索量化交易")}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 hover:border-white/30 transition-all no-underline"
             >
               {t("All Services", "查看全部服务")}
             </Link>
+          </motion.div>
+
+          {/* in-hero KPI strip — institutional feel */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7, ease }}
+            className="mx-auto max-w-3xl"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 border border-white/10 rounded-2xl bg-white/[0.03] backdrop-blur-md">
+              {stats.map((s) => (
+                <div key={s.label} className="px-4 py-4 md:py-5 text-center">
+                  <div
+                    className="font-display font-semibold text-white tabular-nums"
+                    style={{
+                      fontSize: "clamp(1.25rem, 2.4vw, 1.75rem)",
+                      letterSpacing: "-0.02em",
+                    }}
+                  >
+                    {s.value}
+                  </div>
+                  <div className="mt-1 text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-white/55 font-medium">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
 
@@ -208,16 +230,16 @@ const Index = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 z-[2] flex flex-col items-center gap-2"
+          transition={{ delay: 1.4 }}
+          className="absolute bottom-6 z-[2] flex flex-col items-center gap-2"
         >
-          <span className="text-white/50 text-[10px] tracking-[0.3em] uppercase">{t("Scroll", "向下滚动")}</span>
+          <span className="text-white/45 text-[10px] tracking-[0.3em] uppercase">{t("Scroll", "向下滚动")}</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="w-5 h-8 rounded-full border-2 border-white/30 flex justify-center pt-1.5"
+            className="w-5 h-8 rounded-full border-2 border-white/25 flex justify-center pt-1.5"
           >
-            <div className="w-1 h-1.5 rounded-full bg-white/60" />
+            <div className="w-1 h-1.5 rounded-full bg-white/55" />
           </motion.div>
         </motion.div>
       </section>
