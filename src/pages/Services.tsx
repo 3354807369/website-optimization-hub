@@ -143,8 +143,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* ENGAGEMENT MODELS */}
-      <section className="py-20" style={{ background: "var(--gradient-section)" }}>
+      {/* ENGAGEMENT MODELS — white */}
+      <section className="py-20 bg-background">
         <div className="section-wrap">
           <SectionHeading
             eyebrow={t("Flexible Plans", "灵活方案")}
@@ -259,8 +259,8 @@ const Services = () => {
         </div>
       </section>
 
-      {/* DELIVERABLES */}
-      <section className="py-20" style={{ background: "var(--gradient-section)" }}>
+      {/* DELIVERABLES — white */}
+      <section className="py-20 bg-background">
         <div className="section-wrap">
           <SectionHeading
             eyebrow={t("What You Get", "您将获得")}
