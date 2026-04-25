@@ -115,7 +115,7 @@ const Services = () => {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
               {catalog.map((c, i) => {
-                const href = c.id === "quant" ? "/services/quant-trading" : c.id === "ai" ? "/services/ai-agents" : c.id === "web" ? "/services/web-development" : undefined;
+                const href = c.id === "quant" ? "/services/quant-trading" : c.id === "ai" ? "/services/ai-agents" : c.id === "web" ? "/services/web-development" : c.id === "blockchain" ? "/services/blockchain" : undefined;
                 return (
                   <motion.article
                     key={c.id}
