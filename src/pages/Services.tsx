@@ -522,8 +522,6 @@ const Services = () => {
             maskImage: "radial-gradient(ellipse at center, black 25%, transparent 70%)",
           }}
         />
-        <div className="absolute -top-32 -left-20 w-[480px] h-[480px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
-        <div className="absolute -bottom-32 -right-20 w-[520px] h-[520px] rounded-full opacity-[0.14] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(217 91% 60%), transparent 70%)" }} />
 
         <div className="section-wrap relative">
           <motion.div
@@ -535,7 +533,6 @@ const Services = () => {
             style={{ boxShadow: "0 30px 80px -30px hsl(217 91% 50% / 0.35)" }}
           >
             <div className="relative rounded-3xl bg-card overflow-hidden px-8 py-14 md:px-16 md:py-20 text-center">
-              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full opacity-[0.18] blur-3xl pointer-events-none" style={{ background: "radial-gradient(circle, hsl(199 89% 55%), transparent 70%)" }} />
               <span className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/25 bg-primary/5 text-primary uppercase tracking-[0.22em] text-[11px] font-bold mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 {t("Let's Build", "开始合作")}
