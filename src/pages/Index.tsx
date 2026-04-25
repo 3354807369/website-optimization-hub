@@ -60,11 +60,12 @@ const Index = () => {
     { icon: Cpu, title: t("Modular by Default", "天生模块化"), desc: t("Composable building blocks scale from prototype to production.", "可组合的构建块从原型扩展到生产。") },
   ];
 
+  // Outcome-focused stats: trust signals (what we've delivered)
   const stats = [
-    { value: "4", label: t("Core Practices", "核心业务") },
-    { value: "<80ms", label: t("Latency Target", "延迟目标") },
-    { value: "20+", label: t("Strategy Modules", "策略模块") },
-    { value: "99.9%", label: t("Uptime Target", "可用性目标") },
+    { value: "30+", label: t("Projects Shipped", "已交付项目") },
+    { value: "4", label: t("Practice Areas", "业务领域") },
+    { value: "99.9%", label: t("Production Uptime", "生产可用性") },
+    { value: "24/7", label: t("Live Monitoring", "全天候监控") },
   ];
 
   const workflow = [
