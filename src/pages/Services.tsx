@@ -11,31 +11,37 @@ import serviceBlockchain from "@/assets/service-blockchain.jpg";
 const techGroups = [
   {
     label: { en: "Languages", zh: "编程语言" },
+    caption: { en: "Typed & systems-grade", zh: "类型安全 · 系统级" },
     icon: "{ }",
     items: ["TypeScript", "Python", "Rust", "Solidity", "Go"],
   },
   {
     label: { en: "Frontend & Web", zh: "前端与网站" },
+    caption: { en: "Modern UI frameworks", zh: "现代 UI 框架" },
     icon: "</>",
     items: ["React", "Next.js", "Nuxt / Vue", "Tailwind CSS", "Vite"],
   },
   {
     label: { en: "Backend & APIs", zh: "后端与接口" },
+    caption: { en: "Realtime & high-throughput", zh: "实时 · 高吞吐" },
     icon: "⚡",
     items: ["Node.js", "FastAPI", "tRPC", "GraphQL", "WebSockets"],
   },
   {
     label: { en: "Data & Infra", zh: "数据与基础设施" },
+    caption: { en: "Storage, streams, time-series", zh: "存储 · 流式 · 时序" },
     icon: "▣",
     items: ["Postgres", "Redis", "Kafka", "ClickHouse", "TimescaleDB"],
   },
   {
     label: { en: "DevOps & Cloud", zh: "DevOps 与云" },
+    caption: { en: "Containerized & CI/CD-first", zh: "容器化 · CI/CD 优先" },
     icon: "☁",
     items: ["Docker", "Kubernetes", "AWS", "GCP", "GitHub Actions"],
   },
   {
     label: { en: "Exchanges & Web3", zh: "交易所与 Web3" },
+    caption: { en: "Trading venues & on-chain", zh: "交易场所 · 链上"  },
     icon: "◈",
     items: ["Binance", "OKX", "Bybit", "Ethereum", "Solana"],
   },
@@ -345,7 +351,7 @@ const Services = () => {
                       </span>
                       <div>
                         <h3 className="font-display text-base font-bold text-foreground leading-tight">{t(g.label.en, g.label.zh)}</h3>
-                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">{g.items.length} {t("tools", "工具")}</span>
+                        <span className="text-[10.5px] uppercase tracking-[0.18em] font-semibold text-muted-foreground">{t(g.caption.en, g.caption.zh)}</span>
                       </div>
                     </div>
 
