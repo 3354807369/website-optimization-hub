@@ -16,18 +16,6 @@ const Index = () => {
 
   const businesses = [
     {
-      icon: Sparkles,
-      title: t("AI Application R&D", "AI 应用研发"),
-      desc: t(
-        "LLM agents, intelligent assistants, research tooling and workflow automation.",
-        "大模型应用、智能代理、研究工具和流程自动化。",
-      ),
-      img: bizAi,
-      href: "/services/ai-agents",
-      tag: "AI / ML",
-      accent: "from-violet-500/40 to-fuchsia-600/30",
-    },
-    {
       icon: Globe2,
       title: t("Website & Landing Pages", "网站与落地页"),
       desc: t(
@@ -50,6 +38,18 @@ const Index = () => {
       href: "/services#blockchain",
       tag: "Web3",
       accent: "from-amber-500/40 to-orange-600/30",
+    },
+    {
+      icon: Sparkles,
+      title: t("AI Application R&D", "AI 应用研发"),
+      desc: t(
+        "LLM agents, intelligent assistants, research tooling and workflow automation.",
+        "大模型应用、智能代理、研究工具和流程自动化。",
+      ),
+      img: bizAi,
+      href: "/services/ai-agents",
+      tag: "AI / ML",
+      accent: "from-violet-500/40 to-fuchsia-600/30",
     },
     {
       icon: TrendingUp,
