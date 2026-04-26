@@ -153,8 +153,8 @@ const Services = () => {
       <SEO
         title={t("IT Services — Quant, AI, Web & Blockchain Engineering", "IT 服务 — 量化、AI、网站与区块链工程")}
         description={t(
-          "Full-stack IT services from StarLoop: quant trading automation, AI agents, modern web development, and blockchain engineering — production-grade, end to end.",
-          "StarLoop 提供全栈 IT 服务:量化交易自动化、AI 智能体、现代网站开发、区块链工程 — 端到端生产级交付。",
+          "Full-stack IT services from StarLoop: modern web development, AI agents, quant trading automation and blockchain engineering — production-grade, end to end.",
+          "StarLoop 提供全栈 IT 服务:AI 智能体、现代网站开发、量化交易、自动化区块链工程 — 端到端生产级交付。",
         )}
         path="/services"
       />
