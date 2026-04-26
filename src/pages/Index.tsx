@@ -40,18 +40,6 @@ const Index = () => {
       accent: "from-emerald-500/40 to-teal-600/30",
     },
     {
-      icon: TrendingUp,
-      title: t("Quant Trading Automation", "量化交易自动化"),
-      desc: t(
-        "Non-custodial bots, modular strategies, risk-first execution across major exchanges.",
-        "非托管机器人、模块化策略、风控优先的跨交易所执行。",
-      ),
-      img: bizQuant,
-      href: "/services/quant-trading",
-      tag: t("Flagship", "旗舰"),
-      accent: "from-sky-500/40 to-blue-600/30",
-    },
-    {
       icon: Boxes,
       title: t("Blockchain & Web3", "区块链与 Web3"),
       desc: t(
@@ -62,6 +50,18 @@ const Index = () => {
       href: "/services#blockchain",
       tag: "Web3",
       accent: "from-amber-500/40 to-orange-600/30",
+    },
+    {
+      icon: TrendingUp,
+      title: t("Quant Trading Automation", "量化交易自动化"),
+      desc: t(
+        "Non-custodial bots, modular strategies, risk-first execution across major exchanges.",
+        "非托管机器人、模块化策略、风控优先的跨交易所执行。",
+      ),
+      img: bizQuant,
+      href: "/services/quant-trading",
+      tag: t("Flagship", "旗舰"),
+      accent: "from-sky-500/40 to-blue-600/30",
     },
   ];
 
