@@ -2,14 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Home, Mail } from "lucide-react";
-import { useLang } from "@/i18n/LanguageContext";
 import SEO from "@/components/SEO";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const NotFound = () => {
   const location = useLocation();
-  const { t } = useLang();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -68,21 +66,18 @@ const NotFound = () => {
           </motion.h1>
 
           <div className="inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs uppercase tracking-[0.2em] text-white/70 mb-6">
-            {t("Lost in the loop", "迷失在回路中")}
+            Lost in the loop
           </div>
 
           <h2
             className="font-display font-bold text-white mb-4"
             style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", lineHeight: 1.15, letterSpacing: "-0.02em" }}
           >
-            {t("This page doesn't exist", "页面不存在")}
+            This page doesn't exist
           </h2>
 
           <p className="text-white/60 max-w-[55ch] mx-auto mb-2 text-base md:text-lg">
-            {t(
-              "The signal got lost somewhere between the routes. Let's get you back on track.",
-              "请求的页面无法找到，让我们带您回到正轨。",
-            )}
+            The signal got lost somewhere between the routes. Let's get you back on track.
           </p>
           <code className="inline-block mt-2 mb-8 px-3 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-xs text-white/50">
             {location.pathname}
@@ -94,21 +89,21 @@ const NotFound = () => {
               className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20"
             >
               <Home size={16} />
-              {t("Back to Home", "返回首页")}
+              Back to Home
             </Link>
             <Link
               to="/contact"
               className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white font-semibold text-sm hover:bg-white/10 transition-all no-underline"
             >
               <Mail size={16} />
-              {t("Contact Us", "联系我们")}
+              Contact Us
             </Link>
             <button
               onClick={() => window.history.back()}
               className="group inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-white/60 font-medium text-sm hover:text-white transition-all"
             >
               <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-              {t("Go Back", "返回上一页")}
+              Go Back
             </button>
           </div>
         </motion.div>
