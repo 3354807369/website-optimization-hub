@@ -18,7 +18,10 @@ const Index = () => {
     {
       icon: TrendingUp,
       title: t("Quant Trading Automation", "量化交易自动化"),
-      desc: t("Non-custodial bots, modular strategies, risk-first execution across major exchanges.", "非托管机器人、模块化策略、风控优先的跨交易所执行。"),
+      desc: t(
+        "Non-custodial bots, modular strategies, risk-first execution across major exchanges.",
+        "非托管机器人、模块化策略、风控优先的跨交易所执行。",
+      ),
       img: bizQuant,
       href: "/services/quant-trading",
       tag: t("Flagship", "旗舰"),
@@ -27,7 +30,10 @@ const Index = () => {
     {
       icon: Sparkles,
       title: t("AI Application R&D", "AI 应用研发"),
-      desc: t("LLM agents, intelligent assistants, research tooling and workflow automation.", "大模型应用、智能代理、研究工具和流程自动化。"),
+      desc: t(
+        "LLM agents, intelligent assistants, research tooling and workflow automation.",
+        "大模型应用、智能代理、研究工具和流程自动化。",
+      ),
       img: bizAi,
       href: "/services/ai-agents",
       tag: "AI / ML",
@@ -36,7 +42,10 @@ const Index = () => {
     {
       icon: Globe2,
       title: t("Website & Landing Pages", "网站与落地页"),
-      desc: t("Performance-first marketing sites and product surfaces with modern stacks.", "性能优先的品牌网站与产品页，现代化技术栈。"),
+      desc: t(
+        "Performance-first marketing sites and product surfaces with modern stacks.",
+        "性能优先的品牌网站与产品页，现代化技术栈。",
+      ),
       img: bizWeb,
       href: "/services/web-development",
       tag: "Web",
@@ -45,7 +54,10 @@ const Index = () => {
     {
       icon: Boxes,
       title: t("Blockchain & Web3", "区块链与 Web3"),
-      desc: t("Smart contracts, on-chain indexing, dashboards and crypto-native infrastructure.", "智能合约、链上索引、仪表板与加密原生基础设施。"),
+      desc: t(
+        "Smart contracts, on-chain indexing, dashboards and crypto-native infrastructure.",
+        "智能合约、链上索引、仪表板与加密原生基础设施。",
+      ),
       img: bizBlockchain,
       href: "/services#blockchain",
       tag: "Web3",
@@ -54,10 +66,32 @@ const Index = () => {
   ];
 
   const advantages = [
-    { icon: Zap, title: t("Engineered for Speed", "为速度而生"), desc: t("Sub-100ms infrastructure, optimized data pipelines, instant execution.", "亚 100ms 基础设施、优化的数据管道、即时执行。") },
-    { icon: ShieldCheck, title: t("Risk-First Design", "风控优先设计"), desc: t("Every system ships with guardrails: limits, alerts, audit logs.", "每个系统都自带保护机制：限制、告警、审计日志。") },
-    { icon: Eye, title: t("Fully Observable", "全方位可观测"), desc: t("Real-time dashboards, traceable decisions, transparent metrics.", "实时仪表板、可追溯决策、透明指标。") },
-    { icon: Cpu, title: t("Modular by Default", "天生模块化"), desc: t("Composable building blocks scale from prototype to production.", "可组合的构建块从原型扩展到生产。") },
+    {
+      icon: Zap,
+      title: t("Engineered for Speed", "为速度而生"),
+      desc: t(
+        "Sub-100ms infrastructure, optimized data pipelines, instant execution.",
+        "亚 100ms 基础设施、优化的数据管道、即时执行。",
+      ),
+    },
+    {
+      icon: ShieldCheck,
+      title: t("Risk-First Design", "风控优先设计"),
+      desc: t(
+        "Every system ships with guardrails: limits, alerts, audit logs.",
+        "每个系统都自带保护机制：限制、告警、审计日志。",
+      ),
+    },
+    {
+      icon: Eye,
+      title: t("Fully Observable", "全方位可观测"),
+      desc: t("Real-time dashboards, traceable decisions, transparent metrics.", "实时仪表板、可追溯决策、透明指标。"),
+    },
+    {
+      icon: Cpu,
+      title: t("Modular by Default", "天生模块化"),
+      desc: t("Composable building blocks scale from prototype to production.", "可组合的构建块从原型扩展到生产。"),
+    },
   ];
 
   // Outcome-focused stats: trust signals (what we've delivered)
@@ -69,10 +103,26 @@ const Index = () => {
   ];
 
   const workflow = [
-    { num: "01", title: t("Discover", "发现"), desc: t("Clarify goals, risks, constraints.", "明确目标、风险与约束。") },
-    { num: "02", title: t("Design", "设计"), desc: t("Architect modular, observable systems.", "设计模块化、可观测的系统。") },
-    { num: "03", title: t("Build", "构建"), desc: t("Iterate fast with tests and reviews.", "快速迭代，配以测试与审查。") },
-    { num: "04", title: t("Launch", "上线"), desc: t("Deploy, monitor, improve continuously.", "部署、监控、持续优化。") },
+    {
+      num: "01",
+      title: t("Discover", "发现"),
+      desc: t("Clarify goals, risks, constraints.", "明确目标、风险与约束。"),
+    },
+    {
+      num: "02",
+      title: t("Design", "设计"),
+      desc: t("Architect modular, observable systems.", "设计模块化、可观测的系统。"),
+    },
+    {
+      num: "03",
+      title: t("Build", "构建"),
+      desc: t("Iterate fast with tests and reviews.", "快速迭代，配以测试与审查。"),
+    },
+    {
+      num: "04",
+      title: t("Launch", "上线"),
+      desc: t("Deploy, monitor, improve continuously.", "部署、监控、持续优化。"),
+    },
   ];
 
   return (
@@ -83,13 +133,7 @@ const Index = () => {
       <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
         {/* background image */}
         <div className="absolute inset-0 z-0">
-          <img
-            src={heroBg}
-            alt=""
-            width={1920}
-            height={1080}
-            className="w-full h-full object-cover scale-105"
-          />
+          <img src={heroBg} alt="" width={1920} height={1080} className="w-full h-full object-cover scale-105" />
         </div>
         {/* layered gradient overlay (deeper at top & bottom for typography contrast) */}
         <div
@@ -103,8 +147,7 @@ const Index = () => {
         <div
           className="absolute inset-0 z-[1] pointer-events-none"
           style={{
-            background:
-              "radial-gradient(ellipse 80% 60% at 50% 45%, transparent 0%, hsl(222 47% 4% / 0.55) 100%)",
+            background: "radial-gradient(ellipse 80% 60% at 50% 45%, transparent 0%, hsl(222 47% 4% / 0.55) 100%)",
           }}
         />
         {/* refined grid (finer, calmer) */}
@@ -114,8 +157,7 @@ const Index = () => {
             backgroundImage:
               "linear-gradient(hsl(199 89% 60%) 1px, transparent 1px), linear-gradient(90deg, hsl(199 89% 60%) 1px, transparent 1px)",
             backgroundSize: "64px 64px",
-            maskImage:
-              "radial-gradient(ellipse at center, black 25%, transparent 70%)",
+            maskImage: "radial-gradient(ellipse at center, black 25%, transparent 70%)",
           }}
         />
         {/* corner accent glows — restrained */}
@@ -134,7 +176,6 @@ const Index = () => {
           transition={{ duration: 0.9, delay: 0.15, ease }}
           className="relative z-[2] text-center px-6 max-w-[1180px]"
         >
-
           <h1
             className="font-display font-bold text-white mb-7"
             style={{
@@ -144,7 +185,7 @@ const Index = () => {
               textShadow: "0 4px 30px rgba(0,0,0,0.45)",
             }}
           >
-            {t("Full-stack engineering", "全栈工程能力,")}
+            {t("We build software that helps your business grow", "全栈工程能力,")}
             <br />
             <span className="bg-gradient-to-r from-sky-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
               {t("for serious software", "构建严肃软件")}
@@ -159,7 +200,7 @@ const Index = () => {
           >
             {t(
               "StarLoop is a full-stack IT engineering team. We design and ship production-grade quant trading automation, AI agents, modern web products, and blockchain infrastructure — modular, observable, and built to last.",
-              "StarLoop 是一支全栈 IT 工程团队。我们设计并交付生产级的量化交易自动化、AI 智能体、现代网站产品与区块链基础设施 — 模块化、可观测、长期可靠。"
+              "StarLoop 是一支全栈 IT 工程团队。我们设计并交付生产级的量化交易自动化、AI 智能体、现代网站产品与区块链基础设施 — 模块化、可观测、长期可靠。",
             )}
           </motion.p>
 
@@ -293,8 +334,7 @@ const Index = () => {
                       <div
                         className="absolute inset-0"
                         style={{
-                          background:
-                            "linear-gradient(180deg, transparent 40%, hsl(222 47% 8% / 0.95) 100%)",
+                          background: "linear-gradient(180deg, transparent 40%, hsl(222 47% 8% / 0.95) 100%)",
                         }}
                       />
                       <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-[11px] font-semibold border border-white/20 tracking-wide">
@@ -379,8 +419,7 @@ const Index = () => {
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 border border-sky-400/30"
                     style={{
-                      background:
-                        "linear-gradient(135deg, hsl(199 89% 48% / 0.2), hsl(217 91% 60% / 0.1))",
+                      background: "linear-gradient(135deg, hsl(199 89% 48% / 0.2), hsl(217 91% 60% / 0.1))",
                     }}
                   >
                     <Icon size={18} className="text-sky-300" strokeWidth={2.2} />
@@ -460,8 +499,7 @@ const Index = () => {
                 <div
                   className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center font-display font-bold text-primary text-lg relative z-10"
                   style={{
-                    background:
-                      "linear-gradient(135deg, hsl(199 89% 95%), hsl(217 91% 97%))",
+                    background: "linear-gradient(135deg, hsl(199 89% 95%), hsl(217 91% 97%))",
                     border: "1px solid hsl(199 89% 48% / 0.2)",
                   }}
                 >
@@ -480,8 +518,7 @@ const Index = () => {
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 50%, hsl(217 91% 25%) 100%)",
+            background: "linear-gradient(135deg, hsl(222 47% 8%) 0%, hsl(222 47% 12%) 50%, hsl(217 91% 25%) 100%)",
           }}
         />
         <div
@@ -514,7 +551,7 @@ const Index = () => {
           <p className="text-white/70 max-w-[55ch] mx-auto text-base md:text-lg mb-10">
             {t(
               "Tell us about your goals. We'll come back with a clear plan, an honest estimate, and a path forward.",
-              "告诉我们你的目标。我们会返回一份清晰的计划、诚实的估算和前进的路径。"
+              "告诉我们你的目标。我们会返回一份清晰的计划、诚实的估算和前进的路径。",
             )}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
