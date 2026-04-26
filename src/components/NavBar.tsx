@@ -16,18 +16,6 @@ const NavBar = () => {
 
   const services = [
     {
-      to: "/services/quant-trading",
-      label: t("Quant Trading", "量化交易"),
-      desc: t("Non-custodial trading bots", "非托管交易机器人"),
-      icon: LineChart,
-    },
-    {
-      to: "/services/ai-agents",
-      label: t("AI Agents", "AI 智能代理"),
-      desc: t("Custom assistants & automation", "定制助手与自动化"),
-      icon: Bot,
-    },
-    {
       to: "/services/web-development",
       label: t("Web Development", "网站开发"),
       desc: t("Modern sites & landing pages", "现代网站与落地页"),
@@ -38,6 +26,18 @@ const NavBar = () => {
       label: t("Blockchain & Web3", "区块链与 Web3"),
       desc: t("Smart contracts & dApps", "智能合约与 dApp"),
       icon: Boxes,
+    },
+    {
+      to: "/services/ai-agents",
+      label: t("AI Agents", "AI 智能代理"),
+      desc: t("Custom assistants & automation", "定制助手与自动化"),
+      icon: Bot,
+    },
+    {
+      to: "/services/quant-trading",
+      label: t("Quant Trading", "量化交易"),
+      desc: t("Non-custodial trading bots", "非托管交易机器人"),
+      icon: LineChart,
     },
   ];
 
@@ -113,12 +113,7 @@ const NavBar = () => {
               if (item.hasDropdown) {
                 const active = isServicesActive;
                 return (
-                  <div
-                    key={item.to}
-                    className="relative"
-                    onMouseEnter={openDropdown}
-                    onMouseLeave={scheduleClose}
-                  >
+                  <div key={item.to} className="relative" onMouseEnter={openDropdown} onMouseLeave={scheduleClose}>
                     <Link
                       to={item.to}
                       className={`inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium no-underline transition-all duration-300 ${
@@ -127,8 +122,8 @@ const NavBar = () => {
                             ? "text-primary-foreground bg-white/20 ring-1 ring-white/25"
                             : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
                           : active || servicesOpen
-                          ? "text-primary bg-primary/10 ring-1 ring-primary/20"
-                          : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
+                            ? "text-primary bg-primary/10 ring-1 ring-primary/20"
+                            : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
                       }`}
                       aria-haspopup="true"
                       aria-expanded={servicesOpen}
@@ -165,12 +160,8 @@ const NavBar = () => {
                                     <Icon size={16} />
                                   </div>
                                   <div className="min-w-0">
-                                    <div className="text-sm font-semibold text-foreground leading-tight">
-                                      {s.label}
-                                    </div>
-                                    <div className="text-xs text-muted-foreground mt-0.5 leading-snug">
-                                      {s.desc}
-                                    </div>
+                                    <div className="text-sm font-semibold text-foreground leading-tight">{s.label}</div>
+                                    <div className="text-xs text-muted-foreground mt-0.5 leading-snug">{s.desc}</div>
                                   </div>
                                 </Link>
                               );
@@ -202,8 +193,8 @@ const NavBar = () => {
                         ? "text-primary-foreground bg-white/20 ring-1 ring-white/25"
                         : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
                       : location.pathname === item.to
-                      ? "text-primary bg-primary/10 ring-1 ring-primary/20"
-                      : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
+                        ? "text-primary bg-primary/10 ring-1 ring-primary/20"
+                        : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
                   }`}
                 >
                   {item.label}
