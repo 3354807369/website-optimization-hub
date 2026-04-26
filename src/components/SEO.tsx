@@ -39,7 +39,7 @@ const SEO = ({
     "@type": "Organization",
     name: SITE_NAME,
     url: BASE_URL,
-    logo: `${BASE_URL}/og-image.png`,
+    logo: `${BASE_URL}/logo.png`,
     description: DEFAULT_DESC,
     foundingDate: "2023",
     slogan: "Full-stack IT engineering team",
