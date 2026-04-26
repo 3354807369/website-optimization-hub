@@ -216,10 +216,10 @@ const Index = () => {
             className="flex flex-wrap items-center justify-center gap-3 mb-14"
           >
             <Link
-              to="/services/quant-trading"
+              to="/Contact"
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/95 transition-all no-underline shadow-[0_10px_40px_-10px_rgba(56,189,248,0.55)] hover:shadow-[0_14px_44px_-10px_rgba(56,189,248,0.7)] hover:-translate-y-0.5 duration-300"
             >
-              {t("Explore Quant Trading", "探索量化交易")}
+              {t("Start a Project", "启动项目")}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
