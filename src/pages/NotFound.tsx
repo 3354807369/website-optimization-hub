@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Home, Mail } from "lucide-react";
-import { useLang } from "@/i18n/LanguageContext";
 import SEO from "@/components/SEO";
 
 const ease = [0.16, 1, 0.3, 1] as const;
