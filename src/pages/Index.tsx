@@ -187,9 +187,9 @@ const Index = () => {
           >
             {t("We build software that grows your business", "全栈工程能力,")}
             <br />
-            <span className="bg-gradient-to-r from-sky-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+            {/* <span className="bg-gradient-to-r from-sky-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
               {t("for serious software", "构建严肃软件")}
-            </span>
+            </span> */}
           </h1>
 
           <motion.p
