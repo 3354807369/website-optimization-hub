@@ -8,7 +8,6 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const NotFound = () => {
   const location = useLocation();
-  const { t } = useLang();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
