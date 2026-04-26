@@ -199,8 +199,13 @@ const Index = () => {
             className="text-white/75 max-w-[64ch] mx-auto text-[15px] md:text-lg leading-relaxed mb-10"
           >
             {t(
-              "StarLoop is a full-stack IT engineering team. We design and ship production-grade quant trading automation, AI agents, modern web products, and blockchain infrastructure — modular, observable, and built to last.",
-              "StarLoop 是一支全栈 IT 工程团队。我们设计并交付生产级的量化交易自动化、AI 智能体、现代网站产品与区块链基础设施 — 模块化、可观测、长期可靠。",
+              "StarLoop helps businesses build websites, AI systems, and advanced automation tools.",
+              "StarLoop 帮助企业构建网站、人工智能系统和高级自动化工具。",
+            )}
+            <br />
+            {t(
+              "We design and develop solutions that improve efficiency, reduce manual work, and support growth.",
+              "我们设计并开发能够提高效率、减少人工操作并支持业务增长的解决方案。",
             )}
           </motion.p>
 
