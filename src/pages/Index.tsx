@@ -16,18 +16,6 @@ const Index = () => {
 
   const businesses = [
     {
-      icon: TrendingUp,
-      title: t("Quant Trading Automation", "量化交易自动化"),
-      desc: t(
-        "Non-custodial bots, modular strategies, risk-first execution across major exchanges.",
-        "非托管机器人、模块化策略、风控优先的跨交易所执行。",
-      ),
-      img: bizQuant,
-      href: "/services/quant-trading",
-      tag: t("Flagship", "旗舰"),
-      accent: "from-sky-500/40 to-blue-600/30",
-    },
-    {
       icon: Sparkles,
       title: t("AI Application R&D", "AI 应用研发"),
       desc: t(
@@ -50,6 +38,18 @@ const Index = () => {
       href: "/services/web-development",
       tag: "Web",
       accent: "from-emerald-500/40 to-teal-600/30",
+    },
+    {
+      icon: TrendingUp,
+      title: t("Quant Trading Automation", "量化交易自动化"),
+      desc: t(
+        "Non-custodial bots, modular strategies, risk-first execution across major exchanges.",
+        "非托管机器人、模块化策略、风控优先的跨交易所执行。",
+      ),
+      img: bizQuant,
+      href: "/services/quant-trading",
+      tag: t("Flagship", "旗舰"),
+      accent: "from-sky-500/40 to-blue-600/30",
     },
     {
       icon: Boxes,
@@ -216,10 +216,10 @@ const Index = () => {
             className="flex flex-wrap items-center justify-center gap-3 mb-14"
           >
             <Link
-              to="/contact"
+              to="/services/quant-trading"
               className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/95 transition-all no-underline shadow-[0_10px_40px_-10px_rgba(56,189,248,0.55)] hover:shadow-[0_14px_44px_-10px_rgba(56,189,248,0.7)] hover:-translate-y-0.5 duration-300"
             >
-              {t("Start a Project", "启动项目")}
+              {t("Explore Quant Trading", "探索量化交易")}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
