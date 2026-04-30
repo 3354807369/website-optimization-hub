@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
-  FileCode2,
+  Server,
+  Cloud,
   ShieldCheck,
-  Wallet,
-  Layers,
-  Coins,
+  Headphones,
+  Network,
+  Database,
   Activity,
   Lock,
-  Gauge,
+  Cpu,
   GitBranch,
   Sparkles,
   CheckCircle2,
@@ -21,114 +22,114 @@ import DeliveryProcess from "@/components/DeliveryProcess";
 import ToolsStack from "@/components/ToolsStack";
 import CtaSection from "@/components/CtaSection";
 import { useLang } from "@/i18n/LanguageContext";
-import heroImg from "@/assets/blockchain-hero.jpg";
+import heroImg from "@/assets/it-services-hero.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-const Blockchain = () => {
+const ITServices = () => {
   const { t } = useLang();
 
   const useCases = [
     {
-      icon: FileCode2,
-      title: t("Smart Contract Development", "智能合约开发"),
+      icon: Cloud,
+      title: t("Cloud Infrastructure & Migration", "云基础设施与迁移"),
       desc: t(
-        "Solidity contracts engineered for security, gas efficiency, and upgradeability — from tokens to complex protocol logic.",
-        "兼顾安全、Gas 效率与可升级性的 Solidity 合约 —— 从代币到复杂协议逻辑。"
+        "Architect, migrate and operate workloads on AWS, GCP and Azure — secure landing zones, IaC, and cost-optimized environments.",
+        "在 AWS、GCP、Azure 上架构、迁移并运维工作负载 —— 安全的落地区、IaC 与成本优化环境。"
       ),
-      tag: t("Contracts", "合约"),
+      tag: t("Cloud", "云服务"),
     },
     {
-      icon: ShieldCheck,
-      title: t("Security Audits & Reviews", "安全审计与代码审查"),
+      icon: Server,
+      title: t("Managed IT & System Integration", "托管 IT 与系统集成"),
       desc: t(
-        "Manual review, fuzzing, invariant testing, and gas profiling — written reports with severity ratings and fixes.",
-        "人工审查、模糊测试、不变量测试与 Gas 剖析 —— 出具分级修复报告。"
+        "Patch management, endpoint security, identity & access (Okta, Entra ID), backup, and end-to-end system integration across SaaS tools.",
+        "补丁管理、端点安全、身份与访问 (Okta、Entra ID)、备份,以及跨 SaaS 工具的端到端系统集成。"
       ),
-      tag: t("Audit", "审计"),
+      tag: t("Managed", "托管"),
     },
     {
-      icon: Wallet,
-      title: t("Full-Stack dApps", "全栈 dApp 开发"),
+      icon: Network,
+      title: t("Network & Security Operations", "网络与安全运营"),
       desc: t(
-        "React + wagmi + viem frontends with RainbowKit / WalletConnect, indexers, and event-driven UX.",
-        "基于 React + wagmi + viem 的前端，集成 RainbowKit / WalletConnect、索引器与事件驱动 UX。"
+        "SD-WAN, zero-trust networking, firewall hardening, vulnerability scans and 24/7 SOC monitoring with clear runbooks.",
+        "SD-WAN、零信任网络、防火墙加固、漏洞扫描,以及附带清晰运维手册的 24/7 SOC 监控。"
       ),
-      tag: t("dApp", "dApp"),
+      tag: t("Security", "安全"),
     },
     {
-      icon: Coins,
-      title: t("Tokens & Protocol Design", "代币与协议设计"),
+      icon: Headphones,
+      title: t("Service Desk & End-User Support", "服务台与终端用户支持"),
       desc: t(
-        "ERC-20/721/1155 launches, vesting, staking, and incentive design — modeled before deployment.",
-        "ERC-20/721/1155 发行、解锁、质押与激励设计 —— 部署前完整建模。"
+        "Tiered helpdesk, device lifecycle management, onboarding/offboarding automation — measurable SLAs and CSAT.",
+        "分级服务台、设备生命周期管理、入职/离职自动化 —— 可衡量的 SLA 与客户满意度。"
       ),
-      tag: t("Tokenomics", "代币经济"),
+      tag: t("Support", "支持"),
     },
   ];
 
   const capabilities = [
     {
       icon: ShieldCheck,
-      title: t("Security-First Engineering", "安全优先工程"),
-      desc: t("Foundry tests, invariants, slither, MythX, formal verification when it matters.", "Foundry 测试、不变量、Slither、MythX,关键场景做形式化验证。"),
-    },
-    {
-      icon: Gauge,
-      title: t("Gas Optimization", "Gas 优化"),
-      desc: t("Storage packing, custom errors, assembly hot-paths — measured, not guessed.", "存储打包、自定义错误、关键路径汇编 —— 实测优化,不靠猜。"),
-    },
-    {
-      icon: Layers,
-      title: t("Multi-Chain EVM Deploys", "多链 EVM 部署"),
-      desc: t("Ethereum, Base, Arbitrum, Optimism, Polygon — single codebase, consistent ops.", "Ethereum、Base、Arbitrum、Optimism、Polygon —— 同一代码库,统一运维。"),
-    },
-    {
-      icon: Wallet,
-      title: t("Wallet & Account Abstraction", "钱包与账户抽象"),
-      desc: t("RainbowKit, WalletConnect, ERC-4337 smart accounts, gasless UX.", "RainbowKit、WalletConnect、ERC-4337 智能账户、Gasless 体验。"),
+      title: t("Security-First Operations", "安全优先运营"),
+      desc: t("Zero-trust, MFA everywhere, EDR, SIEM, and aligned with ISO 27001 / SOC 2 controls.", "零信任、全员 MFA、EDR、SIEM,对齐 ISO 27001 / SOC 2 控制。"),
     },
     {
       icon: Activity,
-      title: t("On-Chain Indexing & Analytics", "链上索引与分析"),
-      desc: t("The Graph, Ponder, custom indexers, Dune dashboards.", "The Graph、Ponder、自建索引器、Dune 仪表盘。"),
+      title: t("24/7 Monitoring & SRE", "7×24 监控与 SRE"),
+      desc: t("Proactive alerting, on-call rotations, SLOs and post-incident reviews — uptime as a contract.", "主动告警、值班轮转、SLO 与事后复盘 —— 把可用性写入合同。"),
+    },
+    {
+      icon: Cloud,
+      title: t("Multi-Cloud & Hybrid", "多云与混合架构"),
+      desc: t("AWS, GCP, Azure, on-prem and edge — one operating model across environments.", "AWS、GCP、Azure、本地与边缘 —— 跨环境统一运维模型。"),
+    },
+    {
+      icon: Database,
+      title: t("Backup & Disaster Recovery", "备份与灾备"),
+      desc: t("3-2-1 backup strategy, immutable snapshots, tested DR with documented RPO / RTO targets.", "3-2-1 备份策略、不可变快照、定期演练的灾备,具明确 RPO / RTO 目标。"),
     },
     {
       icon: Lock,
-      title: t("Upgradeability & Governance", "可升级性与治理"),
-      desc: t("UUPS / Transparent proxies, timelocks, multisigs, on-chain governance.", "UUPS / Transparent 代理、Timelock、多签、链上治理。"),
+      title: t("Identity & Access", "身份与访问"),
+      desc: t("Single sign-on, MFA, SCIM provisioning, least-privilege access, audit trails.", "单点登录、MFA、SCIM 配置、最小权限访问、完整审计。"),
+    },
+    {
+      icon: Cpu,
+      title: t("Automation & DevOps", "自动化与 DevOps"),
+      desc: t("Infrastructure-as-Code (Terraform), CI/CD pipelines, configuration management at scale.", "基础设施即代码 (Terraform)、CI/CD 流水线、规模化配置管理。"),
     },
   ];
 
   const workflow = [
-    { num: "01", title: t("Scope", "立项"), desc: t("Threat model, spec, and economic assumptions.", "威胁建模、规格、经济假设。") },
-    { num: "02", title: t("Design", "设计"), desc: t("Architecture, invariants, upgrade strategy.", "架构、不变量、升级策略。") },
-    { num: "03", title: t("Build", "构建"), desc: t("Contracts + tests + frontend in lockstep.", "合约、测试、前端同步推进。") },
-    { num: "04", title: t("Audit", "审计"), desc: t("Internal review, fuzzing, optional 3rd-party audit.", "内部审查、模糊测试,可选第三方审计。") },
-    { num: "05", title: t("Ship", "上线"), desc: t("Mainnet deploy, monitoring, post-launch ops.", "主网部署、监控、上线后运营。") },
+    { num: "01", title: t("Assess", "评估"), desc: t("Audit current IT, risks, and business priorities.", "审计现有 IT、风险与业务优先级。") },
+    { num: "02", title: t("Design", "设计"), desc: t("Target architecture, security model, runbooks.", "目标架构、安全模型、运维手册。") },
+    { num: "03", title: t("Implement", "实施"), desc: t("Migrate, integrate, harden — minimal disruption.", "迁移、集成、加固 —— 最小化业务中断。") },
+    { num: "04", title: t("Operate", "运营"), desc: t("24/7 monitoring, support and continuous patching.", "7×24 监控、支持与持续补丁。") },
+    { num: "05", title: t("Improve", "持续优化"), desc: t("Quarterly reviews, cost optimization, roadmap.", "季度复盘、成本优化、路线图迭代。") },
   ];
 
   const stack = [
-    "Solidity", "Foundry", "Hardhat", "viem", "wagmi", "RainbowKit",
-    "Ethers.js", "OpenZeppelin", "The Graph", "Ponder", "Tenderly", "Slither",
+    "AWS", "GCP", "Azure", "Terraform", "Ansible", "Kubernetes",
+    "Docker", "Datadog", "Grafana", "Okta", "Entra ID", "CrowdStrike",
   ];
 
-  const chains = [
-    { name: "Ethereum", role: t("Mainnet · Settlement", "主网 · 结算") },
-    { name: "Base", role: t("L2 · Consumer", "L2 · 消费级") },
-    { name: "Arbitrum", role: t("L2 · DeFi", "L2 · DeFi") },
-    { name: "Optimism", role: t("L2 · OP Stack", "L2 · OP Stack") },
-    { name: "Polygon", role: t("Sidechain · Scale", "侧链 · 规模") },
-    { name: "zkSync", role: t("L2 · ZK", "L2 · ZK") },
+  const coverage = [
+    { name: t("Cloud", "云服务"), role: t("AWS · GCP · Azure", "AWS · GCP · Azure") },
+    { name: t("Endpoint", "终端"), role: t("Windows · macOS · Linux", "Windows · macOS · Linux") },
+    { name: t("Network", "网络"), role: t("SD-WAN · Zero Trust", "SD-WAN · 零信任") },
+    { name: t("Identity", "身份"), role: t("SSO · MFA · SCIM", "SSO · MFA · SCIM") },
+    { name: t("Security", "安全"), role: t("EDR · SIEM · SOC", "EDR · SIEM · SOC") },
+    { name: t("Backup", "备份"), role: t("Immutable · Tested DR", "不可变 · 演练灾备") },
   ];
 
-  // Animated demo: simulated audit pipeline
+  // Animated demo: simulated NOC pipeline
   const demoSteps = [
-    { label: t("forge test", "forge test"), out: t("✓ 142 tests passed · 0 failed", "✓ 142 项测试通过 · 0 失败"), kind: "cmd" },
-    { label: t("forge coverage", "forge coverage"), out: t("Lines 98.4% · Branches 96.1%", "行覆盖 98.4% · 分支覆盖 96.1%"), kind: "score" },
-    { label: t("slither .", "slither ."), out: t("⚠ 2 informational · 0 high · 0 medium", "⚠ 2 项提示 · 0 高危 · 0 中危"), kind: "warn" },
-    { label: t("invariant fuzzing", "invariant fuzzing"), out: t("✓ 50,000 runs · all invariants hold", "✓ 5 万次运行 · 不变量全部成立"), kind: "score" },
-    { label: t("forge script Deploy --broadcast", "forge script Deploy --broadcast"), out: t("→ Base mainnet · contract verified ✅", "→ Base 主网 · 合约已验证 ✅"), kind: "deploy" },
+    { label: t("status check --all", "status check --all"), out: t("✓ 142 services healthy · 0 alerts", "✓ 142 项服务健康 · 0 告警"), kind: "cmd" },
+    { label: t("uptime --last-30d", "uptime --last-30d"), out: t("99.99% · SLA met", "99.99% · 达成 SLA"), kind: "score" },
+    { label: t("vulnerability scan", "vulnerability scan"), out: t("⚠ 3 low · 0 critical · 0 high", "⚠ 3 项低危 · 0 严重 · 0 高危"), kind: "warn" },
+    { label: t("backup verify", "backup verify"), out: t("✓ 24 / 24 snapshots restored OK", "✓ 24 / 24 快照恢复成功"), kind: "score" },
+    { label: t("deploy patch --rolling", "deploy patch --rolling"), out: t("→ Production · 0 downtime ✅", "→ 生产环境 · 零停机 ✅"), kind: "deploy" },
   ];
 
   const [visibleSteps, setVisibleSteps] = useState(1);
@@ -142,38 +143,38 @@ const Blockchain = () => {
 
   const faqs = [
     {
-      q: t("Can you also handle the audit, or just the build?", "你们做开发,也做审计吗?"),
+      q: t("What size companies do you work with?", "你们服务什么规模的客户?"),
       a: t(
-        "Both. We deliver internally-audited contracts with Foundry test suites, fuzzing, and Slither reports. For high-value protocols we coordinate a 3rd-party audit (Spearbit, Trail of Bits, etc.) before mainnet.",
-        "都做。我们交付的合约附带 Foundry 测试、模糊测试与 Slither 报告。高价值协议上线前可协调第三方审计 (Spearbit、Trail of Bits 等)。"
+        "From 20-person startups scaling fast, to mid-market enterprises with 500+ employees. We tailor service tiers, SLAs and team allocation to your size and growth stage.",
+        "从快速扩张的 20 人创业团队,到 500+ 员工的中型企业。我们根据规模与发展阶段定制服务层级、SLA 与团队配比。"
       ),
     },
     {
-      q: t("Which chains do you support?", "支持哪些链?"),
+      q: t("Can you co-manage with our internal IT team?", "可以与内部 IT 团队协同管理吗?"),
       a: t(
-        "EVM chains by default: Ethereum, Base, Arbitrum, Optimism, Polygon, zkSync. Same codebase, consistent deploy + monitoring pipeline. Other ecosystems on request.",
-        "默认 EVM 系:Ethereum、Base、Arbitrum、Optimism、Polygon、zkSync。同一代码库,统一部署与监控流水线。其他生态可按需对接。"
+        "Yes — co-managed IT is a core delivery model. We embed with your team, take on after-hours / overflow load, or fully own specific domains (cloud, security, helpdesk).",
+        "可以 —— 协同托管是我们的核心交付模式。我们可融入您的团队,承担非工作时间/溢出负载,或完整负责特定领域 (云、安全、服务台)。"
       ),
     },
     {
-      q: t("Do you take custody of keys or treasury?", "你们会托管私钥或金库吗?"),
+      q: t("How do you handle security and compliance?", "你们如何处理安全与合规?"),
       a: t(
-        "Never. Deploys go through your multisig (Safe). We hand over verified contracts, deploy scripts, and an ops runbook — you control the keys.",
-        "从不。部署通过你的多签 (Safe) 执行。我们交付经验证的合约、部署脚本与运维手册 —— 私钥始终由你掌控。"
+        "All engagements run under documented security policies aligned with ISO 27001 / SOC 2. We provide audit trails, access reviews, and assist with compliance evidence collection.",
+        "所有合作遵循对齐 ISO 27001 / SOC 2 的书面安全政策。我们提供审计记录、访问复核,并协助合规证据收集。"
       ),
     },
     {
-      q: t("How long does a typical engagement take?", "一个典型项目周期多长?"),
+      q: t("What's a typical onboarding timeline?", "典型的接入周期多长?"),
       a: t(
-        "MVP token + dApp: 3–4 weeks. Mid-complexity protocol with frontend: 6–10 weeks. Audit-only review: 1–3 weeks depending on scope.",
-        "MVP 代币 + dApp:3-4 周。中等复杂度协议 + 前端:6-10 周。仅审计:1-3 周,视范围而定。"
+        "Discovery & assessment in week 1, runbook + tooling rollout in weeks 2–3, full operational handover by week 4. Larger or regulated environments take 6–10 weeks.",
+        "第 1 周完成评估与发现,第 2-3 周部署运维手册与工具,第 4 周完成完整运维移交。大型或受监管环境需 6-10 周。"
       ),
     },
     {
-      q: t("Are contracts upgradeable?", "合约是否可升级?"),
+      q: t("Do you charge per device, per user, or fixed?", "按设备、按用户还是固定收费?"),
       a: t(
-        "Your call. We support UUPS / Transparent proxies with timelocks and multisig governance, or fully immutable deploys when that's the better trust model.",
-        "由你决定。我们支持 UUPS / Transparent 代理 + Timelock + 多签治理,也可选择完全不可升级的部署 —— 取决于哪种信任模型更合适。"
+        "All three. Most managed clients prefer per-user / per-device pricing for predictability. Project work (migrations, integrations) is fixed-scope. We share a written quote within 48 hours of an intro call.",
+        "三种均可。多数托管客户选择按用户/按设备计费以便预算可控。项目工作 (迁移、集成) 按固定范围报价。介绍通话后 48 小时内提供书面报价。"
       ),
     },
   ];
@@ -181,14 +182,14 @@ const Blockchain = () => {
   return (
     <main className="bg-background text-foreground">
       <SEO
-        title={t("Blockchain & Web3", "区块链与 Web3")}
+        title={t("Enterprise IT Services", "企业 IT 服务")}
         description={t(
-          "Smart contract development, security audits, and full-stack dApps on EVM chains by StarLoop.",
-          "StarLoop 提供 EVM 链智能合约开发、安全审计与全栈 dApp。"
+          "Managed IT, cloud infrastructure, security operations and end-user support by StarLoop — production-grade IT services for growing teams.",
+          "StarLoop 提供托管 IT、云基础设施、安全运营与终端用户支持 —— 为成长中的团队打造生产级 IT 服务。"
         )}
-        path="/services/blockchain"
+        path="/services/it-services"
         schema="Service"
-        serviceName="Blockchain & Web3"
+        serviceName="Enterprise IT Services"
       />
 
       {/* ============ HERO ============ */}
@@ -234,7 +235,7 @@ const Blockchain = () => {
             >
               <Sparkles size={13} className="text-sky-300" />
               <span className="text-white/85 text-sm font-medium tracking-wide">
-                {t("Smart Contracts · Audits · dApps", "智能合约 · 审计 · dApp")}
+                {t("Cloud · Security · Support · DevOps", "云 · 安全 · 支持 · DevOps")}
               </span>
             </motion.div>
 
@@ -247,17 +248,17 @@ const Blockchain = () => {
                 textShadow: "0 4px 30px rgba(0,0,0,0.5)",
               }}
             >
-              {t("On-chain code", "上链的代码")}
+              {t("Enterprise IT", "企业 IT")}
               <br />
               <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-                {t("worth trusting", "值得被信任")}
+                {t("that just works", "稳定可靠")}
               </span>
             </h1>
 
             <p className="text-white/75 max-w-[55ch] text-base md:text-lg mb-10">
               {t(
-                "From smart contracts to full-stack dApps — we design, audit, and ship EVM protocols engineered for security, gas efficiency, and long-term operation.",
-                "从智能合约到全栈 dApp —— 我们设计、审计并上线兼顾安全、Gas 效率与长期运营的 EVM 协议。"
+                "From cloud migration to 24/7 monitoring, security operations and end-user support — we run the IT backbone so your team can focus on shipping product.",
+                "从云迁移到 7×24 监控、安全运营与终端用户支持 —— 我们承担 IT 基础设施运营,让您的团队专注交付产品。"
               )}
             </p>
 
@@ -266,7 +267,7 @@ const Blockchain = () => {
                 to="/contact"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground font-semibold text-sm hover:bg-white/90 transition-all no-underline shadow-lg shadow-sky-500/20"
               >
-                {t("Start Your Protocol", "启动你的协议")}
+                {t("Start a Project", "启动项目")}
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
@@ -285,15 +286,15 @@ const Blockchain = () => {
         <div className="section-wrap relative">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mb-14">
             <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
-              {t("What We Build", "我们构建什么")}
+              {t("What We Deliver", "我们提供什么")}
             </p>
             <h2
               className="font-display font-bold text-foreground"
               style={{ fontSize: "clamp(1.85rem, 4.5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
             >
-              {t("From token launches to", "从代币发行到")}{" "}
+              {t("From cloud strategy to", "从云战略到")}{" "}
               <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                {t("audited protocols", "经审计的协议")}
+                {t("daily IT operations", "日常 IT 运营")}
               </span>
             </h2>
           </motion.div>
@@ -342,26 +343,26 @@ const Blockchain = () => {
         </div>
       </section>
 
-      {/* ============ CHAIN MATRIX ============ */}
+      {/* ============ COVERAGE MATRIX ============ */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="section-wrap">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto mb-14">
             <p className="uppercase tracking-[0.2em] text-primary text-xs font-semibold mb-4">
-              {t("Chain Coverage", "链支持")}
+              {t("Coverage", "覆盖范围")}
             </p>
             <h2
               className="font-display font-bold text-foreground"
               style={{ fontSize: "clamp(1.85rem, 4.5vw, 3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
             >
-              {t("One codebase,", "一份代码,")}{" "}
+              {t("One team,", "一支团队,")}{" "}
               <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                {t("every major EVM chain", "覆盖所有主流 EVM 链")}
+                {t("your entire IT estate", "管好整个 IT 资产")}
               </span>
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {chains.map((c, i) => (
+            {coverage.map((c, i) => (
               <motion.div
                 key={c.name}
                 initial={{ opacity: 0, y: 16 }}
@@ -375,7 +376,7 @@ const Blockchain = () => {
                   className="w-10 h-10 rounded-xl mx-auto mb-3 flex items-center justify-center border border-sky-400/20"
                   style={{ background: "linear-gradient(135deg, hsl(199 89% 95%), hsl(217 91% 97%))" }}
                 >
-                  <Layers size={16} className="text-primary" strokeWidth={2.2} />
+                  <Server size={16} className="text-primary" strokeWidth={2.2} />
                 </div>
                 <h3 className="font-display text-[15px] font-bold text-foreground mb-1">{c.name}</h3>
                 <p className="text-muted-foreground text-[11px] leading-snug">{c.role}</p>
@@ -424,11 +425,11 @@ const Blockchain = () => {
                       <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70" />
                     </div>
-                    <span className="ml-2 text-white/50 text-[11px] font-mono">starloop-audit.sh</span>
+                    <span className="ml-2 text-white/50 text-[11px] font-mono">starloop-noc.sh</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-emerald-300/80 text-[10px] font-mono uppercase tracking-wider">audit</span>
+                    <span className="text-emerald-300/80 text-[10px] font-mono uppercase tracking-wider">live</span>
                   </div>
                 </div>
 
@@ -496,7 +497,7 @@ const Blockchain = () => {
                 >
                   {t("Engineered for", "为")}{" "}
                   <span className="bg-gradient-to-r from-sky-300 to-cyan-200 bg-clip-text text-transparent">
-                    {t("security and scale", "安全与规模而生")}
+                    {t("uptime and trust", "稳定与信任而生")}
                   </span>
                 </h2>
               </motion.div>
@@ -535,9 +536,8 @@ const Blockchain = () => {
       </section>
 
       {/* ============ DELIVERY PROCESS ============ */}
-      {/* ============ DELIVERY PROCESS ============ */}
       <DeliveryProcess
-        headingPrefix={t("From spec to mainnet, with", "从规格到主网,")}
+        headingPrefix={t("From assessment to operations, with", "从评估到运营,")}
         headingHighlight={t("zero surprises", "零意外")}
         steps={workflow}
       />
@@ -545,7 +545,7 @@ const Blockchain = () => {
       {/* ============ TECH STACK ============ */}
       <ToolsStack
         headingPrefix={t("Built on the", "构建于")}
-        headingHighlight={t("modern Web3 stack", "现代 Web3 技术栈之上")}
+        headingHighlight={t("modern IT stack", "现代 IT 技术栈之上")}
         items={stack}
       />
 
@@ -562,7 +562,7 @@ const Blockchain = () => {
             >
               {t("Answers for", "面向严肃")}{" "}
               <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                {t("serious protocols", "协议方的解答")}
+                {t("growing IT teams", "IT 团队的解答")}
               </span>
             </h2>
           </motion.div>
@@ -593,10 +593,10 @@ const Blockchain = () => {
 
       {/* ============ CTA ============ */}
       <CtaSection
-        title={t("Ready to ship on-chain?", "准备好上链交付了吗?")}
+        title={t("Ready to streamline your IT?", "准备好优化 IT 运营了吗?")}
         description={t(
-          "Tell us about your protocol — we'll respond within one business day with a clear scope, threat model, and timeline.",
-          "告诉我们你的协议 —— 我们将在一个工作日内回复,提供清晰的范围、威胁模型与时间表。"
+          "Tell us about your environment — we'll respond within one business day with a clear scope, security baseline, and timeline.",
+          "告诉我们您的环境 —— 我们将在一个工作日内回复,提供清晰的范围、安全基线与时间表。"
         )}
         primaryLabel={t("Get a Quote", "获取报价")}
         secondaryLabel={t("Explore Services", "查看其他服务")}
@@ -606,4 +606,4 @@ const Blockchain = () => {
   );
 };
 
-export default Blockchain;
+export default ITServices;
