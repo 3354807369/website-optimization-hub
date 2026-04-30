@@ -4,7 +4,7 @@ import { ArrowRight, TrendingUp, Sparkles, Globe2, Boxes, Zap, ShieldCheck, Eye,
 import SEO from "@/components/SEO";
 import { useLang } from "@/i18n/LanguageContext";
 import heroBg from "@/assets/home-hero-bg.jpg";
-import bizQuant from "@/assets/biz-quant.jpg";
+import bizQuant from "@/assets/biz-quant.png";
 import bizAi from "@/assets/biz-ai.jpg";
 import bizWeb from "@/assets/biz-web.jpg";
 import bizIT from "@/assets/biz-it.jpg";
