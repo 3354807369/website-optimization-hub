@@ -101,12 +101,12 @@ const Index = () => {
   ];
 
   // Outcome-focused stats: trust signals (what we've delivered)
-  // const stats = [
-  //   { value: "30+", label: t("Projects Delivered", "已交付项目") },
-  //   { value: "4", label: t("Service Areas", "服务方向") },
-  //   { value: "99.9%", label: t("System Stability", "系统稳定性") },
-  //   { value: "24/7", label: t("Support", "持续支持") },
-  // ];
+  const stats = [
+    { value: "30+", label: t("Projects Delivered", "已交付项目") },
+    { value: "4", label: t("Service Areas", "服务方向") },
+    { value: "99.9%", label: t("System Stability", "系统稳定性") },
+    { value: "24/7", label: t("Support", "持续支持") },
+  ];
 
   const workflow = [
     {
