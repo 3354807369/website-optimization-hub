@@ -14,9 +14,9 @@ interface SEOProps {
 const SITE_NAME = "StarLoop";
 const BASE_URL = "https://starlooptech.com";
 const DEFAULT_DESC =
-  "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and enterprise IT services.";
+  "StarLoop provides modern website design, web development, IT support, automation, and digital solutions for small businesses and growing brands.";
 const KEYWORDS =
-  "quant trading automation, AI agents, LLM engineering, web development, enterprise IT services, managed IT, cloud infrastructure, IT solutions, software engineering team, full-stack development";
+  "web design, web development, IT services, IT support, business website, website design Australia, digital solutions, automation, small business websites, website redesign, responsive website";
 
 const SEO = ({
   title,
@@ -26,9 +26,7 @@ const SEO = ({
   schema,
   serviceName,
 }: SEOProps) => {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Full-Stack IT Engineering Team`;
-  const url = `${BASE_URL}${path}`;
-  const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Web Design & IT Services`;
 
   // Build JSON-LD blocks
   const jsonLdBlocks: Record<string, unknown>[] = [];
@@ -44,15 +42,14 @@ const SEO = ({
     foundingDate: "2023",
     slogan: "Full-stack IT engineering team",
     knowsAbout: [
-      "Quantitative Trading Automation",
-      "Algorithmic Trading",
-      "AI Agents",
-      "Large Language Models",
+      "Web Design",
       "Web Development",
-      "Enterprise IT Services",
-      "Managed IT",
-      "DevOps",
-      "Cloud Infrastructure",
+      "Business Websites",
+      "Responsive Websites",
+      "IT Services",
+      "IT Support",
+      "Automation",
+      "Digital Solutions",
     ],
     areaServed: "Worldwide",
     sameAs: [],
