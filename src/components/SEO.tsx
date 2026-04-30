@@ -28,6 +28,9 @@ const SEO = ({
 }: SEOProps) => {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Web Design & IT Services`;
 
+  const url = `${BASE_URL}${path}`;
+  const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
+
   // Build JSON-LD blocks
   const jsonLdBlocks: Record<string, unknown>[] = [];
 
@@ -40,7 +43,7 @@ const SEO = ({
     logo: `${BASE_URL}/logo.png`,
     description: DEFAULT_DESC,
     foundingDate: "2023",
-    slogan: "Full-stack IT engineering team",
+    slogan: "Web Design & IT Services",
     knowsAbout: [
       "Web Design",
       "Web Development",
