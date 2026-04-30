@@ -7,7 +7,7 @@ import heroBg from "@/assets/home-hero-bg.jpg";
 import bizQuant from "@/assets/biz-quant.jpg";
 import bizAi from "@/assets/biz-ai.jpg";
 import bizWeb from "@/assets/biz-web.jpg";
-import bizBlockchain from "@/assets/biz-blockchain.jpg";
+import bizIT from "@/assets/biz-it.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -29,14 +29,14 @@ const Index = () => {
     },
     {
       icon: Boxes,
-      title: t("Blockchain & Web3", "区块链与 Web3"),
+      title: t("Enterprise IT Services", "企业 IT 服务"),
       desc: t(
-        "Smart contracts, on-chain indexing, dashboards and crypto-native infrastructure.",
-        "智能合约、链上索引、仪表板与加密原生基础设施。",
+        "Cloud infrastructure, managed IT, security operations and 24/7 end-user support.",
+        "云基础设施、托管 IT、安全运营与 7×24 终端用户支持。",
       ),
-      img: bizBlockchain,
-      href: "/services#blockchain",
-      tag: "Web3",
+      img: bizIT,
+      href: "/services/it-services",
+      tag: "IT",
       accent: "from-amber-500/40 to-orange-600/30",
     },
     {

@@ -41,7 +41,7 @@ const Contact = () => {
     t("Quant Trading Automation", "量化交易自动化"),
     t("AI Agents & Automation", "AI 智能代理与自动化"),
     t("Website & Landing Pages", "网站与落地页制作"),
-    t("Blockchain & Web3", "区块链与 Web3"),
+    t("Enterprise IT Services", "企业 IT 服务"),
     t("Other / Not sure yet", "其他 / 暂未确定"),
   ];
 
@@ -59,7 +59,7 @@ const Contact = () => {
             <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("something great", "卓越产品")}</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease }} className="text-primary-foreground/70 max-w-[60ch] text-lg">
-            {t("Trading automation, web experiences, or blockchain infrastructure — tell us what you need.", "交易自动化、网站体验或区块链基础设施 — 告诉我们您的需求。")}
+            {t("Trading automation, web experiences, or enterprise IT operations — tell us what you need.", "交易自动化、网站体验或企业 IT 运营 — 告诉我们您的需求。")}
           </motion.p>
         </div>
       </section>

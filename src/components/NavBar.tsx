@@ -22,9 +22,9 @@ const NavBar = () => {
       icon: Globe2,
     },
     {
-      to: "/services/blockchain",
-      label: t("Blockchain & Web3", "区块链与 Web3"),
-      desc: t("Smart contracts & dApps", "智能合约与 dApp"),
+      to: "/services/it-services",
+      label: t("Enterprise IT Services", "企业 IT 服务"),
+      desc: t("Cloud, security & managed IT", "云、安全与托管 IT"),
       icon: Boxes,
     },
     {

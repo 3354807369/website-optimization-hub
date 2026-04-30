@@ -14,9 +14,9 @@ interface SEOProps {
 const SITE_NAME = "StarLoop";
 const BASE_URL = "https://starlooptech.com";
 const DEFAULT_DESC =
-  "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and blockchain infrastructure.";
+  "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and enterprise IT services.";
 const KEYWORDS =
-  "quant trading automation, AI agents, LLM engineering, web development, blockchain engineering, IT solutions, software engineering team, full-stack development";
+  "quant trading automation, AI agents, LLM engineering, web development, enterprise IT services, managed IT, cloud infrastructure, IT solutions, software engineering team, full-stack development";
 
 const SEO = ({
   title,
@@ -49,8 +49,8 @@ const SEO = ({
       "AI Agents",
       "Large Language Models",
       "Web Development",
-      "Blockchain Engineering",
-      "Smart Contracts",
+      "Enterprise IT Services",
+      "Managed IT",
       "DevOps",
       "Cloud Infrastructure",
     ],
