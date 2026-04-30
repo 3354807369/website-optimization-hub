@@ -14,9 +14,9 @@ interface SEOProps {
 const SITE_NAME = "StarLoop";
 const BASE_URL = "https://starlooptech.com";
 const DEFAULT_DESC =
-  "StarLoop provides modern website design, web development, IT support, automation, and digital solutions for small businesses and growing brands.";
+  "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and enterprise IT services.";
 const KEYWORDS =
-  "web design, web development, IT services, IT support, business website, website design Australia, digital solutions, automation, small business websites, website redesign, responsive website";
+  "quant trading automation, AI agents, LLM engineering, web development, enterprise IT services, managed IT, cloud infrastructure, IT solutions, software engineering team, full-stack development";
 
 const SEO = ({
   title,
@@ -26,8 +26,7 @@ const SEO = ({
   schema,
   serviceName,
 }: SEOProps) => {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Web Design & IT Services`;
-
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Full-Stack IT Engineering Team`;
   const url = `${BASE_URL}${path}`;
   const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
 
@@ -43,16 +42,17 @@ const SEO = ({
     logo: `${BASE_URL}/logo.png`,
     description: DEFAULT_DESC,
     foundingDate: "2023",
-    slogan: "Web Design & IT Services",
+    slogan: "Full-stack IT engineering team",
     knowsAbout: [
-      "Web Design",
+      "Quantitative Trading Automation",
+      "Algorithmic Trading",
+      "AI Agents",
+      "Large Language Models",
       "Web Development",
-      "Business Websites",
-      "Responsive Websites",
-      "IT Services",
-      "IT Support",
-      "Automation",
-      "Digital Solutions",
+      "Enterprise IT Services",
+      "Managed IT",
+      "DevOps",
+      "Cloud Infrastructure",
     ],
     areaServed: "Worldwide",
     sameAs: [],

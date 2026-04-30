@@ -14,12 +14,10 @@ const About = () => {
   const { t } = useLang();
 
   const services = [
- const services = [
-    { title: t("Web & Product Engineering", "网站与产品工程"), desc: t("Modern websites, landing pages, and web products built for speed, usability, and real business needs.", "现代网站、落地页与Web产品，兼顾速度、易用性和真实业务需求。"), img: serviceWeb, tag: "Web" },
-    { title: t("Enterprise IT Services", "企业 IT 服务"), desc: t("Reliable IT setup, cloud tools, security, maintenance, and support for day-to-day business operations.", "可靠的IT搭建、云工具、安全、维护与日常业务支持。"), img: serviceIT, tag: "IT" },
-    { title: t("AI Agents & Automation", "AI 智能体与自动化"), desc: t("Custom AI agents and workflow automation to reduce manual work and improve efficiency.", "定制AI智能体与流程自动化，减少重复工作并提升效率。"), img: serviceAi, tag: "AI" },
-    { title: t("Quant & Data Systems", "量化与数据系统"), desc: t("Advanced data-driven systems, dashboards, trading tools, and analytics for specialised projects.", "面向专业项目的数据驱动系统、数据看板、交易工具与分析平台。"), img: serviceQuant, tag: "Advanced" },
-
+    { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Production-grade trading systems. Non-custodial, exchange-agnostic, risk-controlled by design.", "生产级量化交易系统。非托管、跨交易所、内置风控。"), img: serviceQuant, tag: "Trading" },
+    { title: t("AI Agents & LLM Engineering", "AI 智能体与大模型工程"), desc: t("Custom LLM agents, RAG pipelines, and intelligent automation built into your workflows.", "定制 LLM 智能体、RAG 管线与嵌入业务流程的智能自动化。"), img: serviceAi, tag: "AI" },
+    { title: t("Web & Product Engineering", "网站与产品工程"), desc: t("High-performance marketing sites and SaaS products. TypeScript, edge-deployed, SEO-ready.", "高性能营销站与 SaaS 产品。TypeScript、边缘部署、SEO 就绪。"), img: serviceWeb, tag: "Web" },
+    { title: t("Enterprise IT Services", "企业 IT 服务"), desc: t("Cloud infrastructure, managed IT, security operations, identity & access, and 24/7 end-user support.", "云基础设施、托管 IT、安全运营、身份与访问,以及 7×24 终端用户支持。"), img: serviceIT, tag: "IT" },
   ];
 
   const whyPoints = [
@@ -43,10 +41,10 @@ const About = () => {
   return (
     <main className="bg-background text-foreground">
       <SEO
-        title={t("About StarLoop — Web, IT & Digital Systems", "关于 StarLoop — 网站、IT与数字系统")}
+        title={t("About StarLoop — Full-Stack IT Engineering Team", "关于 StarLoop — 全栈 IT 工程团队")}
         description={t(
-          "StarLoop builds modern websites, IT systems, automation tools, AI agents, and specialised data solutions for businesses.",
-          "StarLoop 为企业构建现代网站、IT系统、自动化工具、AI智能体和专业数据解决方案。"
+          "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and enterprise IT operations.",
+          "StarLoop 是一支全栈 IT 工程团队,专注构建生产级量化交易自动化、AI 智能体、现代网站产品与企业 IT 运营。"
         )}
         path="/about"
         schema="AboutPage"
@@ -60,15 +58,13 @@ const About = () => {
             {t("About StarLoop", "关于 StarLoop")}
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease }} className="font-display font-bold text-primary-foreground mb-4" style={{ fontSize: "clamp(2.25rem, 6vw, 3.5rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-            {t("A modern digital team", "现代数字化团队")}<br />
-            <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">
-              {t("building reliable business systems", "构建可靠的业务系统")}
-            </span>
+            {t("A full-stack IT team", "一支全栈 IT 团队")}<br />
+            <span className="bg-gradient-to-r from-sky-300 to-blue-400 bg-clip-text text-transparent">{t("shipping production systems", "交付生产级系统")}</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease }} className="text-primary-foreground/70 max-w-[62ch] text-lg">
             {t(
-              "From websites and IT services to automation, AI agents, and data systems — we build practical digital solutions that support real business needs.",
-              "从网站与IT服务到自动化、AI智能体和数据系统 — 我们构建真正服务业务需求的实用数字解决方案。"
+              "From quant trading automation and AI agents to modern web products and enterprise IT operations — we engineer reliable software and services that run in production, not just in demos.",
+              "从量化交易自动化、AI 智能体,到现代网站产品与企业 IT 运营 — 我们交付可在生产中长期运行的可靠软件与服务,而不仅是演示。"
             )}
           </motion.p>
         </div>
@@ -78,11 +74,11 @@ const About = () => {
         <div className="section-wrap">
           <SectionHeading
             eyebrow={t("Our Capabilities", "技术能力")}
-            title={t("Digital solutions for modern businesses", "面向现代企业的数字解决方案")}
-            highlight={t("Digital solutions", "数字解决方案")}
+            title={t("End-to-end IT engineering", "端到端 IT 工程")}
+            highlight={t("IT engineering", "IT 工程")}
             description={t(
-              "Web, IT, automation, AI, and data systems — delivered with one consistent engineering standard.",
-              "网站、IT、自动化、AI与数据系统 — 以统一的工程标准交付。"
+              "Four practice areas, one engineering bar — built for reliability, observability, and long-term maintainability.",
+              "四大业务方向、统一工程标准 — 为可靠性、可观测性与长期可维护性而生。"
             )}
             className="mb-12"
           />
@@ -282,10 +278,10 @@ const About = () => {
       </section>
 
       <CtaSection
-        title={t("Start your project with StarLoop", "与 StarLoop 开始你的项目")}
+        title={t("Let's build something production-grade", "一起构建生产级系统")}
         description={t(
-          "Need a website, IT service, automation tool, AI agent, or data system? Tell us what you want to build.",
-          "需要网站、IT服务、自动化工具、AI智能体或数据系统？告诉我们你想构建什么。"
+          "Trading automation, AI agents, web platforms, or enterprise IT operations — tell us what you want to ship and we'll engineer it.",
+          "量化交易自动化、AI 智能体、网站平台或企业 IT 运营 — 告诉我们您想交付什么,我们负责把它工程化。"
         )}
         primaryLabel={t("Start a Project", "开启合作")}
       />
