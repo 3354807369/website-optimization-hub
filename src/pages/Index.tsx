@@ -441,6 +441,27 @@ const Index = () => {
               );
             })}
           </div>
+
+          {/* stats inline */}
+          <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="text-center"
+              >
+                <div className="font-display text-3xl md:text-4xl font-extrabold bg-gradient-to-br from-white to-sky-300 bg-clip-text text-transparent">
+                  {s.value}
+                </div>
+                <div className="mt-2 text-primary-foreground/60 text-[11px] uppercase tracking-[0.15em] font-medium">
+                  {s.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
