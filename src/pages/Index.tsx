@@ -6,7 +6,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import heroBg from "@/assets/home-hero-bg.jpg";
 import bizQuant from "@/assets/biz-quant.png";
 import bizAi from "@/assets/biz-ai.jpg";
-import bizWeb from "@/assets/biz-web.jpg";
+import bizWeb from "@/assets/biz-web.png";
 import bizIT from "@/assets/biz-it.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
