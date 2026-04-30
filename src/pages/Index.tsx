@@ -68,60 +68,66 @@ const Index = () => {
   const advantages = [
     {
       icon: Zap,
-      title: t("Engineered for Speed", "为速度而生"),
+      title: t("Fast & Efficient", "高效执行"),
       desc: t(
-        "Sub-100ms infrastructure, optimized data pipelines, instant execution.",
-        "亚 100ms 基础设施、优化的数据管道、即时执行。",
+        "We build systems that are fast, practical, and ready for real-world use.",
+        "我们构建高效、实用、可落地的系统。",
       ),
     },
     {
       icon: ShieldCheck,
-      title: t("Risk-First Design", "风控优先设计"),
+      title: t("Reliable & Secure", "稳定与安全"),
       desc: t(
-        "Every system ships with guardrails: limits, alerts, audit logs.",
-        "每个系统都自带保护机制：限制、告警、审计日志。",
+        "Every system is designed with stability, security, and long-term use in mind.",
+        "系统设计注重稳定性、安全性与长期可用性。",
       ),
     },
     {
       icon: Eye,
-      title: t("Fully Observable", "全方位可观测"),
-      desc: t("Real-time dashboards, traceable decisions, transparent metrics.", "实时仪表板、可追溯决策、透明指标。"),
+      title: t("Clear & Transparent", "清晰透明"),
+      desc: t(
+        "We keep processes simple and communication clear throughout the project.",
+        "项目过程清晰，沟通透明易懂。",
+      ),
     },
     {
       icon: Cpu,
-      title: t("Modular by Default", "天生模块化"),
-      desc: t("Composable building blocks scale from prototype to production.", "可组合的构建块从原型扩展到生产。"),
+      title: t("Scalable Solutions", "可扩展方案"),
+      desc: t(
+        "From simple websites to complex systems, everything is built to grow.",
+        "从网站到系统，均具备扩展能力，支持业务发展。",
+      ),
     },
   ];
 
   // Outcome-focused stats: trust signals (what we've delivered)
   const stats = [
-    { value: "30+", label: t("Projects Shipped", "已交付项目") },
-    { value: "4", label: t("Practice Areas", "业务领域") },
-    { value: "99.9%", label: t("Production Uptime", "生产可用性") },
-    { value: "24/7", label: t("Live Monitoring", "全天候监控") },
+    { value: "30+", label: t("Projects Delivered", "已交付项目") },
+    { value: "4", label: t("Service Areas", "服务方向") },
+    { value: "99.9%", label: t("System Stability", "系统稳定性") },
+    { value: "24/7", label: t("Support", "持续支持") },
   ];
 
   const workflow = [
     {
       num: "01",
-      title: t("Discover", "发现"),
-      desc: t("Clarify goals, risks, constraints.", "明确目标、风险与约束。"),
+      title: t("Understand", "了解需求"),
+      desc: t("Understand your goals and business needs.", "了解您的目标与业务需求。"),
     },
     {
       num: "02",
-      title: t("Design", "设计"),
-      desc: t("Architect modular, observable systems.", "设计模块化、可观测的系统。"),
+      title: t("Plan", "制定方案"),
+      desc: t("Design a clear and practical solution.", "制定清晰可行的解决方案。"),
     },
     {
       num: "03",
-      title: t("Build", "构建"),
-      desc: t("Iterate fast with tests and reviews.", "快速迭代，配以测试与审查。"),
+      title: t("Build", "开发实现"),
+      desc: t("Develop the system with quality and speed.", "高质量、高效率地完成开发。"),
     },
     {
       num: "04",
-      title: t("Launch", "上线"),
-      desc: t("Deploy, monitor, improve continuously.", "部署、监控、持续优化。"),
+      title: t("Launch & Support", "上线与支持"),
+      desc: t("Launch and provide ongoing improvements.", "上线并持续优化与支持。"),
     },
   ];
 
