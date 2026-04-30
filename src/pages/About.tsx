@@ -6,7 +6,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
-import serviceBlockchain from "@/assets/service-blockchain.jpg";
+import serviceIT from "@/assets/service-it.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -17,7 +17,7 @@ const About = () => {
     { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Production-grade trading systems. Non-custodial, exchange-agnostic, risk-controlled by design.", "生产级量化交易系统。非托管、跨交易所、内置风控。"), img: serviceQuant, tag: "Trading" },
     { title: t("AI Agents & LLM Engineering", "AI 智能体与大模型工程"), desc: t("Custom LLM agents, RAG pipelines, and intelligent automation built into your workflows.", "定制 LLM 智能体、RAG 管线与嵌入业务流程的智能自动化。"), img: serviceAi, tag: "AI" },
     { title: t("Web & Product Engineering", "网站与产品工程"), desc: t("High-performance marketing sites and SaaS products. TypeScript, edge-deployed, SEO-ready.", "高性能营销站与 SaaS 产品。TypeScript、边缘部署、SEO 就绪。"), img: serviceWeb, tag: "Web" },
-    { title: t("Blockchain & Web3 Infrastructure", "区块链与 Web3 基础设施"), desc: t("Smart contracts, on-chain indexing, wallet integrations, and crypto-native data pipelines.", "智能合约、链上索引、钱包集成与加密原生数据管线。"), img: serviceBlockchain, tag: "Blockchain" },
+    { title: t("Enterprise IT Services", "企业 IT 服务"), desc: t("Cloud infrastructure, managed IT, security operations, identity & access, and 24/7 end-user support.", "云基础设施、托管 IT、安全运营、身份与访问,以及 7×24 终端用户支持。"), img: serviceIT, tag: "IT" },
   ];
 
   const whyPoints = [
@@ -43,8 +43,8 @@ const About = () => {
       <SEO
         title={t("About StarLoop — Full-Stack IT Engineering Team", "关于 StarLoop — 全栈 IT 工程团队")}
         description={t(
-          "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and blockchain infrastructure.",
-          "StarLoop 是一支全栈 IT 工程团队,专注构建生产级量化交易自动化、AI 智能体、现代网站产品与区块链基础设施。"
+          "StarLoop is a full-stack IT engineering team building production-grade quant trading automation, AI agents, modern web products, and enterprise IT operations.",
+          "StarLoop 是一支全栈 IT 工程团队,专注构建生产级量化交易自动化、AI 智能体、现代网站产品与企业 IT 运营。"
         )}
         path="/about"
         schema="AboutPage"
@@ -63,8 +63,8 @@ const About = () => {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15, ease }} className="text-primary-foreground/70 max-w-[62ch] text-lg">
             {t(
-              "From quant trading automation and AI agents to modern web products and blockchain infrastructure — we engineer reliable software that runs in production, not just in demos.",
-              "从量化交易自动化、AI 智能体,到现代网站产品与区块链基础设施 — 我们构建可在生产中长期运行的可靠软件,而不仅是演示。"
+              "From quant trading automation and AI agents to modern web products and enterprise IT operations — we engineer reliable software and services that run in production, not just in demos.",
+              "从量化交易自动化、AI 智能体,到现代网站产品与企业 IT 运营 — 我们交付可在生产中长期运行的可靠软件与服务,而不仅是演示。"
             )}
           </motion.p>
         </div>
@@ -280,8 +280,8 @@ const About = () => {
       <CtaSection
         title={t("Let's build something production-grade", "一起构建生产级系统")}
         description={t(
-          "Trading automation, AI agents, web platforms, or blockchain infrastructure — tell us what you want to ship and we'll engineer it.",
-          "量化交易自动化、AI 智能体、网站平台或区块链基础设施 — 告诉我们您想交付什么,我们负责把它工程化。"
+          "Trading automation, AI agents, web platforms, or enterprise IT operations — tell us what you want to ship and we'll engineer it.",
+          "量化交易自动化、AI 智能体、网站平台或企业 IT 运营 — 告诉我们您想交付什么,我们负责把它工程化。"
         )}
         primaryLabel={t("Start a Project", "开启合作")}
       />

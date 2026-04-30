@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
-import serviceBlockchain from "@/assets/service-blockchain.jpg";
+import serviceIT from "@/assets/service-it.jpg";
 
 const techGroups = [
   {
@@ -42,10 +42,10 @@ const techGroups = [
     items: ["Docker", "Kubernetes", "AWS", "GCP", "GitHub Actions"],
   },
   {
-    label: { en: "Exchanges & Web3", zh: "交易所与 Web3" },
-    caption: { en: "Trading venues & on-chain", zh: "交易场所 · 链上" },
+    label: { en: "Trading & IT Ops", zh: "交易与 IT 运营" },
+    caption: { en: "Exchanges & enterprise IT", zh: "交易所 · 企业 IT" },
     icon: "◈",
-    items: ["Binance", "OKX", "Bybit", "Ethereum", "Solana"],
+    items: ["Binance", "OKX", "Bybit", "Okta", "Datadog"],
   },
 ];
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -79,15 +79,15 @@ const Services = () => {
       ],
     },
     {
-      id: "blockchain",
-      title: t("Blockchain & Web3", "区块链与 Web3"),
-      img: serviceBlockchain,
-      tag: "Web3",
+      id: "it-services",
+      title: t("Enterprise IT Services", "企业 IT 服务"),
+      img: serviceIT,
+      tag: "IT",
       bullets: [
-        t("Smart contracts & wallet integrations", "智能合约与钱包集成"),
-        t("On-chain indexing, data pipelines, dashboards", "链上索引、数据管道、仪表板"),
-        t("Custody/workflow integrations", "托管/工作流集成"),
-        t("Observability & incident response", "可观测性与事件响应"),
+        t("Cloud infrastructure & migration (AWS / GCP / Azure)", "云基础设施与迁移 (AWS / GCP / Azure)"),
+        t("Managed IT, patching, endpoint security", "托管 IT、补丁管理、端点安全"),
+        t("Identity & access, SSO, MFA, zero-trust", "身份与访问、SSO、MFA、零信任"),
+        t("24/7 monitoring, helpdesk & incident response", "7×24 监控、服务台与事件响应"),
       ],
     },
     {
@@ -151,10 +151,10 @@ const Services = () => {
   return (
     <main className="bg-background text-foreground">
       <SEO
-        title={t("IT Services — Quant, AI, Web & Blockchain Engineering", "IT 服务 — 量化、AI、网站与区块链工程")}
+        title={t("IT Services — Quant, AI, Web & Enterprise IT", "IT 服务 — 量化、AI、网站与企业 IT")}
         description={t(
-          "Full-stack IT services from StarLoop: modern web development, AI agents, quant trading automation and blockchain engineering — production-grade, end to end.",
-          "StarLoop 提供全栈 IT 服务:AI 智能体、现代网站开发、量化交易、自动化区块链工程 — 端到端生产级交付。",
+          "Full-stack IT services from StarLoop: modern web development, AI agents, quant trading automation and enterprise IT operations — production-grade, end to end.",
+          "StarLoop 提供全栈 IT 服务:AI 智能体、现代网站开发、量化交易自动化与企业 IT 运营 — 端到端生产级交付。",
         )}
         path="/services"
       />
@@ -201,8 +201,8 @@ const Services = () => {
             className="text-primary-foreground/70 max-w-[62ch] text-lg"
           >
             {t(
-              "Four practice areas, one engineering team. From quant trading bots to AI agents, web products, and Web3 infrastructure — production-grade by default.",
-              "四大业务方向、同一支工程团队。从量化交易机器人到 AI 智能体、网站产品与 Web3 基础设施 — 默认生产级。",
+              "Four practice areas, one engineering team. From quant trading bots to AI agents, web products, and enterprise IT operations — production-grade by default.",
+              "四大业务方向、同一支工程团队。从量化交易机器人到 AI 智能体、网站产品与企业 IT 运营 — 默认生产级。",
             )}
           </motion.p>
         </div>
@@ -216,8 +216,8 @@ const Services = () => {
             title={t("What We Offer", "我们提供什么")}
             highlight={t("We Offer", "提供什么")}
             description={t(
-              "End-to-end engineering across trading, AI, web and Web3 — pick a track or combine them.",
-              "覆盖交易、AI、网站与 Web3 的端到端工程能力 — 单独选用，或自由组合。",
+              "End-to-end engineering across trading, AI, web and enterprise IT — pick a track or combine them.",
+              "覆盖交易、AI、网站与企业 IT 的端到端工程能力 — 单独选用，或自由组合。",
             )}
             className="mb-12"
           />
@@ -232,8 +232,8 @@ const Services = () => {
                       ? "/services/ai-agents"
                       : c.id === "web"
                         ? "/services/web-development"
-                        : c.id === "blockchain"
-                          ? "/services/blockchain"
+                        : c.id === "it-services"
+                          ? "/services/it-services"
                           : undefined;
                 return (
                   <motion.article
@@ -555,8 +555,8 @@ const Services = () => {
                 {
                   q: t("What's a typical delivery timeline?", "通常的交付周期是多久？"),
                   a: t(
-                    "A Prototype Sprint ships in 2–3 weeks. A Production Build typically runs 4–8 weeks, though complex Web3 or trading systems can extend to 3 months. We commit to weekly demos so you always see progress.",
-                    "原型冲刺 2-3 周交付。生产构建一般 4-8 周，复杂的 Web3 或交易系统可能延长到 3 个月。我们承诺每周演示，进度始终可见。",
+                    "A Prototype Sprint ships in 2–3 weeks. A Production Build typically runs 4–8 weeks, though complex IT migrations or trading systems can extend to 3 months. We commit to weekly demos so you always see progress.",
+                    "原型冲刺 2-3 周交付。生产构建一般 4-8 周，复杂的 IT 迁移或交易系统可能延长到 3 个月。我们承诺每周演示，进度始终可见。",
                   ),
                 },
                 {
@@ -720,8 +720,8 @@ const Services = () => {
       <CtaSection
         title={t("Ready to get started?", "准备好开始了吗？")}
         description={t(
-          "Tell us about your use case — trading automation, web experiences, or blockchain infrastructure.",
-          "告诉我们您的需求 — 交易自动化、网站体验或区块链基础设施。",
+          "Tell us about your use case — trading automation, web experiences, or enterprise IT operations.",
+          "告诉我们您的需求 — 交易自动化、网站体验或企业 IT 运营。",
         )}
         primaryLabel={t("Contact Us", "联系我们")}
       />

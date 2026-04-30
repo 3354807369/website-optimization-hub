@@ -5,7 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import serviceQuant from "@/assets/service-quant.jpg";
 import serviceAi from "@/assets/service-ai.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
-import serviceBlockchain from "@/assets/service-blockchain.jpg";
+import serviceIT from "@/assets/service-it.jpg";
 
 const ServicesGrid = () => {
   const { t } = useLang();
@@ -14,7 +14,7 @@ const ServicesGrid = () => {
     { title: t("Quant Trading Automation", "量化交易自动化"), desc: t("Non-custodial bots, modular strategies, risk controls.", "非托管机器人、模块化策略、风险控制。"), img: serviceQuant, href: "/services/quant-trading", tag: "Trading" },
     { title: t("AI Agents & Automation", "AI 智能代理与自动化"), desc: t("LLM apps, agents, RAG pipelines, workflow automation.", "大模型应用、智能代理、RAG 管道、流程自动化。"), img: serviceAi, href: "/services/ai-agents", tag: "AI / ML" },
     { title: t("Website & Landing Pages", "网站与落地页"), desc: t("Performance-first sites and marketing pages with SEO.", "性能优先的网站与营销页面，内置 SEO。"), img: serviceWeb, href: "/services/web-development", tag: "Web" },
-    { title: t("Blockchain & Web3", "区块链与 Web3"), desc: t("Smart contracts, audits, full-stack dApps on EVM chains.", "智能合约、审计、EVM 全栈 dApp 集成。"), img: serviceBlockchain, href: "/services/blockchain", tag: "Web3" },
+    { title: t("Enterprise IT Services", "企业 IT 服务"), desc: t("Cloud, security, managed IT and 24/7 support.", "云、安全、托管 IT 与 7×24 支持。"), img: serviceIT, href: "/services/it-services", tag: "IT" },
   ];
 
   return (
